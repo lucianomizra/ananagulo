@@ -1,0 +1,1 @@
+<span id="cart-session"><a href="<?= base_url() ?>cart" id="btn-cart-menu"><i class="glyphicon glyphicon-shopping-cart"></i> <span class="cart-items hidden-xs">(<span class="items-count"><?= $this->Cart->Items() ?></span>)<span class="hidden-sm"> Items</span></span></a></span>

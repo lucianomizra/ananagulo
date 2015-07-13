@@ -1,0 +1,31 @@
+a:3:{s:4:"time";i:1436101774;s:3:"ttl";i:300;s:4:"data";s:2054:"<div class="filter-module slide">
+  <h2>LO MÁS VENDIDO! 
+    </h2>
+  <ul class="list-item">
+        <li>
+      <figure><a class="app-loader" href="http://localhost/anaangulo/public/product/1/americana-heart-print"><img src="http://localhost/anaangulo/public/f/MjAxNS8wNy8wMy5wbmd8fDExNHx8MTE0fHxjcm9wfHww/03.png"/></a></figure>
+      <div class="caption">
+        <h3><a class="app-loader" href="http://localhost/anaangulo/public/product/1/americana-heart-print">Americana Heart Print</a></h3>
+        <p>Americana de corazones . Lavar en seco. <a class="app-loader" href="http://localhost/anaangulo/public/product/1/americana-heart-print">[+]</a></p>
+        <p class="price">€ 124.00</p>
+      </div>
+    </li>
+        <li>
+      <figure><a class="app-loader" href="http://localhost/anaangulo/public/product/2/vestido-heart-print"><img src="http://localhost/anaangulo/public/f/MjAxNS8wNy8wMy0yLnBuZ3x8MTE0fHwxMTR8fGNyb3B8fDA/03-2.png"/></a></figure>
+      <div class="caption">
+        <h3><a class="app-loader" href="http://localhost/anaangulo/public/product/2/vestido-heart-print">Vestido Heart Print</a></h3>
+        <p>Vestido estampado de corazones. 95% poliéster, 5% elastán. Lavar a 30º. <a class="app-loader" href="http://localhost/anaangulo/public/product/2/vestido-heart-print">[+]</a></p>
+        <p class="price">€ 82.00</p>
+      </div>
+    </li>
+        <li>
+      <figure><a class="app-loader" href="http://localhost/anaangulo/public/product/3/chaqueta-de-flecos"><img src="http://localhost/anaangulo/public/f/MjAxNS8wNy8wNi5wbmd8fDExNHx8MTE0fHxjcm9wfHww/06.png"/></a></figure>
+      <div class="caption">
+        <h3><a class="app-loader" href="http://localhost/anaangulo/public/product/3/chaqueta-de-flecos">Chaqueta de Flecos</a></h3>
+        <p>Chaqueta de flecos. 90% poliéster, 10% elastán. Lavar en seco. <a class="app-loader" href="http://localhost/anaangulo/public/product/3/chaqueta-de-flecos">[+]</a></p>
+        <p class="price">€ 82.00</p>
+      </div>
+    </li>
+      </ul>
+</div>
+";}
