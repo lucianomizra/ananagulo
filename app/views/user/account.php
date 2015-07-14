@@ -57,7 +57,7 @@
 					    <? if(!count($carts)) :?>
 					    <div class="no-history">NO HAY PEDIDOS EN EL HISTORIAL</div>
 					  	<? endif ?>
-						
+						<?/*
 						<div class="visible-sm orders-mini">
 							<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 							  <div class="panel panel-default">
@@ -106,8 +106,8 @@
 							  </div>
 							</div>
 						</div>
-
-						<div class="row row-forms-user">
+*/?>
+						<div id="form-data" class="row row-forms-user">
 							<div class="col-sm-6">
 								<h2>Cambiar mi contraseña actual</h2>
 								<p class="h60">Si deseas cambiar tu contraseña actual, puedes hacerlo desde aquí en un instante</p>

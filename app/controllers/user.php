@@ -156,6 +156,54 @@ class User extends AppController
     $this->Cart->SaveCartJsonData($data);
   }
 
+  private function _userAccountDataXY()
+  {
+    if( !count($_POST)) return;
+    $fieldsOB = true;
+    $fieldsO = array('mail', 'name', 'lastname', 'mail', 'dni');
+
+    foreach($fieldsO as $f)
+    {
+      if( !$this->input->post($f) ) 
+        $fieldsOB = false;
+    }
+    if( !$fieldsOB )
+    {
+      $this->data['openFormY'] = true;
+      return $this->data['errorY'] = 'fields';
+    }
+
+    $this->load->helper('email');
+    if( !valid_email($this->input->post('mail')) )
+    {
+      $this->data['openFormY'] = true;
+      return $this->data['errorY'] = 'mail';
+    }
+
+    if($this->UserM->MailExists($this->input->post('mail'), $this->Data->idUser))
+    {
+      $this->data['openFormY'] = true;
+      return $this->data['errorY'] = 'mail2';
+    }
+
+    $fdata = (object) $this->Cart->DataJsonCart($this->Cart->GetCart());
+
+    $data = array(
+      'name' => $this->input->post('name'),
+      'lastname' => $this->input->post('lastname'),
+      'mail' => $this->input->post('mail'),
+      'dni' => $this->input->post('dni'),
+      'cel' => $fdata->cel,
+      'dir1' => $fdata->dir1,
+      'city' => $fdata->city,
+      'cp' => $fdata->cp,
+    );
+    $this->UserM->SaveUserData($data);
+    $data['privacy'] = $fdata->privacy;
+    $data['newsletter'] = $fdata->newsletter;
+    $this->Cart->SaveCartJsonData($data);
+  }
+
   private function _userAccountData()
   {
     if( !count($_POST)) return;
@@ -231,6 +279,18 @@ class User extends AppController
     if( $this->input->post('action') == 'dataxx' )
     {
       $this->_userAccountDataXX();
+      foreach($fdata as $key => $value)
+      {
+        if(isset($_POST[$key]))
+          $fdata[$key] = $this->input->post($key);
+      }         
+      $this->data['fdata'] = $fdata;
+      $this->data['cdata'] = $this->Cart->DataCart($this->Cart->id);
+      return $this->load->view('user/step-3', $this->data); 
+    }
+    if( $this->input->post('action') == 'dataxy' )
+    {
+      $this->_userAccountDataXY();
       foreach($fdata as $key => $value)
       {
         if(isset($_POST[$key]))

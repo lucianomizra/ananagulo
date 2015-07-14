@@ -21,9 +21,63 @@
 		<? $this->load->view('user/data') ?>	
 
 <div class="row checkout-center row-hhh">
-			<div class="col-sm-5">
+			<div class="col-sm-5 offxdty">
+				<div class="clearfix"></div>
+   			 <div class="form-title">Datos de facturación</div>
+
+								<form action="<?= base_url() ?>mi-cuenta" method="post" class="text-right">
+									<input type="hidden" name="action" value="dataxy" />
+									<div class="form-group row">
+										<div class="col-sm-4">
+											<label for="email">Email:</label>
+										</div>
+										<div class="col-sm-7">
+											<input type="text" value="<?= $fdata['mail'] ?>" name="mail" id="email" tabindex="1" class="form-control">
+										</div>
+									</div>
+									<div class="form-group row">
+										<div class="col-sm-4">
+											<label for="name">Nombre:</label>
+										</div>
+										<div class="col-sm-7">
+											<input type="text" value="<?= $fdata['name'] ?>" name="name" id="name" tabindex="1" class="form-control">
+										</div>
+									</div>
+									<div class="form-group row">
+										<div class="col-sm-4">
+											<label for="lastname">Apellidos:</label>
+										</div>
+										<div class="col-sm-7">
+											<input type="text" value="<?= $fdata['lastname'] ?>" name="lastname" id="lastname" tabindex="1" class="form-control">
+										</div>
+									</div>
+									<div class="form-group row">
+										<div class="col-sm-4">
+											<label for="dni">CIF/NIF:</label>
+										</div>
+										<div class="col-sm-7">
+											<input type="text" value="<?= $fdata['dni'] ?>" name="dni" id="dni" tabindex="1" class="form-control">
+										</div>
+									</div>
+									
+									<div class="form-group row">
+										<div class="col-sm-12 text-center">
+										<?php if(isset($errorY)):
+			                $errorArr['fields'] = 'Debes completar todos los campos';
+			                $errorArr['mail'] = 'El correo electrónico ingresado es inválido';
+			                $errorArr['mail2'] = 'El correo electrónico ingresado ya ha sido registrado';
+			              ?>
+			              <div class="margin-bottomx30">
+			                <p class="info-box-error"><?php echo $errorArr[$errorY] ?></p>
+			              </div>
+			              <? endif ?>
+											<input type="submit" class="btn btn-primary" value="Modificar" />
+										</div>
+									</div>
+
+								</form>
 			</div>
-<div class="col-sm-5 col-sm-offset-2">
+<div class="col-sm-5 col-sm-offset-2 offxdt">
   <div class="clearfix"></div>
     <div class="form-title">Datos de envío</div>
 
@@ -180,14 +234,23 @@
 </div>
 <script>
 	$(document).ready(function() {
-		<? if(isset($openForm)): ?>
-		$('.row-hhh').css('display','block');
-		$("html, body").animate({ scrollTop: $('.row-hhh').offset().top - 100 }, 200);
+		<? if(isset($openFormY)): ?>
+		$('.rowoffxdt .offxdty').replaceWith($('.row-hhh .offxdty'));
+		$("html, body").animate({ scrollTop: $('.rowoffxdt .offxdty').offset().top - 100 }, 200);
 		<? endif ?>
-		$('.data-address .lnk').click(function(e){
+		<? if(isset($openForm)): ?>
+		$('.rowoffxdt .offxdt').replaceWith($('.row-hhh .offxdt'));
+		$("html, body").animate({ scrollTop: $('.rowoffxdt .offxdt').offset().top - 100 }, 200);
+		<? endif ?>
+		$('.data-addressy .lnk').click(function(e){
 			e.preventDefault();
-			$('.row-hhh').css('display','block');
-  		$("html, body").animate({ scrollTop: $('.row-hhh').offset().top - 100 }, 200);
+			$('.rowoffxdt .offxdty').replaceWith($('.row-hhh .offxdty'));
+  		$("html, body").animate({ scrollTop: $('.rowoffxdt .offxdty').offset().top - 100 }, 200);
+		});
+		$('.data-addressx .lnk').click(function(e){
+			e.preventDefault();
+			$('.rowoffxdt .offxdt').replaceWith($('.row-hhh .offxdt'));
+  		$("html, body").animate({ scrollTop: $('.rowoffxdt .offxdt').offset().top - 100 }, 200);
 		});
 	});
 
