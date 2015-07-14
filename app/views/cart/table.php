@@ -40,7 +40,7 @@
                         <th class="options">
                 <? $sizes = explode(',', $item->sizes) ?>
                 <? if(count($sizes)> 1 || (count($sizes) == 1 && str_replace(' ', '', $sizes[0]))): ?>
-             <select <?= isset($cartDisabled) ? "disabled='disabled' " : "" ?>class="item-size selectpicker" data-style="select-default" name="sizes" data-width="80px">
+             <select <?= isset($cartDisabled) ? "disabled='disabled' " : "" ?>class="item-size selectpicker" data-style="select-default" name="sizes" data-width="70px">
                 <? foreach($sizes as $size): $size = mb_strtoupper(str_replace(' ', '', $size), 'UTF-8'); if(!$size) continue; ?>
                 <option value="<?= $size ?>" <? if($size == $item->size): ?>selected="selected"<? endif ?>><?= $size ?></option>
                 <? endforeach ?>
@@ -50,7 +50,7 @@
             </th>
                         <th class="options">
                 <? if(count($colors)): ?>
-                <select <?= isset($cartDisabled) ? "disabled='disabled' " : "" ?>class="item-color selectpicker" data-style="select-default" name="colors" data-showContent="true" data-width="80px">
+                <select <?= isset($cartDisabled) ? "disabled='disabled' " : "" ?>class="item-color selectpicker" data-style="select-default" name="colors" data-showContent="true" data-width="70px">
                   <? foreach($colors as $c):?>
                   <option value="<?= $c->id ?>" data-content="<span class='btn circle' style='border:1px solid #CCC; background-color: <?= $c->value ?>;''></span>"<? if($c->id == $item->id_color): ?>selected="selected"<? endif ?>></option>
                   <? endforeach ?>

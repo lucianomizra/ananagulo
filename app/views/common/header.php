@@ -26,7 +26,7 @@
             <li class="hidden-sm hidden-xs"><a href="<?= base_url() ?>mi-cuenta">Regístrate</a></li>
             <li class="hidden-sm hidden-xs"><a href="<?= base_url() ?>mi-cuenta">Inicia Sesión</a></li>
           	<? endif ?>
-            <li class="hidden-sm hidden-xs"><a href="<?= base_url() ?>informacion/ayuda">Ayuda</a></li>
+            <li class="hidden-sm hidden-xs"><a href="<?= base_url() ?>informacion/ana-angulo">Ayuda</a></li>
             <li><? $this->load->view('cart/session'); ?></li>
           </ul>
         </div>
@@ -45,7 +45,7 @@
     <div class="container">
       <li class="col-sm-3"><a href="<?= base_url() ?>mi-cuenta">Regístrate</li></a>
       <li class="col-sm-3 col-sm-offset-1"><a href="<?= base_url() ?>mi-cuenta">Inicia Sesión</li></a>
-      <li class="col-sm-3"><a href="<?= base_url() ?>informacion/ayuda">Ayuda</li></a>
+      <li class="col-sm-3"><a href="<?= base_url() ?>informacion/ana-angulo">Ayuda</li></a>
     </div>
 </div>
 

@@ -46,7 +46,12 @@
 						<div class="clearfix"></div>
 						<? foreach($stores as $s): ?>
 						<div class="col-md-3 col-sm-6 article">
+							<a href="<?= $s->map_link ?>" target="_blank">
+							<?/*
 							<div class="map" data-location="<?= $s->address ?>" data-icon="<?= layout().'imgs/maker.png'; ?>"></div>
+							*/?>
+								<?= img(thumb($s->file,238,149)) ?>
+							</a>
 							<h2><?= $s->store ?></h2>
 							<p><?= $s->address ?></p>
 							<p><?= $s->tel ?></p>

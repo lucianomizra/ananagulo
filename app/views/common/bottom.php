@@ -1,3 +1,10 @@
+<div class="widget-cookies">
+  <div class="widget-cookies-close"><i class="fa fa-times"></i></div>
+  <div class="widget-cookies-inside">
+    <h3>USO DE COOKIES</h3>
+    <p>Utilizamos cookies propias y de terceros para mejorar su esperiencia y nuestros servicios, analizando la navegación en nuestro sitio web. Si continúas navegando, consideramos que aceptas su uso.</p>
+  </div>
+</div>
 <footer>
   <div class="footer">
     <div class="footer-header text-center">
@@ -83,6 +90,24 @@
 <script type="text/javascript" src="<?= layout() ?>js/jquery.verticalslider.js"></script>
 <script type="text/javascript">
   App.Init({url:'<?= base_url() ?>', layout:'<?= layout() ?>'});
+  function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0; i<ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1);
+        if (c.indexOf(name) == 0) return c.substring(name.length,c.length);
+    }
+    return "";
+  }
+  if(!getCookie('AACookies'))
+  {
+    $('.widget-cookies').addClass('active');
+    $('.widget-cookies-close').click(function(){
+      document.cookie="AACookies=true; expires=Thu, 18 Dec 2020 12:00:00 UTC; path=/";
+      $('.widget-cookies').fadeOut('400');
+    });
+  }
 </script>
 </body>
 </html>

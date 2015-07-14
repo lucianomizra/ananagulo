@@ -20,6 +20,67 @@
 
 		<? $this->load->view('user/data') ?>	
 
+<div class="row checkout-center row-hhh">
+			<div class="col-sm-5">
+			</div>
+<div class="col-sm-5 col-sm-offset-2">
+  <div class="clearfix"></div>
+    <div class="form-title">Datos de envío</div>
+
+								<form action="<?= base_url() ?>mi-cuenta" method="post" class="text-right">
+									<input type="hidden" name="action" value="dataxx" />
+									<div class="form-group row">
+										<div class="col-sm-4">
+											<label for="dir1">Dirección de envío:</label>
+										</div>
+										<div class="col-sm-7">
+											<input type="text" value="<?= $fdata['dir1'] ?>" name="dir1" id="dir1" tabindex="1" class="form-control">
+										</div>
+									</div>
+									<div class="form-group row">
+										<div class="col-sm-4">
+											<label for="cp">Código Postal:</label>
+										</div>
+										<div class="col-sm-7">
+											<input type="text" value="<?= $fdata['cp'] ?>" name="cp" id="cp" tabindex="1" class="form-control">
+										</div>
+									</div>
+									<div class="form-group row">
+										<div class="col-sm-4">
+											<label for="city">Localidad</label>
+										</div>
+										<div class="col-sm-7">
+											<input type="text" value="<?= $fdata['city'] ?>" name="city" id="city" tabindex="1" class="form-control">
+										</div>
+									</div>
+									<div class="form-group row">
+										<div class="col-sm-4">
+											<label for="cel">Telf. de contacto:</label>
+										</div>
+										<div class="col-sm-7">
+											<input type="text" value="<?= $fdata['cel'] ?>" name="cel" id="cel" tabindex="1" class="form-control">
+										</div>
+									</div>
+									
+									<div class="form-group row">
+										<div class="col-sm-12 text-center">
+										<?php if(isset($error)):
+			                $errorArr['fields'] = 'Debes completar todos los campos';
+			                $errorArr['privacy'] = 'Debes aceptar las políticas de privacidad';
+			                $errorArr['mail'] = 'El correo electrónico ingresado es inválido';
+			                $errorArr['mail2'] = 'El correo electrónico ingresado ya ha sido registrado';
+			              ?>
+			              <div class="margin-bottomx30">
+			                <p class="info-box-error"><?php echo $errorArr[$error] ?></p>
+			              </div>
+			              <? endif ?>
+											<input type="submit" class="btn btn-primary" value="Modificar" />
+										</div>
+									</div>
+
+								</form>
+			</div>
+</div>
     <form action="<?= base_url() ?>mi-cuenta/step-3" method="post">
     <input type="hidden" name="level" value="3"/>
 
@@ -117,4 +178,18 @@
 
 	</div>
 </div>
+<script>
+	$(document).ready(function() {
+		<? if(isset($openForm)): ?>
+		$('.row-hhh').css('display','block');
+		$("html, body").animate({ scrollTop: $('.row-hhh').offset().top - 100 }, 200);
+		<? endif ?>
+		$('.data-address .lnk').click(function(e){
+			e.preventDefault();
+			$('.row-hhh').css('display','block');
+  		$("html, body").animate({ scrollTop: $('.row-hhh').offset().top - 100 }, 200);
+		});
+	});
+
+</script>
 <?php $this->load->view('common/footer') ?>

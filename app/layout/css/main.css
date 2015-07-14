@@ -59,7 +59,7 @@ form {
 }
 label {
     font-weight: normal;
-}
+}/*
 input[type="checkbox"] {
   height:5px;
   width:5px;
@@ -78,7 +78,7 @@ input[type="checkbox"]:before, input[type="checkbox"]:checked:before {
 }
 input[type="checkbox"]:checked:before {
     background: black;    
-}
+}*/
 .upper {
     text-transform: uppercase;
 }
@@ -1363,8 +1363,8 @@ font-weight: 700;
 }
 .table-list-cart input, .table-list-cart select {
   width: 50px;
-  border: 3px solid lightgray;
-  padding: 11px 0;
+  border: 2px solid lightgray;
+  padding: 2px 0;
   height: inherit;
   display: initial;
   text-align: center;
@@ -1511,23 +1511,23 @@ font-weight: 700;
    padding: 80px 0 70px 0;
 }
 .bootstrap-select>.dropdown-toggle {
-  padding-left: 5px;
+  padding-left: 2px;
   padding-right: 0;
-  height: 48px;
+  height: 31px;
   padding-top: 0;
 }
 .select-default {
   background-color: white;
-  border: rgb(221, 221, 221) 4px solid;
-  border-right: 35px rgb(221, 221, 221) solid;
+  border: rgb(221, 221, 221) 2px solid;
+  border-right: 25px rgb(221, 221, 221) solid;
 }
 .select-default .caret {
-  right: -24px !important;
-  top: calc(50% - 5px) !important;
+  right: -18px !important;
+  top: calc(50% - 1px) !important;
   color: white;
-  border-right: 8px solid transparent;
-  border-left: 8px solid transparent;
-  border-top: 10px dashed;
+  border-right: 5px solid transparent;
+  border-left: 5px solid transparent;
+  border-top: 7px dashed;
 }
 .dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover {
   background: rgb(221, 221, 221) !important;
@@ -2179,4 +2179,38 @@ a:hover .glyphicon-shopping-cart:before {
 
 .full-container{
   overflow: hidden;
+}
+
+.widget-cookies .widget-cookies-inside{
+  padding:20px 80px
+}
+.widget-cookies .widget-cookies-close{
+  position: absolute;
+  cursor: pointer;
+  top:15px;
+  right:15px
+}
+.widget-cookies p{
+  font-size: 14px
+}
+.widget-cookies h3{
+  font-size:16px;
+  font-weight: normal
+}
+.widget-cookies.active{
+  display:block
+}
+.widget-cookies{
+  display:none;
+  text-align: center;
+  position: fixed;
+  z-index: 10000;
+  width:460px;
+  background: #FFF;
+  border:1px solid #000;
+  bottom:10px;
+  right: 10px
+}
+.row-hhh{
+  display:none;
 }

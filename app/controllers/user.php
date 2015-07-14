@@ -121,6 +121,41 @@ class User extends AppController
   }
   
   
+  private function _userAccountDataXX()
+  {
+    if( !count($_POST)) return;
+    $fieldsOB = true;
+    $fieldsO = array('cel', 'dir1', 'city', 'cp');
+
+    foreach($fieldsO as $f)
+    {
+      if( !$this->input->post($f) ) 
+        $fieldsOB = false;
+    }
+    if( !$fieldsOB )
+    {
+      $this->data['openForm'] = true;
+      return $this->data['error'] = 'fields';
+    }
+
+    $fdata = (object) $this->Cart->DataJsonCart($this->Cart->GetCart());
+
+    $data = array(
+      'name' => $fdata->name,
+      'lastname' => $fdata->lastname,
+      'mail' => $fdata->mail,
+      'dni' => $fdata->dni,
+      'cel' => $this->input->post('cel'),
+      'dir1' => $this->input->post('dir1'),
+      'city' => $this->input->post('city'),
+      'cp' => $this->input->post('cp'),
+    );
+    $this->UserM->SaveUserData($data);
+    $data['privacy'] = $fdata->privacy;
+    $data['newsletter'] = $fdata->newsletter;
+    $this->Cart->SaveCartJsonData($data);
+  }
+
   private function _userAccountData()
   {
     if( !count($_POST)) return;
@@ -149,11 +184,11 @@ class User extends AppController
       'name' => $this->input->post('name'),
       'lastname' => $this->input->post('lastname'),
       'mail' => $this->input->post('mail'),
+      'dni' => $this->input->post('dni'),
       'cel' => $this->input->post('cel'),
       'dir1' => $this->input->post('dir1'),
       'city' => $this->input->post('city'),
       'cp' => $this->input->post('cp'),
-      'dni' => $this->input->post('dni'),
     );
     $this->UserM->SaveUserData($data);
     $data['privacy'] = $this->input->post('privacy');
@@ -192,6 +227,18 @@ class User extends AppController
       }
       if(!isset($_POST['newsletter'])) $fdata['newsletter'] = 0; 
       if(!isset($_POST['dextra'])) $fdata['dextra'] = 0;       
+    }
+    if( $this->input->post('action') == 'dataxx' )
+    {
+      $this->_userAccountDataXX();
+      foreach($fdata as $key => $value)
+      {
+        if(isset($_POST[$key]))
+          $fdata[$key] = $this->input->post($key);
+      }         
+      $this->data['fdata'] = $fdata;
+      $this->data['cdata'] = $this->Cart->DataCart($this->Cart->id);
+      return $this->load->view('user/step-3', $this->data); 
     }
     $this->load->helper('date');
     $this->data['carts'] = $this->Cart->GetCarts();
