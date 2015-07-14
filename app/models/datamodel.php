@@ -157,7 +157,7 @@ class DataModel extends CI_Model
     left join product_sub ps on ps.id_sub = p.id_sub
     left join product_sub2 ps2 on ps2.id_sub2 = p.id_sub2
     left join nz_file f on f.id_file = p.id_file
-    where p.active = '1' and p.id_product = {$id} and p.id_state = '1'";
+    where p.active = '1' and p.id_product = {$id}";
     return $this->db->query($sql)->row();
   }
   

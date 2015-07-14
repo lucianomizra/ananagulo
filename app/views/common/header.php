@@ -20,7 +20,12 @@
         </div>
         <div id="collapse" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
           <ul class="nav navbar-nav navbar-right">
+          	<? if($this->Data->idUser):?>
             <li class="hidden-sm hidden-xs"><a href="<?= base_url() ?>mi-cuenta">Mi cuenta</a></li>
+          	<? else:?>
+            <li class="hidden-sm hidden-xs"><a href="<?= base_url() ?>mi-cuenta">Regístrate</a></li>
+            <li class="hidden-sm hidden-xs"><a href="<?= base_url() ?>mi-cuenta">Inicia Sesión</a></li>
+          	<? endif ?>
             <li class="hidden-sm hidden-xs"><a href="<?= base_url() ?>informacion/ayuda">Ayuda</a></li>
             <li><? $this->load->view('cart/session'); ?></li>
           </ul>
@@ -38,9 +43,9 @@
 
 <div id="login-menu" class="collapse">
     <div class="container">
-      <li class="col-sm-3 col-sm-offset-1"><a href="#">Iniciar Sesion</li></a>
-      <li class="col-sm-3"><a href="#">Regístrate</li></a>
-      <li class="col-sm-3"><a href="#">Ayuda</li></a>
+      <li class="col-sm-3"><a href="<?= base_url() ?>mi-cuenta">Regístrate</li></a>
+      <li class="col-sm-3 col-sm-offset-1"><a href="<?= base_url() ?>mi-cuenta">Inicia Sesión</li></a>
+      <li class="col-sm-3"><a href="<?= base_url() ?>informacion/ayuda">Ayuda</li></a>
     </div>
 </div>
 

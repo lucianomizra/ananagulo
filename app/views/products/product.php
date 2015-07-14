@@ -8,7 +8,7 @@ $inCart = $this->Cart->ItemExists($product->id, 0, 0);
 <div id="page-info" data-section="look1"></div>
 <div class="container">
   <div class="page-product row-products-filter">
-    <div class="page-header">
+    <div class="page-header phb">
       <ol class="breadcrumb pull-left">
       <?/*
         <li><a href="#">Looks</a></li>

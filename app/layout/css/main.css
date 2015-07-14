@@ -36,7 +36,12 @@
 a{
   text-decoration: none
 }
-
+.app-span-bold{
+  font-weight: bold
+}
+.app-span-italic{
+  font-style: italic
+}
 .col-md-20p, .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9 {
     padding: 10px;
 }
@@ -56,8 +61,8 @@ label {
     font-weight: normal;
 }
 input[type="checkbox"] {
-  height:10px;
-  width:10px;
+  height:5px;
+  width:5px;
 }
 input[type="checkbox"]:before, input[type="checkbox"]:checked:before {
     padding: 4px;
@@ -93,9 +98,10 @@ input[type="checkbox"]:checked:before {
 }
 a {
   color: black;
-  text-decoration: underline;
+  text-decoration: none;
 }
 a:hover {
+  text-decoration: none;
     color: #dcc878;
 }
 .block {
@@ -124,10 +130,8 @@ a:hover {
 }
 .middle, .bottom {
  display: table; 
- position: relative;
  height: 100%;
  width: 100%;
- z-index: 2;
 }
 .col-md-6.height3 .middle, .col-md-8 .middle {
   width: 60%;
@@ -231,10 +235,14 @@ a:hover {
   font-size: 24px;
   letter-spacing: 1px;
 }
-.style3 small {
+.style3 small.sx {
+  text-decoration: line-through;;
   font-weight: 100;
+  font-size: 13px;
+}
+.style3 small {
+  font-weight: 600;
   font-size: 16px;
-  letter-spacing: 2px;
   display: block;
 }
 .style2 h2, .style2, .style2 small, .style3 h2, .style3 small {
@@ -653,6 +661,14 @@ right:1%;
 .home-second-slider .slide-fix .reccc{
   z-index: 20;
 }
+.home-second-slider.flexslider .slides li .slide-inside{
+  margin-left: -5px;
+  margin-right: -5px;
+}
+.home-second-slider .col-md-20p.col-sm-4{
+  padding-left:5px; 
+  padding-right:5px; 
+}
 .home-second-slider .slide-fix{
   position: absolute;
   top:0;
@@ -684,7 +700,7 @@ right:1%;
 .home-open-slider .slides li {
     position: relative;
     color: white;
-}
+}/*
 .home-open-slider .slide-content a:hover h2{
   background: #dcc878;
   color: #000;
@@ -692,7 +708,7 @@ right:1%;
 .home-open-slider .slide-content a:hover p{
   background: #dcc878;
   color: #000;
-}
+}*/
 .home-open-slider .slide-content h2{
   font-size:38px;
   padding-left: 3px;
@@ -740,10 +756,14 @@ right:1%;
   font-size: 14px;
 }
 .btn.btn-primary:hover { 
-  background: rgba(0,0,0,0.8)
+  text-shadow: none;
+  color:#FFF;
+  background: rgba(0,0,0,1)
 }
 .btn.btn-default:hover { 
-  background: rgba(0,0,0,0.3)
+  text-shadow: none;
+  color:#FFF;
+  background: rgba(0,0,0,1)
 }
 .btn.btn-default {
   text-decoration: none;
@@ -788,7 +808,8 @@ right:1%;
 }
 .last-views .flex-direction-nav {
   position: absolute;
-  top: 50%;
+  top: 0;
+  height: 285px;
   width: 100%;
   opacity: 0;
   transition: opacity .3s;
@@ -808,6 +829,7 @@ right:1%;
   margin-right: 5px;
 }
 .the-look .product-title h2{
+  font-size:24px;
   background: none
 }
 .product-title h2 {
@@ -841,6 +863,9 @@ right:1%;
   text-decoration: none
 }
 
+.page-header.phb{
+  border-bottom: 1px solid #000
+}
 .page-header {
     margin: 30px 0 20px;
     padding: 0px;
@@ -887,6 +912,8 @@ right:1%;
     opacity: 1;
 }
 .product-preview > div .linebox {
+  position: relative;
+  z-index: 5;
   padding: 20px;
 }
 .colorpiker-btngroup .btn {
@@ -911,8 +938,8 @@ right:1%;
     letter-spacing: -1px;
 }
 
-.page-product  .page-header h3 {
-  border-bottom:2px solid #000;
+.page-product .page-header h3 {
+  border-bottom:1px solid #000;
   padding-bottom: 8px;
 }
 .page-header h3 {
@@ -1091,6 +1118,7 @@ input#cupon {
   letter-spacing: 5px;
 }
 .page-header.style2.style2bb {
+  overflow: hidden;
   border-bottom: 1px solid #dcc878;
 }
 .page-header.style2 {
@@ -1134,6 +1162,7 @@ font-weight: 700;
 .page-header.style3 p {
   color: black;
   width: 50%;
+  font-size:16px;
   margin: 0 auto;
   text-transform: initial;
 }
@@ -1178,7 +1207,7 @@ font-weight: 700;
 .info h1, .info-menu h3 {
      font-weight: 800;
     text-transform: uppercase;
-    font-size: 24px;
+    font-size: 17px;
 }
 .info .article hr{
   border-top: 1px solid #000;
@@ -1196,6 +1225,9 @@ font-weight: 700;
   padding-top: 5px;
   padding-bottom: 5px;
 
+}
+.info .article p .app-span-bold{
+  font-size:14px
 }
 .info .article p {
   font-size: 12px;
@@ -1330,19 +1362,23 @@ font-weight: 700;
   background-color: white;
 }
 .table-list-cart input, .table-list-cart select {
-  width: 80px;
+  width: 50px;
   border: 3px solid lightgray;
-  padding: 11px 14px;
+  padding: 11px 0;
   height: inherit;
   display: initial;
+  text-align: center;
 }
 .panel-group .panel-default>.panel-heading {
   background: white;
   border-bottom: 1px solid black;
   border-radius: 0;
 }
-.panel-group .panel-default>.panel-heading:after {
+.panel-group .panel-default>.panel-heading h4 a.collapsed:after {
   content: "\f067";
+}
+.panel-group .panel-default>.panel-heading h4 a:after {
+  content: "\f068";
   display: inline-block;
   font: normal normal normal 14px/1 FontAwesome;
   font-size: inherit;
@@ -1350,8 +1386,7 @@ font-weight: 700;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   transform: translate(0, 0);
-  float: right;
-  margin-top: -15px;
+  float: right
 }
 .panel-group .panel-default {
   border: none;
@@ -1428,6 +1463,9 @@ font-weight: 700;
 .table.table-list-cart>tbody>tr>td, .table.table-list-cart>tbody>tr>th, .table.table-list-cart>tfoot>tr>td, .table.table-list-cart>tfoot>tr>t {
   border: none;
   text-align: center;
+}
+.table.table-list-cart>tbody>tr>th{
+  vertical-align: middle;
 }
 .table.table-list-cart>thead>tr>th:nth-child(1),
 .table.table-list-cart>tbody>tr>th:nth-child(1),
@@ -1642,6 +1680,7 @@ font-weight: 700;
 .home-second-slider .flex-direction-nav a.flex-prev:before {
   content: ' ' !important;
   background-image: url('../imgs/off_izq.png');
+  background-position:center center;
   background-size: cover;
   width: 53px;
   height: 54px;
@@ -1654,6 +1693,27 @@ font-weight: 700;
 }
 .home-second-slider.flexslider .slides > li{
   display:block;
+}
+.home-second-slider.last-views .flex-direction-nav a.flex-next,
+.home-second-slider.last-views .flex-direction-nav a.flex-prev{
+   height: 31px;
+  width: 30px;
+}
+.home-second-slider.last-views .flex-direction-nav a.flex-prev:before{
+  height: 31px;
+  width: 30px;
+  background-image: url('../imgs/last/off_izq.png');
+}
+.home-second-slider.last-views .flex-direction-nav a.flex-next:before {
+  background-image: url('../imgs/last/off_der.png');
+  height: 31px;
+  width: 30px;
+}
+.home-second-slider.last-views .flex-direction-nav a.flex-prev:hover:before{
+  background-image: url('../imgs/last/on_izq.png');
+}
+.home-second-slider.last-views .flex-direction-nav a.flex-next:hover:before {
+  background-image: url('../imgs/last/on_der.png');
 }
 .home-second-slider .flex-direction-nav a.flex-next {
   width: 53px;
@@ -1670,6 +1730,7 @@ font-weight: 700;
   content: ' ' !important;
   background-image: url('../imgs/off_der.png');
   background-size: cover;
+  background-position:center center;
   width: 53px;
   height: 54px;
 }
@@ -1760,7 +1821,10 @@ body.no-menu header {
     padding-left: 30px;
 }
 .the-look .panel-title a {
-   text-decoration: none;
+  text-decoration: none;
+  display: block;
+  z-index: 2;
+  position: relative;
 }
 .show-more {
   border: 1px solid black;
@@ -1945,13 +2009,17 @@ a:hover .glyphicon-shopping-cart:before {
   display: block;
   margin-bottom: 15px
 }
+.total span.hstyle1 {
+  font-size:24px;
+}
 .total span.bb{
-  font-size: 34px;
+  font-size: 30px;
 }
 .total span{
-  font-size: 24px;
+  font-size: 18px;
 }
 .total p{
+  font-size: 24px;
   margin-bottom: 0;
   text-align: right;
 }
@@ -1959,6 +2027,7 @@ a:hover .glyphicon-shopping-cart:before {
   overflow: hidden;
 }
 .total .ff{
+  font-size: 22px;
   margin-left:30px;
   display: inline-block;
   width:160px;
@@ -2081,6 +2150,7 @@ a:hover .glyphicon-shopping-cart:before {
 .product-list-itemx .full-button,
 .product-list-item .full-button{
   position: absolute;
+  z-index: 4;
   top:0;
   left:0;
   bottom:0;
@@ -2105,4 +2175,8 @@ a:hover .glyphicon-shopping-cart:before {
 }
 .look-hhsm span{
   font-weight: 400
+}
+
+.full-container{
+  overflow: hidden;
 }

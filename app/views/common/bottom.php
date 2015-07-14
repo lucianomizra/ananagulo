@@ -10,12 +10,19 @@
     </div>    
     <div class="footer-body">
       <div class="container">
+        <?/*
         <div class="api-instagram" data-toggle="collapse" href="#collapseInstaApi" aria-expanded="false">
           <a class="btn btn-gray">
             <i class="fa fa-instagram"></i> ANANGULO
           </a
           ><button class="btn-arrowsInstaApi fa fa-angle-up btnInstaApiUp"></button
           ><button class="btn-arrowsInstaApi fa fa-angle-down btnInstaApiDown"></button>            
+        </div>
+        */?>
+        <div class="api-instagram">
+          <a class="btn btn-gray" target="_blank" href="https://instagram.com/anaanguloboutique" >
+            <i class="fa fa-instagram"></i> ANANGULO
+          </a>        
         </div>
         <div class="row">
           <h3 class="visible-xs" data-toggle-xs="collapse" href="#collapseFooter" aria-expanded="false" aria-controls="collapseFooter">Información útil</h3>
@@ -44,7 +51,6 @@
               <ul class="list-unstyled collapse-xs" id="collapseFooterFallowon">
                 <li><a target="_blank" href="https://www.facebook.com/tiendasanaangulo">Facebook</a></li>
                 <li><a target="_blank" href="http://twitter.com">Twitter</a></li>
-                <li><a target="_blank" href="https://pinterest.com/">Pinterest</a></li>
                 <li><a target="_blank" href="https://instagram.com/anaanguloboutique">Instagram</a></li>
               </ul>            
             </div>
@@ -56,7 +62,7 @@
 
         <div class="footer-body-footer">
           <div class="pull-left">
-            <small>© <?= date('Y') ?> All Rights Reserved. Designed &amp; Powered by <?= img(layout().'imgs/footer/logo-identty.png'); ?></small>
+            <small>© <?= date('Y') ?> All Rights Reserved. Designed &amp; Powered by <a href="http://identty.com" target="_blank"><?= img(layout().'imgs/footer/logo-identty.png'); ?></a></small>
           </div>
           <div class="pull-right">
               

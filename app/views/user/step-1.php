@@ -5,18 +5,19 @@
     <div class="page-header">
       <ol class="breadcrumb pull-left">
         <li><a href="<?= base_url () ?>">Ana Angulo</a></li>
-        <li><a href="<?= base_url () ?>cart">Cesta</a></li>
+        <? if($this->Data->idUser): ?><li><a href="<?= base_url () ?>cart">Cesta</a></li><? endif ?>
         <li class="active">Identificación</li>
       </ol>
     </div>
     <div class="clearfix"></div>
-
+    <? if($this->Data->idUser): ?>
     <ul class="checkout-steps">
       <li class="ok"><a href="<?= base_url()?>mi-cuenta">Identificación</a></li>
       <li><a class="disabled">Envío</a></li>
       <li><a class="disabled">Pago</a></li>
       
     </ul>
+  <? endif ?>
     <div class="row">
       <div class="col-sm-6">
         <div class="panel-body">

@@ -26,18 +26,20 @@
           $itemCostST = prep_cost($item->cost * round($item->items), true, false);
           if( $item->id_state == 1 )
             $subtotal += $item->cost * round($item->items);
+          if( $item->id_state != 1 && isset($cartDisabled))
+            continue;
           $inCart = $this->Cart->ItemExists($item->id, 0, 0); 
           $colors = $this->Data->ProductColors( $item->id );
 
           if(round($item->cost2) == round($item->cost)) $item->cost2 = 0;
           ?>
-                    <tr data-value="<?= $item->cost ?>" data-id="<?= $item->iditem ?>">
+                    <tr data-value="<?= ($item->id_state == 1) ? $item->cost : 0 ?>" data-id="<?= $item->iditem ?>">
                         <th><img src="<?= thumb($item->file, 125, 125) ?>" /></th>
                         <th class="name"><a href="<?= base_url() . 'producto/' . $item->id . '/' . $itemUriName ?>"><?= $item->name ?></a><?/*<br><span class="desc"><?= nl2br($item->description) ?></span>*/?></th>
-                        <th class="cost"><?= $item->code ?> <?/*<i class="success block">Disponible</i>*/?></th>
+                        <th class="cost"><?= $item->code ?> <?= ($item->id_state == 1) ?'<i class="success block">Disponible</i>' : '<i class="danger block">No disponible</i>' ?></th>
                         <th class="options">
                 <? $sizes = explode(',', $item->sizes) ?>
-                <? if(count($sizes)): ?>
+                <? if(count($sizes)> 1 || (count($sizes) == 1 && str_replace(' ', '', $sizes[0]))): ?>
              <select <?= isset($cartDisabled) ? "disabled='disabled' " : "" ?>class="item-size selectpicker" data-style="select-default" name="sizes" data-width="80px">
                 <? foreach($sizes as $size): $size = mb_strtoupper(str_replace(' ', '', $size), 'UTF-8'); if(!$size) continue; ?>
                 <option value="<?= $size ?>" <? if($size == $item->size): ?>selected="selected"<? endif ?>><?= $size ?></option>

@@ -2,7 +2,7 @@
 <div id="page-info" data-section="look1"></div>
 <div class="container">
   <div class="page-look1 row-products-filter">
-    <div class="page-header">
+    <div class="page-header phb">
       <ol class="breadcrumb pull-left">
         <li><a href="<?= base_url() ?>">Ana Angulo</a></li>
         <li><a href="<?= base_url() ?>looks">Looks</a></li>
@@ -78,7 +78,7 @@
               <div data-id="<?= $product->id ?>" data-value="<?= prep_cost($product->cost, false, false) ?>" class="panel panel-default product-item">
                 <div class="panel-heading" role="tab" id="heading-<?= $product->id ?>">
                   <h4 class="panel-title">
-                    <a data-toggle="collapse" data-parent="#accordionCustomLooks" href="#accordion_<?= $product->id ?>" aria-expanded="<?= $first ? "true" : "false"?>" aria-controls="accordion_<?= $product->id ?>">
+                    <a data-toggle="collapse" data-parent="#accordionCustomLooks" href="#accordion_<?= $product->id ?>" aria-expanded="<?= $first ? "true" : "false"?>" class="<?= $first ? "" : "collapsed"?>" aria-controls="accordion_<?= $product->id ?>">
                       <?= $product->name ?>
                     </a>
                   </h4>

@@ -34,6 +34,7 @@
 <div class="container">
   <div class="page-header style3 page-header-ttt ttt-reductions">
     <h2>Nuestras rebajas</h2>
+    <p>Disfruta comprando nuestros productos a los mejores precios.</p>
   </div>
   <div class="page-login">
     <div class="row row-products-filter">

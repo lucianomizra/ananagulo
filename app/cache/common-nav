@@ -1,37 +1,37 @@
-a:3:{s:4:"time";i:1436560909;s:3:"ttl";i:300;s:4:"data";s:1895:"<div class="row pbot">
+a:3:{s:4:"time";i:1436838291;s:3:"ttl";i:300;s:4:"data";s:1919:"<div class="row pbot">
   <div class="col-md-3 col-sm-4 hidden-sm hidden-xs">
     <h3>Novedades</h3>
     <p>Descubre los últimos productos subidos a nuestro site.</p>
     <h3>Los mejores precios</h3>
   </div>
     <div class="col-md-3 col-sm-4">
-    <h3 class="nav-categoryp-1"><a href="http://localhost/anaangulo/public/categoria/prendas">Prendas</a></h3>
+    <h3 class="nav-categoryp-1"><a href="http://localhost/anaangulo/ananagulo/categoria/prendas">Prendas</a></h3>
         <ul class="list-unstyled collapse-xs" id="collapseHeaderClothes">
-            <li class="nav-category-1"><a href="http://localhost/anaangulo/public/productos/categoryp:1_category:1">Pantalones & leggings Bermudas</a>
+            <li class="nav-category-1"><a href="http://localhost/anaangulo/ananagulo/productos/categoryp:1_category:1">Pantalones & leggings Bermudas</a>
                </li>
           </ul>   
      
   </div>
      <div class="col-md-2 col-sm-3">
-    <h3 class="nav-categoryp-2"><a href="http://localhost/anaangulo/public/categoria/calzado">Calzado</a></h3>
+    <h3 class="nav-categoryp-2"><a href="http://localhost/anaangulo/ananagulo/categoria/calzado">Calzado</a></h3>
         <ul class="list-unstyled collapse-xs" id="collapseHeaderClothes">
-            <li class="nav-category-2"><a href="http://localhost/anaangulo/public/productos/categoryp:2_category:2">Zapatos</a>
+            <li class="nav-category-2"><a href="http://localhost/anaangulo/ananagulo/productos/categoryp:2_category:2">Zapatos</a>
                </li>
           </ul>   
      
   </div>
      <div class="col-md-2 col-sm-3">
-    <h3 class="nav-categoryp-3"><a href="http://localhost/anaangulo/public/categoria/accesorios-complementos">Accesorios & Complementos</a></h3>
+    <h3 class="nav-categoryp-3"><a href="http://localhost/anaangulo/ananagulo/categoria/accesorios-complementos">Accesorios & Complementos</a></h3>
         <ul class="list-unstyled collapse-xs" id="collapseHeaderClothes">
-            <li class="nav-category-3"><a href="http://localhost/anaangulo/public/productos/categoryp:3_category:3">Cinturones</a>
+            <li class="nav-category-3"><a href="http://localhost/anaangulo/ananagulo/productos/categoryp:3_category:3">Cinturones</a>
                </li>
           </ul>   
      
   </div>
      <div class="col-md-2 col-sm-2">
-    <h3 class="nav-categoryp-4"><a href="http://localhost/anaangulo/public/categoria/bolsos">Bolsos</a></h3>
+    <h3 class="nav-categoryp-4"><a href="http://localhost/anaangulo/ananagulo/categoria/bolsos">Bolsos</a></h3>
         <ul class="list-unstyled collapse-xs" id="collapseHeaderClothes">
-            <li class="nav-category-4"><a href="http://localhost/anaangulo/public/productos/categoryp:4_category:4">De mano</a>
+            <li class="nav-category-4"><a href="http://localhost/anaangulo/ananagulo/productos/categoryp:4_category:4">De mano</a>
                </li>
           </ul>   
      
