@@ -25,6 +25,15 @@
 var prepareProducts = function(){
   $('.products-list .product-list-item:not(.rendered)').each(function(index,item){
     $(item).addClass('rendered');
+    if($(window).width()<=1199)
+    {      
+      $('a', item).click(function(event) {
+        if($(item).hasClass('hhover')) return;
+        event.preventDefault();
+        $('.products-list .product-list-item.hhover').removeClass('hhover');
+        $(item).addClass('hhover');
+      });
+    }
     $('.sizes .btn', item).click(function(e){
       if($(this).hasClass('active'))
       {

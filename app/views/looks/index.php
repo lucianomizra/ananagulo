@@ -341,7 +341,29 @@
 		</div>
 		<div class="clearfix"></div>
 	</div>
-	
 
 </div>
+<? if(count($looks)>8): ?>
+<div class="text-center go-top margin-bottomXL">
+  <a class="fa-stack fa-lg go-to-top">
+    <i class="fa fa-circle-thin fa-stack-2x"></i>
+    <i class="fa fa-angle-up fa-stack-1x"></i>
+  </a>
+</div>
+<? endif ?>
+
+<script>
+$(document).ready(function(){
+  $('.go-to-top').click(function(e){
+    $("html, body").animate({ scrollTop: 0 }, 500);
+  });  
+	if($(window).width()>1199) return;
+	$('.row.looks .product-preview').click(function(event) {
+		if($(this).hasClass('hhover')) return;
+	  event.preventDefault();
+	  $('.row.looks .product-preview.hhover').removeClass('hhover');
+	  $(this).addClass('hhover');
+	});
+})
+</script>
 <?php $this->load->view('common/footer') ?>

@@ -77,9 +77,9 @@
 
 								</form>
 			</div>
-<div class="col-sm-5 col-sm-offset-2 offxdt">
-  <div class="clearfix"></div>
-    <div class="form-title">Datos de envío</div>
+			<div class="col-sm-5 col-sm-offset-2 offxdt">
+  			<div class="clearfix"></div>
+   				 <div class="form-title">Datos de envío</div>
 
 								<form action="<?= base_url() ?>mi-cuenta" method="post" class="text-right">
 									<input type="hidden" name="action" value="dataxx" />
@@ -196,7 +196,7 @@
 					<div class="methods-ship">
 						<div class="form-group">
 							 <select class="selectpicker" data-style="select-default" data-width="100%" name="shipping">
-							      <option value="1" selected="selected">Entrega exppress</option>
+							      <option value="1" selected="selected">Entrega Exppress</option>
 							 </select>
 		 				</div>
 		 				
@@ -228,7 +228,7 @@
 			*/?>
 		</div>
 
-				</form>
+			</form>
 
 	</div>
 </div>

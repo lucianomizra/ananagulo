@@ -12,7 +12,7 @@
 
 		<div class="page-body">
 			<div class="row">
-				<div class="col-sm-6">
+				<div class="col-x1 col-sm-6">
 					<div class="info-menu text-left">
 						<h3>Mi cuenta</h3>
 						<p>Desde la sección "Mi cuenta" puedes gestionar de forma sencilla tus datos, tus pedidos, tu cotnraseña, etc. Selecciona la opción que desees:</p>
@@ -22,14 +22,14 @@
 					</div>
 				</div>
 				<div class="clearfix"></div>
-				<div class="col-sm-6 col-sm-offset-1">
+				<div class="col-x1 col-sm-6 col-sm-offset-1">
 					<div class="info">
 
 						<h2>Gestionar mis pedidos</h2>
 						<p>Desde aquí puedes consultar tus pedidos, así como su estado y situación de envío de manera instantánea</p>
 					</div>
 				</div>
-				<div class="col-sm-10 col-sm-offset-1">
+				<div class="col-x1 col-sm-10 col-sm-offset-1">
 					<div class="info">
 						
 						<table class="table hidden-xs table-carts">

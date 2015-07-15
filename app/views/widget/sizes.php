@@ -1,7 +1,7 @@
 <? 
 $types = $this->Data->GetSizeTypes();
 ?><div class="widget-sizes">
-	<div class="close"><i class="fa fa-times"></i></div>
+	<div class="close"><span aria-hidden="true">×</span></div>
 	<div class="widget-sizes-inside">
 		<div class="guide">
 			<div class="guide-b">

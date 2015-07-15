@@ -1,3 +1,4 @@
+</div>
 <div class="widget-cookies">
   <div class="widget-cookies-close"><i class="fa fa-times"></i></div>
   <div class="widget-cookies-inside">
@@ -100,10 +101,13 @@
     }
     return "";
   }
+  $(window).resize(function(){
+    $('#app').css('min-height', $(window).height()  - $('header .navbar').height() - $('footer').height() )
+  }).resize();
   if(!getCookie('AACookies'))
   {
     $('.widget-cookies').addClass('active');
-    $('.widget-cookies-close').click(function(){
+    $('.widget-cookies').click(function(){
       document.cookie="AACookies=true; expires=Thu, 18 Dec 2020 12:00:00 UTC; path=/";
       $('.widget-cookies').fadeOut('400');
     });

@@ -1,4 +1,4 @@
-<div class="form-join-cc">
+<div class="form-join-cc form-contact">
 	<div class="row">          
 	  <div id="collapseFooterAlt" class="">
 		<? if( isset($formSOK)):?>

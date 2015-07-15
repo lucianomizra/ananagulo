@@ -81,7 +81,7 @@
       </div>
 
       <div class="col-sm-6">
-        <div class="panel-body">
+        <div class="panel-body panel-body-first-time">
           <div class="row">
             
             <div class="form-title col-md-offset-3 col-md-6 col-xs-offset-1 col-xs-10 no-padding">Primera vez que compro</div>

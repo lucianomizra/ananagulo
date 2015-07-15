@@ -240,7 +240,7 @@ $(document).ready(function() {
         success: function(html){
           if(index == max - 1)
           {
-            window.location.href = "<?= base_url()  ?>cart";
+            //window.location.href = "<?= base_url()  ?>cart";
           }
         }
       });

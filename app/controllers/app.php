@@ -87,7 +87,7 @@ class App extends AppController
     $init = round($init);
     if( count( $_POST) )
     {
-      $quest->updateFilters( $_POST );
+      $quest->updateFilters( $this->input->post(NULL, true) );
       if(!AJAX) 
       {
         redirect('rebajas/' . $quest->generateURI());
@@ -148,7 +148,7 @@ class App extends AppController
     $init = round($init);
     if( count( $_POST) )
     {
-      $quest->updateFilters( $_POST );
+      $quest->updateFilters( $this->input->post(NULL, true) );
       if(!AJAX) 
       {
         redirect('colecciones/' . $quest->generateURI());
@@ -213,7 +213,7 @@ class App extends AppController
     $init = round($init);
     if( count( $_POST) )
     {
-      $quest->updateFilters( $_POST );
+      $quest->updateFilters( $this->input->post(NULL, true) );
       if(!AJAX) 
       {
         redirect('productos/' . $quest->generateURI());

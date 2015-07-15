@@ -10,7 +10,7 @@
 		</div>
 		<div class="clearfix"></div>
 
-	<div class="page-body">
+	<div class="page-body page-body-info">
 		<div class="row">
 			<div class="col-sm-6 col-lg-4 col-xs-12">
 				<div class="info-menu">
@@ -26,7 +26,7 @@
 					</ul>
 				</div>
 			</div>
-			<div class="col-sm-6 col-lg-8 col-xs-12">
+			<div class="col-sm-6 col-lg-8 col-xs-12 col-data-text">
 				<div class="info">
 					<h1><?= $info->subtitle ?></h1>					
 					<div class="article">
@@ -51,6 +51,10 @@ $(document).ready(function() {
   $('.go-to-top').click(function(e){
     $("html, body").animate({ scrollTop: 0 }, 500);
   });
+  if($(window).width()<=1199)
+  {      
+    $("html, body").animate({ scrollTop: $('.col-data-text').offset().top - 10 }, 0);
+  }
 });
 </script>
 <?php $this->load->view('common/footer') ?>

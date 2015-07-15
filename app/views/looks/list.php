@@ -1,4 +1,4 @@
-  <div class="page-footer">
+  <div class="page-footer look-hhsm-list">
     <div class="page-header phb">
       <h3 class="look-hhsm">Productos del look | <span><?= $look->name ?></span></h3>
     </div>
@@ -40,3 +40,15 @@
       </div>
     </div>
   </div>
+
+<script>
+$(document).ready(function(){
+  if($(window).width()>1199) return;
+  $('.look-hhsm-list .product-preview a').click(function(event) {
+    if($(this).hasClass('hhover')) return;
+    event.preventDefault();
+    $('.look-hhsm-list .product-preview a.hhover').removeClass('hhover');
+    $(this).addClass('hhover');
+  });
+})
+</script>

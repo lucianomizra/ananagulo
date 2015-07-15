@@ -182,7 +182,11 @@ $inCart = $this->Cart->ItemExists($product->id, 0, 0);
       </div>
         <div class="home-second-slider last-views">
           <ul class="slides">
-              <? krsort($productVisits); foreach($productVisits as $p): if($p == $product->id ) continue; $s = $this->Data->GetProductVisits($p); $itemUriName = prep_word_url($s->name);?>
+              <? krsort($productVisits); foreach($productVisits as $p): 
+              if($p == $product->id ) continue; 
+              $s = $this->Data->GetProductVisits($p); 
+              if(!$s) continue;
+              $itemUriName = prep_word_url($s->name);?>
               <li>
                 <a href="<?= base_url() ?>producto/<?= $s->id ?>/<?= $itemUriName ?>" class="thumbnail product-preview style4">
                 <? if($s->file): ?><img src="<?= thumb($s->file, 285, 285) ?>"><? endif ?>

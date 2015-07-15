@@ -146,19 +146,19 @@ var App = {
 		    	btn_bars.on('click', function() { 
 		    		if($(btn_user).hasClass('active') ) toggle_menu( $(btn_user), $(login_menu) ); 
 		    		if($(btn_search).hasClass('active') ) toggle_menu( $(btn_search), $(search_menu) );
-		    		if($(btn_cart).hasClass('active') ) toggle_menu( $(btn_cart), $(car_menu) );
+		    		//if($(btn_cart).hasClass('active') ) toggle_menu( $(btn_cart), $(car_menu) );
 		    		toggle_menu( $(btn_bars), $(second_menu_mobile) );
 		    	});
 		    	btn_user.on('click', function() { 
 		    		if($(btn_bars).hasClass('active') ) toggle_menu( $(btn_bars), $(second_menu_mobile) );
 		    		if($(btn_search).hasClass('active') ) toggle_menu( $(btn_search), $(search_menu) );
-		    		if($(btn_cart).hasClass('active') ) toggle_menu( $(btn_cart), $(car_menu) );
+		    		//if($(btn_cart).hasClass('active') ) toggle_menu( $(btn_cart), $(car_menu) );
 		    		toggle_menu( $(btn_user), $(login_menu) ); 
 		    	});
 		    	btn_search.on('click', function() { 
 		    		if($(btn_user).hasClass('active') ) toggle_menu( $(btn_user), $(login_menu) ); 
 		    		if($(btn_bars).hasClass('active') ) toggle_menu( $(btn_bars), $(second_menu_mobile) );
-		    		if($(btn_cart).hasClass('active') ) toggle_menu( $(btn_cart), $(car_menu) );
+		    		//if($(btn_cart).hasClass('active') ) toggle_menu( $(btn_cart), $(car_menu) );
 
 		    		toggle_menu( $(btn_search), $(search_menu) ); 
 		    	});

@@ -42,13 +42,20 @@
   </div>
 
 <div id="login-menu" class="collapse">
+    <? if(!$this->Data->idUser):?>
     <div class="container">
-      <li class="col-sm-3"><a href="<?= base_url() ?>mi-cuenta">Regístrate</li></a>
-      <li class="col-sm-3 col-sm-offset-1"><a href="<?= base_url() ?>mi-cuenta">Inicia Sesión</li></a>
-      <li class="col-sm-3"><a href="<?= base_url() ?>informacion/ana-angulo">Ayuda</li></a>
+      <li class="col-sm-4"><a href="<?= base_url() ?>mi-cuenta">Inicia Sesión</li></a>
+      <li class="col-sm-4"><a href="<?= base_url() ?>mi-cuenta">Regístrate</li></a>
+      <li class="col-sm-4"><a href="<?= base_url() ?>informacion/ana-angulo">Ayuda</li></a>
     </div>
+    <? else: ?>
+    <div class="container cc-user">
+      <li class="col-sm-6"><a href="<?= base_url() ?>mi-cuenta">Mi cuenta</li></a>
+      <li class="col-sm-6"><a href="<?= base_url() ?>informacion/ana-angulo">Ayuda</li></a>
+    </div>
+    <? endif ?>
 </div>
-
+<? /*
 <div id="cart-menu" class="collapse">
 <button class="btn-close" type="button"><span aria-hidden="true">×</span></button>
     <div class="page-cart-body" style="padding:20px;">
@@ -163,22 +170,21 @@
         <button class="btn btn-primary" style="margin-bottom:20px">Realizar el pedido</button>
     </div>
 </div>
-
+*/?>
 <div id="search-menu" class="collapse">
-  <form class="navbar-form mobile-search">
-    <input type="text" id="hsearch" class="form-control" placeholder="Buscar">
+  <form method="post" action="<?= base_url() ?>productos" class="navbar-form mobile-search">
+    <input type="text" id="hsearch" name="text" value="<?= isset($search->filter->text) ? $search->filter->text : "" ?>" class="form-control" placeholder="Buscar">
   </form>   
 </div>
 
 <div class="second-menu" id="second-menu" aria-multiselectable="true" role="tablist">
-
-  <form class="navbar-form mobile-search visible-xs">
-    <input type="text" id="hsearch" class="form-control" placeholder="Buscar">
+  <form method="post" action="<?= base_url() ?>productos" class="navbar-form mobile-search visible-xs">
+    <input type="text" id="hsearch" name="text" value="<?= isset($search->filter->text) ? $search->filter->text : "" ?>" class="form-control" placeholder="Buscar">
   </form>   
 
-  <ul class="nav nav-navbar">
+  <ul class="container nav nav-navbar">
     <?/* <li><a data-toggle="collapse" data-parent="#second-menu" href="#collapseBrands" aria-expanded="false" aria-controls="collapseBrands">Por marca</a></li>*/?>
-    <li class="<?= ( $sectionMenu == 'productos' ) ? "active" : "" ?>"><a data-toggle="collapse" data-parent="#second-menu" href="#collapseProducts" aria-expanded="false" aria-controls="collapseProducts">Por producto</a></li>
+    <li class="expandible <?= ( $sectionMenu == 'productos' ) ? "active" : "" ?>"><a data-toggle="collapse" data-parent="#second-menu" href="#collapseProducts" aria-expanded="false" aria-controls="collapseProducts" class="collapsed">Por producto</a></li>
     <li class="<?= ( $sectionMenu == 'look' ) ? "active" : "" ?>"><a href="<?= base_url() ?>looks">Looks</a></li>
     <li class="<?= ( $sectionMenu == 'colecciones' ) ? "active" : "" ?>"><a href="<?= base_url() ?>colecciones">Colecciones</a></li>
     <li class="<?= ( $sectionMenu == 'rebajas' ) ? "active" : "" ?>"><a href="<?= base_url() ?>rebajas">Rebajas</a></li>
@@ -207,3 +213,4 @@
 </div>
 </div>
 </header>
+<div id="app">

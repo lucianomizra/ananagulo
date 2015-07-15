@@ -63,3 +63,14 @@ foreach($itemsT as $item){
     </ul>
   </div>
 </div>
+<script>
+$(document).ready(function(){
+  if($(window).width()>1199) return;
+  $('.home-second-slider .slides li a').click(function(event) {
+    if($(this).hasClass('hhover')) return;
+    event.preventDefault();
+    $('.home-second-slider .slides li a').removeClass('hhover');
+    $(this).addClass('hhover');
+  });
+})
+</script>
