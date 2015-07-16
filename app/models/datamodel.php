@@ -101,7 +101,7 @@ class DataModel extends CI_Model
     left join product_state st on st.id_state = p.id_state
     left join nz_file f on f.id_file = p.id_file
     left join nz_file f2 on f2.id_file = p.id_file_2
-    where p.active = '1' and px.id_look = {$id} and p.id_state = '1'
+    where p.active = '1' and px.id_look = '{$id}'
     order by px.num";
     return $this->db->query($sql)->result();
   }
@@ -112,7 +112,7 @@ class DataModel extends CI_Model
     from product p    
     left join product_state st on st.id_state = p.id_state
     left join nz_file f on f.id_file = p.id_file
-    where p.active = '1' and p.id_category = {$category} and p.id_product != {$id} and p.id_state = '1'
+    where p.active = '1' and p.id_category = {$category} and p.id_product != '{$id}'
     order by p.id_state, RAND() 
     limit 0,4";
     return $this->db->query($sql)->result();
@@ -124,7 +124,7 @@ class DataModel extends CI_Model
     from product p    
     left join product_state st on st.id_state = p.id_state
     left join nz_file f on f.id_file = p.id_file
-    where p.active = '1' and p.id_product = {$id} and p.id_state = '1'";
+    where p.active = '1' and p.id_product = '{$id}'";
     return $this->db->query($sql)->row();
   }
   
@@ -272,7 +272,7 @@ class DataModel extends CI_Model
   public function ValidWeddingList( $id = '' )
   {
     $id = round(str_replace('CBL','',$id));
-    $sql = "select count(*) as total from weddings_list where code = '{$id}' AND id_state = 3";
+    $sql = "select count(*) as total from weddings_list where code = '{$id}' AND id_state = 3"; 
     return ($this->db->query($sql)->row()->total> 0);
   }
   

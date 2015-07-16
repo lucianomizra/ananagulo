@@ -923,6 +923,8 @@ body .navbar-right{
   .row.row-products-filter .dropdowns-menu label{
     font-size:12px;
   text-align: left;
+  padding-right: 0;
+  display: inline;
   margin-left: 6px;
   }
   .row.row-products-filter .button-group .sizes{
@@ -1146,7 +1148,7 @@ body {
     width:40px
   }
   .cover .bigpadding{
-    padding: 30px
+    padding: 20px
   }
   .page-look1 .box-product{
     padding-left: 0!important    
