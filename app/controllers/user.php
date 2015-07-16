@@ -125,7 +125,7 @@ class User extends AppController
   {
     if( !count($_POST)) return;
     $fieldsOB = true;
-    $fieldsO = array('cel', 'dir1', 'city', 'cp');
+    $fieldsO = array('name_2', 'lastname_2', 'cel_2', 'dir1', 'city', 'cp');
 
     foreach($fieldsO as $f)
     {
@@ -143,9 +143,12 @@ class User extends AppController
     $data = array(
       'name' => $fdata->name,
       'lastname' => $fdata->lastname,
+      'name_2' => $this->input->post('name_2'),
+      'lastname_2' => $this->input->post('lastname_2'),
+      'cel_2' => $this->input->post('cel_2'),
       'mail' => $fdata->mail,
       'dni' => $fdata->dni,
-      'cel' => $this->input->post('cel'),
+      'cel' => $fdata->cel,
       'dir1' => $this->input->post('dir1'),
       'city' => $this->input->post('city'),
       'cp' => $this->input->post('cp'),
@@ -160,7 +163,7 @@ class User extends AppController
   {
     if( !count($_POST)) return;
     $fieldsOB = true;
-    $fieldsO = array('mail', 'name', 'lastname', 'mail', 'dni');
+    $fieldsO = array('mail', 'name', 'lastname', 'dni');
 
     foreach($fieldsO as $f)
     {
@@ -191,6 +194,9 @@ class User extends AppController
     $data = array(
       'name' => $this->input->post('name'),
       'lastname' => $this->input->post('lastname'),
+      'name_2' => isset($fdata->name_2) ? $fdata->name_2 : $this->input->post('name'),
+      'lastname_2' => isset($fdata->lastname_2) ? $fdata->lastname_2 : $this->input->post('lastname'),
+      'cel_2' => isset($fdata->cel_2) ? $fdata->cel_2 : $this->input->post('cel'),
       'mail' => $this->input->post('mail'),
       'dni' => $this->input->post('dni'),
       'cel' => $fdata->cel,
@@ -228,9 +234,13 @@ class User extends AppController
     if($this->UserM->MailExists($this->input->post('mail'), $this->Data->idUser))
       return $this->data['error'] = 'mail2';
 
+    $fdata = (object) $this->Cart->DataJsonCart($this->Cart->GetCart());
     $data = array(
       'name' => $this->input->post('name'),
       'lastname' => $this->input->post('lastname'),
+      'name_2' => isset($fdata->name_2) ? $fdata->name_2 : $this->input->post('name'),
+      'lastname_2' => isset($fdata->lastname_2) ? $fdata->lastname_2 : $this->input->post('lastname'),
+      'cel_2' => isset($fdata->cel_2) ? $fdata->cel_2 : $this->input->post('cel'),
       'mail' => $this->input->post('mail'),
       'dni' => $this->input->post('dni'),
       'cel' => $this->input->post('cel'),

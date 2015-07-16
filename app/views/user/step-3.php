@@ -85,7 +85,23 @@
 									<input type="hidden" name="action" value="dataxx" />
 									<div class="form-group row">
 										<div class="col-sm-4">
-											<label for="dir1">Dirección de envío:</label>
+											<label for="name_2">Nombre:</label>
+										</div>
+										<div class="col-sm-7">
+											<input type="text" value="<?= isset($fdata['name_2']) ? $fdata['name_2'] : $fdata['name'] ?>" name="name_2" id="name_2" tabindex="1" class="form-control">
+										</div>
+									</div>
+									<div class="form-group row">
+										<div class="col-sm-4">
+											<label for="lastname_2">Apellidos:</label>
+										</div>
+										<div class="col-sm-7">
+											<input type="text" value="<?= isset($fdata['lastname_2']) ? $fdata['lastname_2'] : $fdata['lastname'] ?>" name="lastname_2" id="lastname_2" tabindex="1" class="form-control">
+										</div>
+									</div>
+									<div class="form-group row">
+										<div class="col-sm-4">
+											<label for="dir1">Dirección:</label>
 										</div>
 										<div class="col-sm-7">
 											<input type="text" value="<?= $fdata['dir1'] ?>" name="dir1" id="dir1" tabindex="1" class="form-control">
@@ -109,10 +125,10 @@
 									</div>
 									<div class="form-group row">
 										<div class="col-sm-4">
-											<label for="cel">Telf. de contacto:</label>
+											<label for="cel_2">Telf. de contacto:</label>
 										</div>
 										<div class="col-sm-7">
-											<input type="text" value="<?= $fdata['cel'] ?>" name="cel" id="cel" tabindex="1" class="form-control">
+											<input type="text" value="<?= isset($fdata['cel_2']) ? $fdata['cel_2'] : $fdata['cel'] ?>" name="cel_2" id="cel_2" tabindex="1" class="form-control">
 										</div>
 									</div>
 									

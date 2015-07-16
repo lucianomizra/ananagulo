@@ -12,17 +12,12 @@
         <p style="margin:0;margin-bottom:2px"><b>DNI:</b>  <?= $fdata['dni'] ?></p>
         <p style="margin:0;margin-bottom:2px"><b>E-mail:</b>  <?= $fdata['mail'] ?></p>
         <p style="margin:0;margin-bottom:2px"><b>Teléfono:</b>  <?= $fdata['cel'] ?></p>
-        <p style="margin:0;margin-bottom:2px"><b>Dirección:</b> <?= $fdata['dir1'] ?></p>
-        <p style="margin:0;margin-bottom:2px"><b>Población:</b> <?= $fdata['city'] ?></p>
-        <p style="margin:0;margin-bottom:2px"><b>Código Postal:</b> <?= $fdata['cp'] ?></p>
       </td>
       <td style="font-size:13px; padding-top: 20px;vertical-align:top;">        
         <p style="margin:0;margin-bottom:2px"><b style="text-decoration:underline">Datos de envío</b></p>
-        <p style="margin:0;margin-bottom:2px"><b>Nombre:</b> <?= $fdata['name'] ?></p>
-        <p style="margin:0;margin-bottom:2px"><b>Apellidos:</b> <?= $fdata['lastname'] ?></p>
-        <p style="margin:0;margin-bottom:2px"><b>DNI:</b>  <?= $fdata['dni'] ?></p>
-        <p style="margin:0;margin-bottom:2px"><b>E-mail:</b>  <?= $fdata['mail'] ?></p>
-        <p style="margin:0;margin-bottom:2px"><b>Teléfono:</b>  <?= $fdata['cel'] ?></p>
+        <p style="margin:0;margin-bottom:2px"><b>Nombre:</b> <?= isset($fdata['name_2']) ? $fdata['name_2'] : $fdata['name'] ?></p>
+        <p style="margin:0;margin-bottom:2px"><b>Apellidos:</b> <?= isset($fdata['lastname_2']) ? $fdata['lastname_2'] : $fdata['lastname'] ?></p>
+        <p style="margin:0;margin-bottom:2px"><b>Teléfono:</b>  <?= isset($fdata['cel_2']) ? $fdata['cel_2'] : $fdata['cel'] ?></p>
         <p style="margin:0;margin-bottom:2px"><b>Dirección:</b> <?= $fdata['dir1'] ?></p>
         <p style="margin:0;margin-bottom:2px"><b>Población:</b> <?= $fdata['city'] ?></p>
         <p style="margin:0;margin-bottom:2px"><b>Código Postal:</b> <?= $fdata['cp'] ?></p>

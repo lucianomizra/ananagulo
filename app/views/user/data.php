@@ -17,11 +17,11 @@
     <div class="form-title">Datos de envío</div>
     <div class="col-xs-offset-1 col-xs-10 text-right data-address data-addressx ">
       <a class="lnk" href="<?= base_url() ?>mi-cuenta#form-data">> Modificar los datos de envío</a>
-      <p><strong><?= $fdata['name'] ?> <?= $fdata['lastname'] ?></strong> <br>
+      <p><strong><?= isset($fdata['name_2']) ? $fdata['name_2'] : $fdata['name'] ?><?= isset($fdata['lastname_2']) ? $fdata['lastname_2'] : $fdata['lastname'] ?></strong> <br>
       <?= $fdata['dni'] ?><br>
       <?= $fdata['dir1'] ?><br>
       <?= $fdata['cp'] ?> <?= $fdata['city'] ?><br>
-      Teléfono: <?= $fdata['cel'] ?></p>
+      Teléfono: <?= isset($fdata['cel_2']) ? $fdata['cel_2'] : $fdata['cel'] ?></p>
     </div>
   </div>
 </div>
