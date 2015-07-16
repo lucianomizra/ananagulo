@@ -236,18 +236,17 @@ class CartModel extends CI_Model
       $c1 = $this->Data->GetCoupon($cart->coupon_1, 1);
       if($c1) $desc1 = $total * round($c1->value, 2) / 100; 
     }
-    if($cart->coupon_2)
+    /*if($cart->coupon_2)
     {
       $c2 = $this->Data->GetCoupon($cart->coupon_2, 2);
       if($c2)
         $desc2 = $total * round($c2->value, 2) / 100;
-    }    
+    }  */  
     $data['desc1'] = $desc1;
     $data['desc2'] = $desc2;
     $data['total'] = $total - $desc1 - $desc2;
-    $data['subtotal'] = $total  / 1.21;
-    $data['tax'] = $total  * .21 / 1.21;
-
+    $data['tax'] = $data['total']  * .21 / 1.21;
+    $data['subtotal'] = $data['total']  / 1.21;
     $this->SaveCartData($data);
   }
   
@@ -434,7 +433,10 @@ class CartModel extends CI_Model
     $total = 0;
     if( $this->id ) 
     {
-      $sql = "select SUM(ci.cost * ci.items) as total from cart_item ci where ci.id_cart = '{$this->id}'";
+      $sql = "select SUM(ci.cost * ci.items) as total 
+      from cart_item ci 
+      left join product p on p.id_product = ci.id_product
+      where ci.id_cart = '{$this->id}'";
       $total = $this->db->query($sql)->row()->total;
     }    
     if(!$symbol) return $total;

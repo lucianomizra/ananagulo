@@ -236,6 +236,40 @@
 	  </div>
     <? endif ?>
 
+
+
+		<div class="page-header style2 style-cupon">
+		  <div class="container">
+					
+			  <div class="row">
+			  	<h3><a data-toggle="collapse" href="#collapseCuppon" aria-expanded="false" aria-controls="collapseCuppon">¿Tienes algun código de descuento?</a></h3>
+
+					<div class="collapse text-center" id="collapseCuppon" role="tabpanel">
+						<div class="box-cupon">
+							<div class="form-group">
+								<label for="coupon_1"></label>
+								<input type="text" value="<?= isset($_POST['coupon_1']) ? $this->input->post('coupon_1') : (isset($cdata->coupon_1) ? $cdata->coupon_1 : "") ?>" name="coupon_1" id="coupon_1" class="form-control btn-block">
+							</div>
+							<button class="btn btn-block btn-gold">
+								Aplicar cambio
+							</button>
+							<?php if(isset($error2)): 
+
+          $errorArr2['coupon_1_invalid'] = 'El código de descuento es inválido.';
+          $errorArr2['coupon_1_inactive'] = 'El código de descuento se encuentra inactivo.';
+          $errorArr2['coupon_1_empty'] = 'El código de descuento ya fue utilizado el máximo de veces disponibles.';
+
+							?>
+							<div id="CupponError">* <?php echo $errorArr2[$error2] ?> Vuelva a intentar o póngase en contacto con nosotros <a target="_blank" href="<?= base_url() ?>contacto">aquí</a>.</div>
+    					<? endif ?>
+						</div>
+					</div>					
+
+				</div>
+			</div>
+		</div>
+
+
 		<div class="page-footer text-center">			
 			<a href="<?= base_url() ?>cart" class="btn btn-default btn-lg">Modificar cesta</a>
 			<button class="btn btn-primary btn-lg">Confirmar pedido</button>
@@ -250,6 +284,12 @@
 </div>
 <script>
 	$(document).ready(function() {
+		<? if(isset($error2)): ?>
+		$('#collapseCuppon').collapse('show');
+		$("html, body").animate({ scrollTop: $('#collapseCuppon').offset().top - 100 }, 200);
+		<? elseif(isset($cdata->coupon_1) && $cdata->coupon_1): ?>
+		$('#collapseCuppon').collapse('show');
+		<? endif ?>
 		<? if(isset($openFormY)): ?>
 		$('.rowoffxdt .offxdty').replaceWith($('.row-hhh .offxdty'));
 		$("html, body").animate({ scrollTop: $('.rowoffxdt .offxdty').offset().top - 100 }, 200);

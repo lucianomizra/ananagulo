@@ -2229,3 +2229,24 @@ a:hover .glyphicon-shopping-cart:before {
   margin-right: -5px;
   margin-left: 2px;
 }
+.box-cupon .btn-gold{
+  margin-top:10px;
+}
+.box-cupon #CupponError{
+
+  position: absolute;
+  right: -190px;
+  width: 170px;
+  bottom: 0;
+}
+.box-cupon{
+  max-width: 350px;
+  margin:auto;
+  position: relative;
+  margin-top:-10px;
+  margin-bottom:20px;
+}
+
+.page-header.style2.style-cupon{
+  border-bottom:1px solid #dcc878;
+}

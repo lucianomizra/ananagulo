@@ -69,11 +69,19 @@
                  
                 </tbody>
             </table> 
-
+            <? 
+            if(isset($cartDisabled) && isset($coupon1)) 
+            {
+              $cuponST = $subtotal * ($coupon1->value/100);
+              $subtotal -= $cuponST; 
+            } ?>
             <div class="total">
               <div class="pull-right">
                 <p><span class="txt_total hsub">Subtotal_</span><span class="ff" id="subtotal"><?= prep_cost($subtotal/1.21, true, false); ?></span></p>
                 <p><span class="txt_total hsub">IVA_</span><span class="ff" id="iva"><?= prep_cost($subtotal*.21/1.21, true, false); ?></span></p>
+                <? if(isset($cartDisabled) && isset($coupon1)): ?>
+                <p><span class="txt_total hsub">Cupon (<?= $coupon1->value ?>%)_</span><span class="ff" id="cupon">- <?= prep_cost($cuponST, true, false); ?></span></p>
+                <? endif ?>
                 <p><span class="txt_total hstyle1">Total_</span><span class="ff bb" id="total"><?= prep_cost($subtotal, true, false); ?></span></p>
                 <div class="clearboth"></div>
               </div> 

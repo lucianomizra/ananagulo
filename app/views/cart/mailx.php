@@ -82,11 +82,14 @@
     </tr> 
     <? endforeach ?>        
   </tbody>
-</table>         
+</table>      
 <div style="font-size:12px;margin-bottom:20px;margin-top:20px;text-align:right">
   <div style="margin-right:10px">
     <div style="font-size:15px;margin-top:2px"><span style="font-weight:bold">Subtotal:</span> <span style="display:inline-block;width:100px"><?= prep_cost($cdata->subtotal, true, false); ?></span></div>
     <div style="font-size:15px;margin-top:2px"><span style="font-weight:bold">IVA:</span> <span style="display:inline-block;width:100px"><?= prep_cost($cdata->tax, true, false); ?></span></div>
+    <? if($cdata->desc1): ?>
+    <div style="font-size:15px;margin-top:2px"><span style="font-weight:bold">Descuento:</span> <span style="display:inline-block;width:100px"><?= prep_cost($cdata->desc1, true, false); ?></span></div>
+    <? endif ?>
     <div style="font-size:18px;margin-top:5px"><span style="font-weight:bold">Total:</span> <span style="display:inline-block;width:100px"><?= prep_cost($cdata->total, true, false); ?></span></div>
   </div>
 </div>

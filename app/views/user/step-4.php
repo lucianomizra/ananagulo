@@ -29,8 +29,9 @@
 			<button id="submit-button" class="btn btn-primary btn-lg">Confirmar pedido</button>
 		</div>
 <? 
-$amount = round($this->Cart->Total(false),2) * 100;
-        if($cdata->id_payment == 1 || $cdata->id_payment == 2 || $cdata->id_payment ==3): 
+$amount = $cdata->total;
+$amount = round($amount,2) * 100;
+if($cdata->id_payment == 1 || $cdata->id_payment == 2 || $cdata->id_payment ==3): 
 $code = '333647345';
 $order = str_pad($this->Cart->id, 4, "0", STR_PAD_LEFT) . date('his');
 $currency = '978';

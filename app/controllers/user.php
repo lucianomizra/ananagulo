@@ -63,8 +63,7 @@ class User extends AppController
             $fdata[$key] = $this->input->post($key);
         }
         if(!isset($_POST['newsletter'])) $fdata['newsletter'] = 0; 
-        if(!isset($_POST['dextra'])) $fdata['dextra'] = 0; 
-        
+        if(!isset($_POST['dextra'])) $fdata['dextra'] = 0;         
       }
       #die(print_r($fdata));
       $this->data['fdata'] = $fdata;
@@ -90,6 +89,8 @@ class User extends AppController
       $this->data['cartItems'] = $this->Cart->ListItems();  
       $this->data['cdata'] = $this->Cart->DataCart($this->Cart->id);
       $this->data['fdata'] = $this->Cart->DataJsonCart($this->Cart->id);
+      if($this->data['cdata']->coupon_1)
+        $this->data['coupon1'] = $this->Data->GetCoupon($this->data['cdata']->coupon_1, 1);
       if( !$this->data['cdata']->id_payment || !$this->data['cdata']->id_shipping)
         return redirect('mi-cuenta/step-3');
       $this->data['cartItems'] = $this->Cart->ListItems();   
@@ -351,6 +352,18 @@ class User extends AppController
     }
     if( !$fieldsOB )
       return $this->data['error'] = 'fields';
+
+
+    if($this->input->post('coupon_1'))
+    {
+      $status =  $this->Data->GetStatusCoupon($this->input->post('coupon_1'), 1);
+      if($status == 0)
+        return $this->data['error2'] = 'coupon_1_invalid';
+      if($status == 1)
+        return $this->data['error2'] = 'coupon_1_inactive';
+      if($status == 2)
+        return $this->data['error2'] = 'coupon_1_empty';
+    }
     /*
     if($this->input->post('coupon_1'))
     {
@@ -380,6 +393,8 @@ class User extends AppController
     /*$data['id_store'] = ($this->input->post('id_shipping') == 2 ) ? $this->input->post('id_store') : 0;
     $data['coupon_1'] = $this->input->post('coupon_1');
     $data['coupon_2'] = $this->input->post('coupon_2');*/
+
+    $data['coupon_1'] = $this->input->post('coupon_1');
     $data['comments'] = $this->input->post('comments');
     $this->Cart->SaveCartData($data);
     $this->Cart->RefreshCartTotals();
