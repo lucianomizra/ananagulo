@@ -46,6 +46,7 @@ $types = $this->Data->GetSizeTypes();
 </div>
 <script>
 $('.widget-sizes .close').click(function(event) {
-	$('.widget-sizes').css('display', 'none')
+	$('.widget-sizes').css('display', 'none');
+  $("html, body").animate({ scrollTop: $('.open-guide').offset().top - 400 }, 300);
 });
 </script>

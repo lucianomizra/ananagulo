@@ -260,18 +260,22 @@ var App = {
 			    move : 0,
 			    asNavFor: '#slider'
 			  });
+			  if(App.is_lg())
+			  {
 
-			  App.requiredScript( App.config.layout + 'js/jquery.elevateZoom-3.0.8.min.js', function() {
-				  $('#slider img').elevateZoom({
-					zoomType: "inner"
-			      }).mouseover(function() { $(this).css({opacity:'0'}) }).mouseout(function() { $(this).css({opacity:'1'}) });
+				  App.requiredScript( App.config.layout + 'js/jquery.elevateZoom-3.0.8.min.js', function() {
+					  $('#slider img').elevateZoom({
+						zoomType: "inner"
+				      }).mouseover(function() { $(this).css({opacity:'0'}) }).mouseout(function() { $(this).css({opacity:'1'}) });
 
-		      });
-			 
-			  $('#slider').flexslider({
-			    sync: "#carousel"
-			  });
+			      });
+			  }
 
+				 
+				  $('#slider').flexslider({
+				    sync: "#carousel"
+				  });
+				  
 			  var w_last_views = ($('.last-views:eq(0)').width() + 30) / 4;
 
 			  $('.last-views').flexslider({

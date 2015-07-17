@@ -45,18 +45,37 @@ class Cart extends AppController
       $clave = '4Q86OG5PN99QS567';
       $message = $amount.$order.$code.$currency.$response.$clave;
       $signature = strtoupper(sha1($message));
+
       if($ss != $signature)
       {        
         return $this->index('tpv-ko');
       }
 
       $data = array(
+        'id_state'=> 3,
         'modified' => date('Y-m-d H:i:s'),
         'code' => $this->Cart->GetMaxCode(),
         'payment_data' => json_encode($_GET)
       );
       $this->Cart->SaveCartData($data);
       $this->session->set_userdata('cart-ok-amout', $amount);
+      return $this->cartClose();
+    } 
+
+    if($action == 'contrareembolso')
+    {
+      $this->data['cdata'] = $this->Cart->DataCart($this->Cart->id);
+      if($this->data['cdata']->id_payment != 5)
+      {
+        $this->data['error'] = 'El pedido no tiene seleccionado forma de pago contrareembolso';
+        return $this->index('tpv-ko');
+      }
+      $data = array(
+        'id_state'=> 2,
+        'modified' => date('Y-m-d H:i:s'),
+        'code' => $this->Cart->GetMaxCode()
+      );
+      $this->Cart->SaveCartData($data);
       return $this->cartClose();
     } 
 
@@ -67,6 +86,7 @@ class Cart extends AppController
 
     if($action == 'test')
     {
+      exit;
       return $this->cartClose();
     } 
 
@@ -78,6 +98,9 @@ class Cart extends AppController
         return redirect('mi-cuenta/step-2');
       if(!$this->session->userdata('cartId'))
         return redirect('mi-cuenta/step-2');
+
+    $this->load->model('UserModel', 'UserM');
+    $this->UserM->idUser = $this->Data->idUser;
       $this->data['cdata'] = $this->Cart->DataCart($this->Cart->id);
       $this->data['fdata'] = $this->Cart->DataJsonCart($this->Cart->id);
       if( !$this->data['cdata']->id_payment || !$this->data['cdata']->id_shipping)
@@ -87,8 +110,8 @@ class Cart extends AppController
 
     if($action == 'finalizado')
     {      
-      if(!$this->Cart->id)
-        return redirect('mi-cuenta/step-2');
+      /*if(!$this->Cart->id)
+        return redirect('mi-cuenta/step-2');*/
       return $this->load->view('user/end', $this->data);
     }
 
@@ -155,7 +178,9 @@ class Cart extends AppController
   
   private function cartClose()
   {
-    #if(!$this->cartShipping()) return;
+    $this->load->model('UserModel', 'UserM');
+    $this->UserM->idUser = $this->Data->idUser;
+    if(!$this->cartShipping()) return;
     $this->session->unset_userdata('cart-ok-amout');
     $this->load->library('PHPMailer');
     $this->session->unset_userdata('cart-ok');
@@ -212,18 +237,20 @@ class Cart extends AppController
     $data = $this->Cart->DataCart($this->Cart->id);
 
     #if( $data->id_shipping != 1 &&  $data->id_shipping != 2 ) return true;
-    $items = $this->Cart->ListItems();
-    $total = 0;
-    $cost = 0;
+    #$items = $this->Cart->ListItems();
+    
+    $ccdata = $this->Cart->DataCart($this->Cart->id);
+    $total = $ccdata->total;
+    /*$cost = 0;
     foreach($items as $item)
     {
       $cost = $item->items * $item->cost;
       $total += $item->items;
-    }
+    }*/
     $reembolso = 0;
     if( $data->id_payment == 5 )
     {
-      $reembolso = number_format($cost*1.21,2,',','');   
+      $reembolso = number_format($total,2,',','');   
     }
     $requestParams = array(
       'usuario' => 'takezo_p', #takezo_t

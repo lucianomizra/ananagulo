@@ -70,7 +70,8 @@ $(document).ready(function() {
   	($cdata->id_payment == 1 || $cdata->id_payment == 2 || $cdata->id_payment == 3)): ?>
   	$('#form-tpv').submit();
  	 return false;
-  <? else: ?>
+  <? elseif($cdata->id_payment == 5): ?>
+  	window.location.href = '<?= base_url () ?>cart/contrareembolso';
   <? endif ?>
   });
 });

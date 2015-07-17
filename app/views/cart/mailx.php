@@ -73,7 +73,6 @@
       <td style="padding:5px;vertical-align:top;text-align:left"><img style="width:105px" src="<?= thumb($item->file, 205, 135) ?>" /></td>
       <td style="text-align:left">
         <h3 style="font-size:13px;margin:0;margin-bottom:1px"><?= $item->code ? "{$item->code} - " : "" ?><?= $item->name ?></h3>
-        <div style="margin-bottom:2px"><?= character_limiter($item->description,150) ?></div>
       </td>
       <td><?= $item->color ? $item->color : "-"  ?></td>
       <td><?= $item->size ? $item->size : (count($sizes) ? $sizes[0] : "-") ?></td>

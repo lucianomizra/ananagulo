@@ -17,7 +17,7 @@
       <div class="clearfix"></div>
     </div>
     <div class="page-body">
-      <div class="row">
+      <div class="row collapseRowXX">
         <div class="col-sm-6 col-lg-5 col-xs-12">
            <section class="product-gallery">
               <div class="flexslider" id="slider">
@@ -181,6 +181,12 @@
 </div>
 <script>
 $(document).ready(function() {
+  $('#collapseCustomLook').on('shown.bs.collapse', function () {
+    $('.row.collapseRowXX').css('min-height', $('#collapseCustomLook').height() + 100);
+  });
+  $('#collapseCustomLook').on('hidden.bs.collapse', function () {
+    $('.row.collapseRowXX').css('min-height', 0);
+  });
   var fnTotal = function(){
     var total = 0;
     $('#accordionCustomLooks .product-item').each(function(index, item) {
@@ -240,6 +246,7 @@ $(document).ready(function() {
         success: function(html){
           if(index == max - 1)
           {
+            App.refreshCart();
             //window.location.href = "<?= base_url()  ?>cart";
           }
         }
