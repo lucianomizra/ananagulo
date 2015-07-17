@@ -7,11 +7,17 @@ class sales extends AppController {
 
   public function __construct()
   {
-    $this->safeFunctionsU = array('noficationsale');
+    $this->safeFunctionsU = array('noficationsale', 'detailscart');
     parent::__construct();
     $this->cfg['title'] = $this->lang->line('Ventas');
   }
-
+
+
+  public function detailscart( $id = 0 )
+  {
+    redirect('http://anaangulo.com/mi-cuenta/pedido/' . $id . '/' . md5($id . ' - AnaAngulo'));
+  }
+
   public function payments()
   {
     $this->cfg['subtitle'] = $this->lang->line('Formas de pago');

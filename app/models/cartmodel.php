@@ -214,7 +214,7 @@ class CartModel extends CI_Model
   {
     $data = array();
     $subtotal =  0; 
-    $shipping =  0; 
+    $shipping =  4.99; 
     $items = $this->ListItems();
     foreach($items as $item)
     {
@@ -233,7 +233,7 @@ class CartModel extends CI_Model
     $data['tax'] = 0;
     $desc1 = 0; 
     $desc2 = 0; 
-    $total = $subtotal + $shipping + $data['tax'];
+    $total = $subtotal + $data['tax'];
     $cart = $this->DataCart($this->id); 
     if(!$cart) return;
     if($cart->coupon_1)

@@ -32,11 +32,17 @@ class User extends AppController
 
     if($section == 'pedido')
     {
-      if(!$this->Data->idUser)
-        return redirect('mi-cuenta');
+      $md5 = $this->uri->segment(4);
       $idc = $this->uri->segment(3);
+      $valid = false;
+      if($md5 && $md5 == md5($idc . ' - AnaAngulo'))
+      {
+        $valid = true;
+      }
+      if(!$this->Data->idUser && !$valid)
+        return redirect('mi-cuenta');
       $this->data['cdata'] = $this->Cart->DataCartComplete($idc);
-      if($this->Data->idUser != $this->data['cdata']->id_user)
+      if($this->Data->idUser != $this->data['cdata']->id_user && !$valid)
         return redirect('mi-cuenta');
       $this->data['cartItems'] = $this->Cart->ListItems($idc);  
       $this->data['fdata'] = $this->Cart->DataJsonCart($idc);
