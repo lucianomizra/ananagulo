@@ -75,7 +75,7 @@ class CartModel extends CI_Model
     $row = $this->db->query($sql)->row();
     if($row && $row->max)
     {
-      return $row->max+1;
+      return round($row->max)+1;
     }
     return 1;
   }
@@ -83,7 +83,12 @@ class CartModel extends CI_Model
   public function DataCart( $cart = 0 )
   {
     $sql = "select * from cart where id_cart = '{$cart}'";
-    return $this->db->query($sql)->row();
+    $cart = $this->db->query($sql)->row();
+    if(!$cart)
+    {
+      return $this->DataCart($this->GetCart());
+    }
+    return $cart;
   }
   
   public function DataCartComplete( $cart = 0 )

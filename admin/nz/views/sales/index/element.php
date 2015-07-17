@@ -183,19 +183,19 @@
     'label' => $this->lang->line('Dirección #1'),
     'value' => $json[$field],
     'placeholder' => ''
-  ))) ?><? $field = 'dir2'; $this->load->view('app/form', array('item' => array(
-    'columns' => 3,
-    'readonly' => true,
-    'form' => $wgetId,
-    'label' => $this->lang->line('Dirección #2'),
-    'value' => $json[$field],
-    'placeholder' => ''
   ))) ?>
   <? $field = 'city'; $this->load->view('app/form', array('item' => array(
     'columns' => 3,
     'readonly' => true,
     'form' => $wgetId,
     'label' => $this->lang->line('Ciudad'),
+    'value' => $json[$field],
+    'placeholder' => ''
+  ))) ?><? $field = 'dni'; $this->load->view('app/form', array('item' => array(
+    'columns' => 3,
+    'readonly' => true,
+    'form' => $wgetId,
+    'label' => $this->lang->line('DNI'),
     'value' => $json[$field],
     'placeholder' => ''
   ))) ?>
@@ -207,8 +207,8 @@
     'value' => $json[$field],
     'placeholder' => ''
   )))*/  ?>
-  <? if($json['dextra']): ?>
-    <h3 style="clear:both;margin-left:15px;margin-bottom:5px">Datos de Facturación</h3>
+  <? if($json['name_2']): ?>
+    <h3 style="clear:both;margin-left:15px;margin-bottom:5px">Datos de Envío</h3>
   <? $field = 'name_2'; $this->load->view('app/form', array('item' => array(
     'columns' => 3,
     'readonly' => true,
@@ -224,34 +224,11 @@
     'value' => $json[$field],
     'placeholder' => ''
   ))) ?>
-  <? $field = 'city_2'; $this->load->view('app/form', array('item' => array(
-    'columns' => 3,
-    'readonly' => true,
-    'form' => $wgetId,
-    'label' => $this->lang->line('Ciudad'),
-    'value' => $json[$field],
-    'placeholder' => ''
-  ))) ?>
-  <? /*$field = 'cp_2'; $this->load->view('app/form', array('item' => array(
-    'columns' => 3,
-    'readonly' => true,
-    'form' => $wgetId,
-    'label' => $this->lang->line('CP'),
-    'value' => $json[$field],
-    'placeholder' => ''
-  )))*/ ?>
-  <? $field = 'dir1_2'; $this->load->view('app/form', array('item' => array(
+  <? $field = 'cel_2'; $this->load->view('app/form', array('item' => array(
     'columns' => 6,
     'readonly' => true,
     'form' => $wgetId,
-    'label' => $this->lang->line('Dirección #1'),
-    'value' => $json[$field],
-    'placeholder' => ''
-  ))) ?><? $field = 'dir2_2'; $this->load->view('app/form', array('item' => array(
-    'columns' => 6,
-    'readonly' => true,
-    'form' => $wgetId,
-    'label' => $this->lang->line('Dirección #2'),
+    'label' => $this->lang->line('Telefono #2'),
     'value' => $json[$field],
     'placeholder' => ''
   ))) ?>

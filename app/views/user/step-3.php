@@ -18,7 +18,7 @@
 			
 		</ul>
 
-		<? $this->load->view('user/data') ?>	
+		<? $this->load->view('user/data', array('cmodf' =>  true)) ?>	
 
 <div class="row checkout-center row-hhh">
 			<div class="col-sm-5 offxdty">

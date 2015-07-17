@@ -24,7 +24,7 @@
 		</div>
 
 		<div class="page-footer text-center page-footer-nm">			
-			<a href="<?= base_url() ?>mi-cuenta" class="btn btn-default btn-lg">Modificar mis datos</a>
+			<a href="<?= base_url() ?>mi-cuenta/step-3" class="btn btn-default btn-lg">Modificar mis datos</a>
 			<a href="<?= base_url() ?>cart" class="btn btn-default btn-lg">Modificar cesta</a>
 			<button id="submit-button" class="btn btn-primary btn-lg">Confirmar pedido</button>
 		</div>
