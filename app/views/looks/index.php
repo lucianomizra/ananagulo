@@ -55,7 +55,7 @@
 						</a>
 					</div>
 					<? endif ?>
-						<span class="center">
+						<span class="center text-no-mobile">
 							<span class="linebox bigpadding">
 								<h2 class='ggltp'>Bienvenida a <br>Ana Angulo</h2>
 								<small>Descubre los 15 looks que tenemos preparados para ti y ven a visitarnos a nuestras tiendas donde encontraras lo último para vestir tu armario.</small>
@@ -93,7 +93,7 @@
 				</div>
 			</div>
 			<? endif ?>
-			<div class="col-sm-4 height1">
+			<div class="col-sm-4 height1 text-no-mobile">
 				<div class="cover style1 sepia">
 					<a href="<?= base_url() ?>contacto/tiendas">
 						<span class="middle">
@@ -207,7 +207,7 @@
 					</a>
 				</div>
 			</div>
-			<div class="col-sm-4 height1 magicclear1">
+			<div class="col-sm-4 height1 magicclear1 text-no-mobile">
 				<div class="sepia style1">
 					<a href="https://www.facebook.com/tiendasanaangulo" target="_blank">
 						<span class="middle">
@@ -286,7 +286,7 @@
 					</a>
 				</div>
 			</div>
-			<div class="col-sm-4 height3 xs-height1">
+			<div class="col-sm-4 height3 xs-height1 text-no-mobile">
 				<div class="sepia style1">
 					<a href="https://instagram.com/anaanguloboutique" target="_blank">
 						<span class="middle">

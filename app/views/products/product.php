@@ -16,9 +16,9 @@ $inCart = $this->Cart->ItemExists($product->id, 0, 0);
         <li class="active">Nombre del producto</li>
       */?>
         <li><a href="<?= base_url() ?>">Ana Angulo</a></li>
-        <li><a href="<?= base_url() ?>productos/categoryp:<?= $product->id_category ?>_show:16"><?= $product->department ?></a></li>
+        <li class="section section-base"><a href="<?= base_url() ?>productos/categoryp:<?= $product->id_category ?>_show:16"><?= $product->department ?></a></li>
         <? if($product->sub): ?>
-        <li><a href="<?= base_url() ?>productos/categoryp:<?= $product->id_category ?>_category:<?= $product->id_sub ?>_show:16"><?= $product->sub ?></a></li>
+        <li class="section section-sub"><a href="<?= base_url() ?>productos/categoryp:<?= $product->id_category ?>_category:<?= $product->id_sub ?>_show:16"><?= $product->sub ?></a></li>
         <? endif ?>
         <li class="active"><?= $product->name ?></li>
       </ol>
@@ -141,7 +141,7 @@ $inCart = $this->Cart->ItemExists($product->id, 0, 0);
     <? $this->load->view('widget/sizes') ?>
     <? if(count($simil)): ?>
     <div class="page-footer">
-      <div class="page-header">
+      <div class="page-header phscroll">
         <h3>Productos relacionados</h3>
       </div>
         <div class="row prelated">
@@ -177,7 +177,8 @@ $inCart = $this->Cart->ItemExists($product->id, 0, 0);
       </div>
       <? endif*/ ?>
       <? if(count($productVisits)>1): ?>
-      <div class="page-header">
+      <div class="pvisits">
+      <div class="page-header phscroll">
         <h3>Lo último visto</h3>
       </div>
         <div class="home-second-slider last-views">
@@ -198,6 +199,7 @@ $inCart = $this->Cart->ItemExists($product->id, 0, 0);
               </li><? endforeach ?>
           </ul>
         </div>
+        </div>
       <? endif ?>
     </div>
 
@@ -217,6 +219,10 @@ $(document).ready(function() {
   $('.open-guide').click(function(e){
     $('.widget-sizes').css('display', 'block');
     $("html, body").animate({ scrollTop: $('.widget-sizes').offset().top - 120 }, 300);
+  });
+  $('.phscroll').click(function(e){
+    if($(window).width()<500)
+      $("html, body").animate({ scrollTop: $(this).offset().top -50 }, 500);
   });
   $('.go-to-top').click(function(e){
     $("html, body").animate({ scrollTop: 0 }, 500);

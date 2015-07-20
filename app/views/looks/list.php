@@ -1,6 +1,6 @@
   <div class="page-footer look-hhsm-list">
-    <div class="page-header phb">
-      <h3 class="look-hhsm">Productos del look | <span><?= $look->name ?></span></h3>
+    <div class="page-header phb phscroll">
+      <h3 class="look-hhsm">Productos del look <span class="xx">|</span> <span><?= $look->name ?></span></h3>
     </div>
       <div class="row">
         <? for($k = 0; $k<count($products); $k+= 6) : $i = $k; ?>

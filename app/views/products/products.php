@@ -1,13 +1,30 @@
 <?php if(!AJAX) $this->load->view('common/header') ?>
 <div id="page-info" data-section="products"></div>
+<div class="page-header phb header-basic">
+  <ol class="breadcrumb pull-left"> 
+    <li class="section"><?
+if(isset($search->filter->categoryp) && $search->filter->categoryp):
+  $dep = $this->Data->DepartmentId($search->filter->categoryp);
+  if($dep)
+    echo $dep->department;
+  else
+    echo "Productos";
+else:
+  echo "Productos";
+endif;
+    ?></li>
+  </ol>
+  <div class="clearfix"></div>
+</div>
 <div class="container">
   <div class="page-login">
-    <div class="row row-products-filter">
+    <div class="row row-products-filter base-list">
       <? $this->load->view('products/filters') ?>
     </div>
     <div class="base-product-list">
     <? $this->load->view('products/list') ?>
     </div>
+    <div class="go-top go-top-fixed"><img src="<?= layout('imgs/ico/subir.png') ?>"></div>
     <? if($totalProducts>$this->Data->init+$search->filter->show && $search->filter->show != 100):?>
     <div class="text-center go-top load-more-items">
       <a href="<?= base_url() ?>productos/<?= $questURI ? $questURI : 'show:16' ?>/<?= $this->Data->init + $search->filter->show ?>">
@@ -99,6 +116,9 @@ $('.load-more-items a').click(function(e){
 });
 $(document).ready(function($) {
   prepareProducts();
+  $('.go-top-fixed').click(function(event) {    
+    $("html, body").animate({ scrollTop: 0 }, 500);
+  });
 });
 </script>
 <?php $this->load->view('common/footer') ?>

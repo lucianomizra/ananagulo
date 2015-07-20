@@ -11,8 +11,8 @@
 
       <div class="pull-right">
         Otros looks
-        <? if($lookPrev): ?><a href="<?= base_url() ?>look/<?= $lookPrev->id ?>/<?= prep_word_url($lookPrev->name) ?>"><span class="glyphicon glyphicon-triangle-left"></span></a><? else: ?><a class="disabled"><span class="glyphicon glyphicon-triangle-left"></span></a><? endif ?>
-        <? if($lookNext): ?><a href="<?= base_url() ?>look/<?= $lookNext->id ?>/<?= prep_word_url($lookNext->name) ?>"><span class="glyphicon glyphicon-triangle-right"></span></a><? else: ?><a class="disabled"><span class="glyphicon glyphicon-triangle-right"></span></a><? endif ?>
+        <? if($lookPrev): ?><a class="arr-left" href="<?= base_url() ?>look/<?= $lookPrev->id ?>/<?= prep_word_url($lookPrev->name) ?>"><span class="glyphicon glyphicon-triangle-left"></span></a><? else: ?><a class="disabled"><span class="glyphicon glyphicon-triangle-left"></span></a><? endif ?>
+        <? if($lookNext): ?><a class="arr-right" href="<?= base_url() ?>look/<?= $lookNext->id ?>/<?= prep_word_url($lookNext->name) ?>"><span class="glyphicon glyphicon-triangle-right"></span></a><? else: ?><a class="disabled"><span class="glyphicon glyphicon-triangle-right"></span></a><? endif ?>
       </div>
       <div class="clearfix"></div>
     </div>
@@ -181,11 +181,20 @@
 </div>
 <script>
 $(document).ready(function() {
+  
+  $('.phscroll').click(function(e){
+    if($(window).width()<500)
+      $("html, body").animate({ scrollTop: $(this).offset().top -50 }, 500);
+  });
+  $('#collapseCustomLook').on('show.bs.collapse', function () {
+    $('.box-product').addClass('tlookopen')
+  });
   $('#collapseCustomLook').on('shown.bs.collapse', function () {
     $('.row.collapseRowXX').css('min-height', $('#collapseCustomLook').height() + 100);
   });
   $('#collapseCustomLook').on('hidden.bs.collapse', function () {
     $('.row.collapseRowXX').css('min-height', 0);
+    $('.box-product').removeClass('tlookopen')
   });
   var fnTotal = function(){
     var total = 0;

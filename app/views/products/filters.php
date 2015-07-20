@@ -4,7 +4,7 @@ $colors = $this->Data->SearchColors();
 $left = (($search->filter->cost1 > 0) ? $search->filter->cost1 : 0) / $maxCost * 100;
 $right = (($search->filter->cost2 > 0)  ? $search->filter->cost2 : $maxCost) / $maxCost * 100;
 ?>
-<div class="col-xs-12 dropdowns-menu">
+<div class="col-xs-12 dropdowns-menu collapseFilters-box">
   <form id="global-search-form" method="post" action="<?= base_url() ?>productos">
   <input class="post search-filter-text" type="hidden" value="<?= $search->filter->text ?>" name="text" />
   <input id="search-filter-size-<?= $rnd ?>" class="post search-filter-size" type="hidden" value="<?= $search->filter->size ?>" name="size" />
@@ -34,6 +34,11 @@ $right = (($search->filter->cost2 > 0)  ? $search->filter->cost2 : $maxCost) / $
             Productos a mostrar <span class="caret"></span>
           </button>
       </li>
+      <li class="filters">
+          <button type="button" class="btn btn-default dropdown-toggle" >
+            Filtros
+          </button>
+      </li>
     </ul>
 
       <div class="col-xs-12 collapse" id="collapseFilters">
@@ -41,6 +46,7 @@ $right = (($search->filter->cost2 > 0)  ? $search->filter->cost2 : $maxCost) / $
         <span aria-hidden="true">&times;</span>
       </button>
         <div class="col-sm-3">
+          <label class="label-mobile">Colores</label>
           <? $colors = $this->Data->Colors(); ?>
           <ul>
             <li><input id="check-c-0" type="radio" <? if(!$search->filter->color): ?>checked="checked" <? endif ?>name="color" value="0" /><label for="check-c-0">Todas los colores</label></li>
@@ -50,6 +56,7 @@ $right = (($search->filter->cost2 > 0)  ? $search->filter->cost2 : $maxCost) / $
           </ul>
         </div>            
         <div class="col-sm-3">
+        <label class="label-mobile">Precio</label>
         <div class="row">
           <div class="col-xs-2">
             <label for="from">De: </label>
@@ -68,6 +75,7 @@ $right = (($search->filter->cost2 > 0)  ? $search->filter->cost2 : $maxCost) / $
         </div>
         </div>            
         <div class="col-sm-3 sizes text-center">
+          <label class="label-mobile">Talla</label>
           <div class="btn-group margin-bottom" role="group">
             <button type="button" data-value="XS" class="btn btn-default<? if($search->filter->size == 'XS'): ?> active<? endif ?>">XS</button>
             <button type="button" data-value="S" class="btn btn-default<? if($search->filter->size == 'S'): ?> active<? endif ?>">S</button>
@@ -76,7 +84,8 @@ $right = (($search->filter->cost2 > 0)  ? $search->filter->cost2 : $maxCost) / $
             <button type="button" data-value="XL" class="btn btn-default<? if($search->filter->size == 'XL'): ?> active<? endif ?>">XL</button>
           </div>
         </div>            
-        <div class="col-sm-3">              
+        <div class="col-sm-3">     
+          <label class="label-mobile">Productos a mostrar</label>         
           <ul>
           <li><input id="show-16" type="radio" <? if(!$search->filter->show || $search->filter->show == 16): ?>checked="checked" <? endif ?>name="show" value="16"/><label for="show-16">Mostrar 16</label></li>
           <li><input id="show-32" type="radio" <? if($search->filter->color == 32): ?>checked="checked" <? endif ?>name="show" value="32"/><label for="show-32">Mostrar 32</label></li>

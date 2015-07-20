@@ -1,8 +1,14 @@
 <?php if(!AJAX) $this->load->view('common/header') ?>
 <? $slide = $this->Data->SlideReductions(); ?>
 <div id="page-info" data-section="home"></div>
+<div class="page-header phb header-basic">
+  <ol class="breadcrumb pull-left"> 
+    <li class="section">Rebajas</li>
+  </ol>
+  <div class="clearfix"></div>
+</div>
 <? if(count($slide)): ?>
-<div class="col-md-12 no-padding inside-menu">
+<div class="col-md-12 no-padding inside-menu collections-slide">
   <div class="full-container">
     <div class="home-open-slider slider">
       <ul class="slides">
@@ -32,17 +38,19 @@
 <? endif ?>
 <div id="page-info" data-section="products"></div>
 <div class="container">
-  <div class="page-header style3 page-header-ttt ttt-reductions">
+  <div class="page-header style3 page-header-ttt ttt-reductions phmoved">
     <h2>Nuestras rebajas</h2>
     <p>Disfruta comprando nuestros productos a los mejores precios.</p>
   </div>
   <div class="page-login">
-    <div class="row row-products-filter">
+    <div class="row row-products-filter base-list">
       <? $this->load->view('reductions/filters') ?>
     </div>
+    <div class="header-new-post"></div>
     <div class="base-product-list">
     <? $this->load->view('reductions/list') ?>
     </div>
+    <div class="go-top go-top-fixed"><img src="<?= layout('imgs/ico/subir.png') ?>"></div>
     <? if($totalProducts>$this->Data->init+$search->filter->show && $search->filter->show != 100):?>
     <div class="text-center go-top load-more-items">
       <a href="<?= base_url() ?>rebajas/<?= $questURI ? $questURI : 'show:16' ?>/<?= $this->Data->init + $search->filter->show ?>">
@@ -63,6 +71,10 @@ $(document).ready(function() {
     $("html, body").animate({ scrollTop: $('.row-products-filter').offset().top - 150 }, 300);
   },1000);    
   <? endif ?>
+  if($(window).width()<500)
+  {
+    $('.phmoved').appendTo('.header-new-post');
+  }
 });
 var prepareProducts = function(){
   $('.products-listx .product-list-itemx .product-preview:not(.rendered)').each(function(index,item){
@@ -101,6 +113,9 @@ $('.load-more-items a').click(function(e){
   return false;
 });
 $(document).ready(function($) {
+  $('.go-top-fixed').click(function(event) {    
+    $("html, body").animate({ scrollTop: 0 }, 500);
+  });
   prepareProducts();
 });
 </script>
