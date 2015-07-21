@@ -85,6 +85,7 @@
     </div>
   </div>
 </footer>
+<?php $this->load->view('common/analytics') ?>
 <script src="<?= layout() ?>js/app.js"></script>
 <script type="text/javascript" src="<?= layout() ?>js/bootstrap-select.min.js"></script>
 <script type="text/javascript" src="<?= layout() ?>js/jquery.scrollTo.min.js"></script>

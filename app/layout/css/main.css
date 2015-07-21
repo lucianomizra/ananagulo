@@ -3,35 +3,35 @@
 }
 *::-webkit-input-placeholder {
     /* Google Chrome y Safari */
-    color: black !important;
+    color: black 
 }
 *:-moz-placeholder {
     /* Firefox anterior a 19 */
-    color: black !important;
+    color: black 
 }
 *::-moz-placeholder {
     /* Firefox 19 y superior */
-    color: black !important;
+    color: black 
 }
 #collapseFooterAlt :-ms-input-placeholder {
     /* Internet Explorer 10 y superior */
-    color: #ffffff !important;
+    color: #ffffff
 }
 #collapseFooterAlt ::-webkit-input-placeholder {
     /* Google Chrome y Safari */
-    color: #ffffff !important;
+    color: #ffffff 
 }
 #collapseFooterAlt :-moz-placeholder {
     /* Firefox anterior a 19 */
-    color: #ffffff !important;
+    color: #ffffff 
 }
 #collapseFooterAlt ::-moz-placeholder {
     /* Firefox 19 y superior */
-    color: #ffffff !important;
+    color: #ffffff 
 }
 #collapseFooterAlt :-ms-input-placeholder {
     /* Internet Explorer 10 y superior */
-    color: #ffffff !important;
+    color: #ffffff 
 }
 a{
   text-decoration: none
@@ -771,6 +771,9 @@ right:1%;
   box-shadow: none;
   border: 1px solid black;
 }
+.product-socialNetworks .product-description{
+  display:none;
+}
 .product-socialNetworks {
   margin-top: 25px;
 }
@@ -1313,6 +1316,9 @@ font-weight: 700;
 }
 .product-gallery #slider .flex-direction-nav, .product-gallery #slider .flex-control-nav  {
   display: none;
+}
+.product-gallery .more-info{
+  display:none;
 }
 .product-gallery #slider {
   cursor: crosshair;
@@ -1873,7 +1879,7 @@ body.no-menu header {
 .hstyle1.bgcut:before {
     content: '';
     height: 19px;
-    width: 172px;
+    width: 322px;
     left: 0;
     background-color: #dcc878;
     display: block;
@@ -2246,7 +2252,9 @@ a:hover .glyphicon-shopping-cart:before {
   margin-top:-10px;
   margin-bottom:20px;
 }
-
+.app-bold{
+  font-weight: 800
+}
 .page-header.style2.style-cupon{
   border-bottom:1px solid #dcc878;
 }
@@ -2260,11 +2268,25 @@ a:hover .glyphicon-shopping-cart:before {
 .row-products-filter .button-group .row > li.filters{
   display: none
 }
+.info .shops .article .hextra{
+  display:none;
+}
+.button-open-form{
+  display:none;  
+}
 .row.row-products-filter .button-group #collapseFilters .label-mobile{
   display:none;
 }
+.info-menu-mobile,
+.step-1ch,
 .header-basic,
 .go-top-fixed{
   display:none;
 }
   
+.containerxx{
+padding-bottom:60px;
+}
+.store-title{
+  display: none
+}

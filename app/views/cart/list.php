@@ -12,6 +12,9 @@
 
       <h1 class="hstyle1 bgcut">Tu cesta de compra</h1>
     </div>
+    <div class="info-menu info-menu-mobile">
+     <h3><a class="arr-left" href="javascript:window.history.back()"><span class="glyphicon glyphicon-triangle-left"></span></a>Tu cesta de compra</h3>
+     </div>
     <div class="page-cart-body">
       <? $this->load->view('cart/table') ?>        
     </div>

@@ -10,11 +10,16 @@
 			  <li class="active">Envío</li>
 			</ol>
 		</div>
+    <div class="clearfix"></div>
+      <div class="info-menu info-menu-mobile">
+        <h3><a class="arr-left" href="javascript:window.history.back()"><span class="glyphicon glyphicon-triangle-left"></span></a>Identificación > Envío > <span class="app-bold">Pago</span></h3>
+       </div>
+
 
 		<ul class="checkout-steps">
       <li class="ok"><a href="<?= base_url()?>mi-cuenta">Identificación</a></li>
       <li class="ok"><a href="<?= base_url()?>mi-cuenta/step-3">Envío</a></li>
-      <li class="ok"><a href="<?= base_url()?>mi-cuenta/step-4">Pago</a></li>			
+      <li class="ok fok"><a href="<?= base_url()?>mi-cuenta/step-4">Pago</a></li>			
 		</ul>
 
 		<? $this->load->view('user/data') ?>	

@@ -35,9 +35,12 @@
           ?>
                     <tr data-value="<?= ($item->id_state == 1) ? $item->cost : 0 ?>" data-id="<?= $item->iditem ?>">
                         <th><img src="<?= thumb($item->file, 125, 125) ?>" /></th>
-                        <th class="name"><a href="<?= base_url() . 'producto/' . $item->id . '/' . $itemUriName ?>"><?= $item->name ?></a><?/*<br><span class="desc"><?= nl2br($item->description) ?></span>*/?></th>
-                        <th class="cost"><?= $item->code ?> <?= ($item->id_state == 1) ?'<i class="success block">Disponible</i>' : '<i class="danger block">No disponible</i>' ?></th>
+                        <th class="name"><a href="<?= base_url() . 'producto/' . $item->id . '/' . $itemUriName ?>"><?= $item->name ?></a><?/*<br><span class="desc"><?= nl2br($item->description) ?></span>*/?>
+                        <div class="options-global options"></div>
+                        </th>
+                        <th class="cost"><div class="cc-move cc-move-nf"><?= $item->code ?> <?= ($item->id_state == 1) ?'<i class="success block">Disponible</i>' : '<i class="danger block">No disponible</i>' ?></div></th>
                         <th class="options">
+                <div class="cc-move">
                 <? $sizes = explode(',', $item->sizes) ?>
                 <? if(count($sizes)> 1 || (count($sizes) == 1 && str_replace(' ', '', $sizes[0]))): ?>
              <select <?= isset($cartDisabled) ? "disabled='disabled' " : "" ?>class="item-size selectpicker" data-style="select-default" name="sizes" data-width="70px">
@@ -45,10 +48,11 @@
                 <option value="<?= $size ?>" <? if($size == $item->size): ?>selected="selected"<? endif ?>><?= $size ?></option>
                 <? endforeach ?>
               </select>
-              <div class="visible-xs"><input class="form-control" type="number" min="1" value="2"></div>
                 <? endif ?>
+                </div>
             </th>
-                        <th class="options">
+                        <th class="options options-colors">
+                <div class="cc-move">
                 <? if(count($colors)): ?>
                 <select <?= isset($cartDisabled) ? "disabled='disabled' " : "" ?>class="item-color selectpicker" data-style="select-default" name="colors" data-showContent="true" data-width="70px">
                   <? foreach($colors as $c):?>
@@ -56,8 +60,9 @@
                   <? endforeach ?>
                 </select>
                 <? endif ?>
+                </div>
                         </th>
-                        <th class="options hidden-xs"><input <?= isset($cartDisabled) ? "disabled='disabled' " : "" ?>class="form-control item-num" type="number" min="1" value="<?= round($item->items) ?>"></th>
+                        <th class="options hidden-xs"><div class="cc-move"><input <?= isset($cartDisabled) ? "disabled='disabled' " : "" ?>class="form-control item-num" type="number" min="1" value="<?= round($item->items) ?>"></div></th>
                         <th class="cost"><?= $itemCost ?></th>
                         <? if(!isset($cartDisabled)): ?>
                         <th class="delete"><a href="<?= base_url() ?>cart/remove/<?= $item->iditem ?>"><i class="fa fa-times"></i></a></th>
@@ -95,6 +100,8 @@ $(document).ready(function() {
   <? if(!isset($cartDisabled)): ?>
   $('.table-list-cart-section tr').each(function(index, item){
     var dataId = $(this).attr('data-id');
+    if($(window).width()<500)
+        $('.cc-move', item).appendTo($('.options-global', item));
     /*$('.cart-action', item).click(function(e){
       e.preventDefault();    
       var data = {}, action = $(this).attr('data-action');
@@ -115,7 +122,7 @@ $(document).ready(function() {
         }
       });
     });*/
-    $('.item-num', item).change(function(e){      
+    $('.item-num', item).change(function(e){  
       var data = {};
       data.id = dataId;
       data.items = $(this).val();
@@ -167,6 +174,13 @@ $(document).ready(function() {
         }
       });
     });
+  });
+  <? else: ?>
+  
+  $('.table-list-cart-section tr').each(function(index, item){
+    var dataId = $(this).attr('data-id');
+    if($(window).width()<500)
+        $('.cc-move', item).appendTo($('.options-global', item));
   });
   <? endif ?>
 });   

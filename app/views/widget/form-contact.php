@@ -11,37 +11,37 @@
 			<div class="row">
 				<div class="col-md-6">
 				  <div class="form-group">
-				  	<div class="col-sm-3 text-right">
-				    	<label for="inputname">Name</label>
+				  	<div class="col-sm-3 text-right lbl-box">
+				    	<label for="inputname">Nombre</label>
 				  	</div>
 				  	<div class="col-sm-9">
-				    	<input type="text" name="name" value="<?= $this->input->post('name') ?>" class="form-control" id="inputname">
+				    	<input type="text" placeholder="Nombre" name="name" value="<?= $this->input->post('name') ?>" class="form-control" id="inputname">
 					</div>
 				  </div>							
 				  <div class="form-group">
-				  	<div class="col-sm-3 text-right">
+				  	<div class="col-sm-3 text-right lbl-box">
 				    	<label for="inputsubject">Asunto</label>
 				    </div>
 				    <div class="col-sm-9">
-				    	<input type="text" name="subject" value="<?= $this->input->post('subject') ?>" class="form-control" id="inputsubject">
+				    	<input type="text" placeholder="Asunto" name="subject" value="<?= $this->input->post('subject') ?>" class="form-control" id="inputsubject">
 					</div>
 				  </div>
 				  <div class="form-group">
-				  	<div class="col-sm-3 text-right">
-				    	<label for="inputemail">Email</label>
+				  	<div class="col-sm-3 text-right lbl-box">
+				    	<label for="inputemail">E-mail</label>
 				    </div>
 				    <div class="col-sm-9">
-				    	<input type="email" name="mail" value="<?= $this->input->post('mail') ?>" class="form-control" id="inputemail">
+				    	<input type="email" placeholder="E-mail" name="mail" value="<?= $this->input->post('mail') ?>" class="form-control" id="inputemail">
 					</div>
 				  </div>
 				</div>
 				<div class="col-md-6">
 				  <div class="form-group">
-				  	<div class="col-sm-3 text-right">
+				  	<div class="col-sm-3 text-right lbl-box">
 				    	<label for="textareamessage">Mensaje</label>
 				    </div>
 				  	<div class="col-sm-9">
-				    	<textarea name="message" id="textareamessage" style="height: 140px;" class="form-control"><?= $this->input->post('message') ?></textarea>
+				    	<textarea  placeholder="Mensaje" name="message" id="textareamessage" style="height: 140px;" class="form-control"><?= $this->input->post('message') ?></textarea>
 				    </div>
 				  </div>
 				</div>

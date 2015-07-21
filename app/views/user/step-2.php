@@ -10,9 +10,12 @@
       </ol>
     </div>
     <div class="clearfix"></div>
-
+      <div class="info-menu info-menu-mobile">
+        
+        <h3><a class="arr-left" href="javascript:window.history.back()"><span class="glyphicon glyphicon-triangle-left"></span></a><span class="app-bold">Identificación</span> > Envío > Pago</h3>
+       </div>
     <ul class="checkout-steps">
-      <li class="ok"><a href="<?= base_url()?>mi-cuenta">Identificación</a></li>
+      <li class="ok fok"><a href="<?= base_url()?>mi-cuenta">Identificación</a></li>
       <li><a class="disabled">Envío</a></li>
       <li><a class="disabled">Pago</a></li>
       
@@ -31,7 +34,7 @@
                 <label>*Nombre</label>
               </div>
               <div class="col-xs-9">
-                <input type="text" name="name" value="<?= $fdata['name'] ?>" tabindex="1" class="form-control">
+                <input type="text" placeholder="*Nombre" name="name" value="<?= $fdata['name'] ?>" tabindex="1" class="form-control">
               </div>
             </div>
             <div class="form-group row">
@@ -39,7 +42,7 @@
                 <label>*Apellido</label>
               </div>
               <div class="col-xs-9">
-                <input type="text" name="lastname" value="<?= $fdata['lastname'] ?>" tabindex="1" class="form-control">
+                <input type="text" placeholder="*Apellido" name="lastname" value="<?= $fdata['lastname'] ?>" tabindex="1" class="form-control">
               </div>
             </div>
             <div class="form-group row">
@@ -47,7 +50,7 @@
                 <label>*E-Mail</label>
               </div>
               <div class="col-xs-9">
-                <input type="text" name="mail" value="<?= $fdata['mail'] ?>" tabindex="1" class="form-control">
+                <input type="text" placeholder="*E-Mail" name="mail" value="<?= $fdata['mail'] ?>" tabindex="1" class="form-control">
               </div>
             </div>
             <div class="form-group row">
@@ -55,7 +58,7 @@
                 <label>*CIF/NIF</label>
               </div>
               <div class="col-xs-9">
-                <input type="text" name="dni" value="<?= $fdata['dni'] ?>" tabindex="1" class="form-control">
+                <input type="text" placeholder="*CIF/NIF" name="dni" value="<?= $fdata['dni'] ?>" tabindex="1" class="form-control">
               </div>
             </div>
             <? if(!$this->Data->idUser): ?>
@@ -64,7 +67,7 @@
                 <label>*Contraseña</label>
               </div>
               <div class="col-xs-9">
-                <input type="password" name="password" value="<?= $fdata['password'] ?>" tabindex="1" class="form-control">
+                <input type="password" placeholder="*Contraseña" name="password" value="<?= $fdata['password'] ?>" tabindex="1" class="form-control">
               </div>
             </div>
             <div class="form-group row">
@@ -72,7 +75,7 @@
                 <label>*Confirmar contraseña</label>
               </div>
               <div class="col-xs-9">
-                <input type="password" name="password2" value="<?= $fdata['password2'] ?>" tabindex="1" class="form-control">
+                <input type="password" placeholder="*Confirmar contraseña" name="password2" value="<?= $fdata['password2'] ?>" tabindex="1" class="form-control">
               </div>
             </div>
             <? endif ?>
@@ -91,7 +94,7 @@
                 <label>*Dirección</label>
               </div>
               <div class="col-xs-9">
-                <input type="text" name="dir1" value="<?= $fdata['dir1'] ?>" tabindex="1" class="form-control">
+                <input type="text" placeholder="*Dirección" name="dir1" value="<?= $fdata['dir1'] ?>" tabindex="1" class="form-control">
               </div>
             </div>
             <div class="form-group row">
@@ -99,7 +102,7 @@
                 <label>*Código postal</label>
               </div>
               <div class="col-xs-9">
-                <input type="text" name="cp" value="<?= $fdata['cp'] ?>" tabindex="1" class="form-control">
+                <input type="text" placeholder="*Código postal" name="cp" value="<?= $fdata['cp'] ?>" tabindex="1" class="form-control">
               </div>
             </div>
             <div class="form-group row">
@@ -107,7 +110,7 @@
                 <label>*Localidad</label>
               </div>
               <div class="col-xs-9">
-                <input type="text" name="city" value="<?= $fdata['city'] ?>" tabindex="1" class="form-control">
+                <input type="text" placeholder="*Localidad" name="city" value="<?= $fdata['city'] ?>" tabindex="1" class="form-control">
               </div>
             </div>
             <div class="form-group row">
@@ -115,7 +118,7 @@
                 <label>*Telf. de contacto</label>
               </div>
               <div class="col-xs-9">
-                <input type="text" name="cel" value="<?= $fdata['cel'] ?>" tabindex="1" class="form-control">
+                <input type="text" placeholder="*Telf. de contacto" name="cel" value="<?= $fdata['cel'] ?>" tabindex="1" class="form-control">
               </div>
             </div>
             <div class="col-xs-offset-3 col-xs-9">

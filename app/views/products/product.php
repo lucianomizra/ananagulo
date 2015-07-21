@@ -36,6 +36,7 @@ $inCart = $this->Cart->ItemExists($product->id, 0, 0);
       <div class="row">
         <div class="col-sm-6 col-lg-5 col-xs-12">
            <section class="product-gallery">
+              <div class="more-info"><a class="more-info-bb">+ INFO </a></div>
               <div class="flexslider" id="slider">
                 <ul class="slides">
                   <? if(count($gallery)): ?>
@@ -130,9 +131,18 @@ $inCart = $this->Cart->ItemExists($product->id, 0, 0);
             </div>
             <div class="clearfix"></div>
             <div class="product-socialNetworks">
+              <div class="product-socialNetworks-inside">
+              <button class="btn-close" type="button">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              <? if($product->code): ?><div class="product-reference">REF. <?= $product->code ?></div><? endif ?>
+              <div class="product-description">
+                <p><?= nl2br($product->description) ?></p>
+              </div>
               <a href="http://rest.sharethis.com/v1/share/share?destination=facebook&url=<?= base_url() . "producto/{$product->id}" ?>&api_key=q2gcgywe7466wr2ycgxmm87n" target="_blank" class="btn btn-default"><i class="fa fa-facebook"></i></a>
               <a href="http://rest.sharethis.com/v1/share/share?destination=instagram&url=<?= base_url() . "producto/{$product->id}" ?>&api_key=q2gcgywe7466wr2ycgxmm87n" target="_blank" class="btn btn-default"><i class="fa fa-instagram"></i></a>
               <a href="http://rest.sharethis.com/v1/share/share?destination=twitter&url=<?= base_url() . "producto/{$product->id}" ?>&api_key=q2gcgywe7466wr2ycgxmm87n" target="_blank" class="btn btn-default"><i class="fa fa-twitter"></i></a>
+            </div>            
             </div>            
           </div>
         </div>
@@ -216,6 +226,13 @@ $inCart = $this->Cart->ItemExists($product->id, 0, 0);
 $(document).ready(function() {
   var item = $('.page-product');
 
+  $('.product-gallery .more-info').click(function(e){
+    $("html, body").animate({ scrollTop: 0 }, 500);
+        $('.product-socialNetworks').addClass('active');
+  });
+  $('.product-socialNetworks').click(function(e){
+        $('.product-socialNetworks').removeClass('active');
+  });
   $('.open-guide').click(function(e){
     $('.widget-sizes').css('display', 'block');
     $("html, body").animate({ scrollTop: $('.widget-sizes').offset().top - 120 }, 300);

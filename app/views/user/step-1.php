@@ -10,14 +10,16 @@
       </ol>
     </div>
     <div class="clearfix"></div>
-    <? if($this->Data->idUser): ?>
-    <ul class="checkout-steps">
-      <li class="ok"><a href="<?= base_url()?>mi-cuenta">Identificación</a></li>
+      <div class="info-menu info-menu-mobile">
+        <h3><a class="arr-left" href="javascript:window.history.back()"><span class="glyphicon glyphicon-triangle-left"></span></a><span class="app-bold">Identificación</span> > Envío > Pago</h3>
+       </div>
+
+    <ul class="checkout-steps step-1ch">
+      <li class="ok fok"><a href="<?= base_url()?>mi-cuenta">Identificación</a></li>
       <li><a class="disabled">Envío</a></li>
       <li><a class="disabled">Pago</a></li>
       
     </ul>
-  <? endif ?>
     <div class="row">
       <div class="col-sm-6">
         <div class="panel-body">
@@ -31,7 +33,7 @@
                 <label for="email">*E-mail</label>
               </div>
               <div class="col-xs-9">
-                <input type="text" name="mail" value="<?= $this->input->post('mail') ?>" id="email" tabindex="1" class="form-control">
+                <input type="text" placeholder="*E-mail" name="mail" value="<?= $this->input->post('mail') ?>" id="email" tabindex="1" class="form-control">
               </div>
             </div>
             <div class="form-group row">
@@ -39,7 +41,7 @@
                 <label for="password">*Contraseña</label>
               </div>
               <div class="col-xs-9">
-                <input type="password" name="password" value="<?= $this->input->post('password') ?>" id="password" tabindex="2" class="form-control">
+                <input type="password" placeholder="*Contraseña" name="password" value="<?= $this->input->post('password') ?>" id="password" tabindex="2" class="form-control">
               </div>
             </div>
             <div class="col-xs-offset-3 col-xs-9">

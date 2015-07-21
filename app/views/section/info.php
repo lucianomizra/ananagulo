@@ -9,12 +9,14 @@
 			</ol>
 		</div>
 		<div class="clearfix"></div>
-
+<div class="go-top go-top-fixed"><img src="<?= layout('imgs/ico/subir.png') ?>"></div>
 	<div class="page-body page-body-info">
 		<div class="row">
 			<div class="col-sm-6 col-lg-4 col-xs-12">
 				<div class="info-menu">
-					<h3>Información y ayuda</h3>
+				<div class="info-menu-mobile">
+					<h3><a class="arr-left" href="javascript:window.history.back()"><span class="glyphicon glyphicon-triangle-left"></span></a>Información y ayuda</h3>
+				</div>
 					<ul>
 						<? foreach($infos as $i): ?>
 						<? if($i->link == 'contacto'): ?>
@@ -48,6 +50,9 @@
 </div>
 <script>
 $(document).ready(function() {
+  $('.go-top-fixed').click(function(event) {    
+    $("html, body").animate({ scrollTop: 0 }, 500);
+  });
   $('.go-to-top').click(function(e){
     $("html, body").animate({ scrollTop: 0 }, 500);
   });

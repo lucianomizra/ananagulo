@@ -105,6 +105,13 @@ $(document).ready(function() {
   <? /*if($questURI): ?>
   $('#collapseFilters').collapse('show');
   <? endif*/ ?>
+  
+  $('#collapseFilters').on('show.bs.collapse', function () {
+    $('.collapseFilters-box').addClass('open-coll')
+  });
+  $('#collapseFilters').on('hidden.bs.collapse', function () {
+    $('.collapseFilters-box').removeClass('open-coll')
+  });
   $('#global-search-form .sizes .btn').click(function(){
     var ths = $(this);
     if(ths.hasClass('active'))

@@ -11,8 +11,8 @@
 		<div class="clearfix"></div>
 	</div>
 
-	<div class="page-body">
-				<div class="info-menu text-left">
+	<div class="page-body contact-body">
+				<div class="info-menu text-left text-contact-infom">
 					<h3>Atención al cliente</h3>
 				</div>
 		<div class="row">
@@ -44,8 +44,15 @@
 							<p>Rellena el formulario si quieres ponerte en contacto con nosotros por cualquier duda o problema.</p>
 						</div>
 						<div class="clearfix"></div>
+						<div class="stores-list">
 						<? foreach($stores as $s): ?>
-						<div class="col-md-3 col-sm-6 article">
+						<div class="stores-item-cc">
+						<h3 class="store-title visible-xs collapsed" data-toggle-xs="collapse" href="#collapseCC<?= $s->id_store ?>" aria-expanded="false" aria-controls="collapseFooter"><?= $s->store ?></h3>
+						<div id="collapseCC<?= $s->id_store ?>" class="col-md-3 col-sm-6 article store-item collapse">
+						<div class="hextra">
+							<p><?= $s->address ?></p>
+							<p><?= $s->tel ?></p>
+							</div>
 							<a href="<?= $s->map_link ?>" target="_blank">
 							<?/*
 							<div class="map" data-location="<?= $s->address ?>" data-icon="<?= layout().'imgs/maker.png'; ?>"></div>
@@ -56,7 +63,9 @@
 							<p><?= $s->address ?></p>
 							<p><?= $s->tel ?></p>
 						</div>
+						</div>
 						<? endforeach ?>
+						</div>					
 					</div>					
 				<? endif ?>
 				</div>
@@ -64,4 +73,10 @@
 		</div>
 	</div>
 </div>
+<script>
+	$(document).ready(function() {
+		if($(window).width()>500)
+		$('.store-item').removeClass('collapse');
+	});
+</script>
 <?php $this->load->view('common/footer') ?>

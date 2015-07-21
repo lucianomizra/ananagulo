@@ -1,6 +1,6 @@
 <?php if(!AJAX) $this->load->view('common/header') ?>
 <div id="page-info" data-section="info"></div>
-<div class="container" style="padding-bottom:60px;">
+<div class="container containerxx">
 	<div class="page-myaccount row-products-filter">
 		<div class="page-header">
 			<ol class="breadcrumb pull-left">
@@ -8,12 +8,15 @@
 			  <li class="active">Mi cuenta</li>
 			</ol>
 		</div>
-		<div class="clearfix"></div>
+    <div class="clearfix"></div>
+      <div class="info-menu info-menu-mobile">        
+        <h3><a class="arr-left" href="javascript:window.history.back()"><span class="glyphicon glyphicon-triangle-left"></span></a>Mi cuenta</h3>
+       </div>
 
 		<div class="page-body">
 			<div class="row">
 				<div class="col-x1 col-sm-6">
-					<div class="info-menu text-left">
+					<div class="info-menu text-left text-account-infom">
 						<h3>Mi cuenta</h3>
 						<p>Desde la sección "Mi cuenta" puedes gestionar de forma sencilla tus datos, tus pedidos, tu cotnraseña, etc. Selecciona la opción que desees:</p>
 						<?/*
@@ -57,62 +60,12 @@
 					    <? if(!count($carts)) :?>
 					    <div class="no-history">NO HAY PEDIDOS EN EL HISTORIAL</div>
 					  	<? endif ?>
-						<?/*
-						<div class="visible-sm orders-mini">
-							<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-							  <div class="panel panel-default">
-							    <div class="panel-heading" role="tab" id="heading-1">
-							      <h4 class="panel-title">
-							        <a data-toggle="collapse" data-parent="#accordion" href="#order-1" aria-expanded="false" aria-controls="order-1">
-							          05/03/2015 18:54:05
-							        </a>
-							      </h4>
-							    </div>
-							    <div id="order-1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-1">
-							      <div class="panel-body">
-									<p>
-									 	<a href="">150305-131440</a> <br>
-							         	Pedido enviado <br>
-							         	60€ <br>
-
-							         	<div class="text-center">
-							         		<a href="" class="show-order">Ver pedido</a>
-							         	</div>
-									</p>
-							      </div>
-							    </div>
-							  </div>
-							  <div class="panel panel-default">
-							    <div class="panel-heading" role="tab" id="heading-2">
-							      <h4 class="panel-title">
-							        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#order-2" aria-expanded="false" aria-controls="order-2">
-							          05/03/2015 18:54:05
-							        </a>
-							      </h4>
-							    </div>
-							    <div id="order-2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-2">
-							      <div class="panel-body">
-									<p>
-									 	<a href="">150305-131440</a> <br>
-							         	Pedido enviado <br>
-							         	60€ <br>
-
-							         	<div class="text-center">
-							         		<a href="" class="show-order">Ver pedido</a>
-							         	</div>
-									</p>
-									</div>
-							    </div>
-							  </div>
-							</div>
-						</div>
-*/?>
 						<div id="form-data" class="row row-forms-user">
 							<div class="col-sm-6">
 								<h2>Cambiar mi contraseña actual</h2>
 								<p class="h60">Si deseas cambiar tu contraseña actual, puedes hacerlo desde aquí en un instante</p>
 							
-								<form action="<?= base_url() ?>mi-cuenta" method="post" class="text-right">
+								<form action="<?= base_url() ?>mi-cuenta" method="post" class="text-right form-closed">
 									<input type="hidden" name="action" value="password" />
 									<div class="form-group row">
 										<div class="col-sm-4">
@@ -156,13 +109,16 @@
 										</div>
 									</div>
 								</form>
+								<div class="col-sm-12 text-center button-open-form button-open-formp">
+									<a class="btn btn-default">Cambiar</a>
+								</div>
 							</div>
 							<div class="col-sm-5 pull-right">
 								<h2>Modificar mis datos personales</h2>
 								
 								<p class="h60">Puedes cambiar cualquiera de tus datos personales(nombre, email, etc)</p>
 							
-								<form action="<?= base_url() ?>mi-cuenta" method="post" class="text-right">
+								<form action="<?= base_url() ?>mi-cuenta" method="post" class="text-right form-closed">
 									<input type="hidden" name="action" value="data" />
 									<div class="form-group row">
 										<div class="col-sm-5">
@@ -263,6 +219,9 @@
 									</div>
 
 								</form>
+								<div class="col-sm-12 text-center button-open-form button-open-formd">
+									<a class="btn btn-default">Modificar</a>
+								</div>
 							</div>
 						</div>
 						<div class="text-center">
@@ -281,6 +240,16 @@ $(document).ready(function() {
   setTimeout(function(){
     $("html, body").animate({ scrollTop: $('.row-forms-user').offset().top - 100 }, 0);
   },1000);    
+  <? endif ?>
+  $('.button-open-form a').click(function(){
+  	$('form', $(this).parent().parent()).removeClass('form-closed');
+  	$(this).parent().remove()
+  })
+  <? if(isset($errorP)): ?>
+  $('.button-open-formp a').click();
+  <? endif ?>
+  <? if(isset($error)): ?>
+  $('.button-open-formd a').click();
   <? endif ?>
 });
 </script>

@@ -20,6 +20,7 @@
       <div class="row collapseRowXX">
         <div class="col-sm-6 col-lg-5 col-xs-12">
            <section class="product-gallery">
+              <div class="more-info"><a class="more-info-bb">+ INFO </a></div>
               <div class="flexslider" id="slider">
                 <ul class="slides">
                   <? if(count($gallery)): ?>
@@ -60,9 +61,17 @@
               <button class="btn btn-default btn-block one-product">Quiero un solo producto</button>
             </div>
             <div class="product-socialNetworks">
+              <div class="product-socialNetworks-inside">
+              <button class="btn-close" type="button">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              <div class="product-description">
+                <p><?= nl2br($look->description) ?></p>
+              </div>
               <a href="http://rest.sharethis.com/v1/share/share?destination=facebook&url=<?= base_url() . "look/{$look->id}" ?>&api_key=q2gcgywe7466wr2ycgxmm87n" target="_blank" class="btn btn-default"><i class="fa fa-facebook"></i></a>
               <a href="http://rest.sharethis.com/v1/share/share?destination=instagram&url=<?= base_url() . "look/{$look->id}" ?>&api_key=q2gcgywe7466wr2ycgxmm87n" target="_blank" class="btn btn-default"><i class="fa fa-instagram"></i></a>
               <a href="http://rest.sharethis.com/v1/share/share?destination=twitter&url=<?= base_url() . "look/{$look->id}" ?>&api_key=q2gcgywe7466wr2ycgxmm87n" target="_blank" class="btn btn-default"><i class="fa fa-twitter"></i></a>
+              </div>            
             </div>            
 
           <div class="the-look collapse" id="collapseCustomLook">
@@ -263,6 +272,13 @@ $(document).ready(function() {
     });
   });  
 
+  $('.product-gallery .more-info').click(function(e){
+    $("html, body").animate({ scrollTop: 0 }, 500);
+        $('.product-socialNetworks').addClass('active');
+  });
+  $('.product-socialNetworks').click(function(e){
+        $('.product-socialNetworks').removeClass('active');
+  });
   $('.open-guide').click(function(e){
     $('.widget-sizes').css('display', 'block');
     $("html, body").animate({ scrollTop: $('.widget-sizes').offset().top - 120 }, 300);
