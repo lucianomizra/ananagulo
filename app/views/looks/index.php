@@ -57,8 +57,8 @@
 					<? endif ?>
 						<span class="center text-no-mobile">
 							<span class="linebox bigpadding">
-								<h2 class='ggltp'>Bienvenida a <br>Ana Angulo</h2>
-								<small>Descubre los 15 looks que tenemos preparados para ti y ven a visitarnos a nuestras tiendas donde encontraras lo último para vestir tu armario.</small>
+								<h2 class='ggltp'>Los mejores looks pensados para ti</h2>
+								<small>Te presentamos la nueva manera de vestir tu armario. Descubre los looks que tenemos preparados para ti y disfruta comprando de una forma mucho más cómoda.</small>
 							</span>
 						</span>
 				</div>

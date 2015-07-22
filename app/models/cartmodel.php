@@ -86,6 +86,7 @@ class CartModel extends CI_Model
     $cart = $this->db->query($sql)->row();
     if(!$cart)
     {
+      $this->session->unset_userdata('cartId');
       return $this->DataCart($this->GetCart());
     }
     return $cart;

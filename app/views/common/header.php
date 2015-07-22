@@ -22,6 +22,7 @@
           <ul class="nav navbar-nav navbar-right">
           	<? if($this->Data->idUser):?>
             <li class="hidden-sm hidden-xs"><a href="<?= base_url() ?>mi-cuenta">Mi cuenta</a></li>
+            <li class="hidden-sm hidden-xs"><a href="<?= base_url() ?>mi-cuenta/logout">Cerrar Sesión</a></li>
           	<? else:?>
             <li class="hidden-sm hidden-xs"><a href="<?= base_url() ?>mi-cuenta">Regístrate</a></li>
             <li class="hidden-sm hidden-xs"><a href="<?= base_url() ?>mi-cuenta">Inicia Sesión</a></li>
@@ -50,8 +51,9 @@
     </div>
     <? else: ?>
     <div class="container cc-user">
-      <li class="col-sm-6"><a href="<?= base_url() ?>mi-cuenta">Mi cuenta</li></a>
-      <li class="col-sm-6"><a href="<?= base_url() ?>informacion/ana-angulo">Ayuda</li></a>
+      <li class="col-sm-4"><a href="<?= base_url() ?>mi-cuenta">Mi cuenta</li></a>
+      <li class="col-sm-4"><a href="<?= base_url() ?>mi-cuenta/logout">Cerrar Sesión</li></a>
+      <li class="col-sm-4"><a href="<?= base_url() ?>informacion/ana-angulo">Ayuda</li></a>
     </div>
     <? endif ?>
 </div>

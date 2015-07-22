@@ -64,6 +64,14 @@ class UsersModel extends AppModel {
       $sql .= " AND t.id_treatment_2 = '". $this->input->post('filter-id_treatment_2') ."'";
     if($this->input->post('filter-id_country_2'))
       $sql .= " AND t.id_country_2 = '". $this->input->post('filter-id_country_2') ."'";
+    if($this->input->post('filter-date1'))
+    {
+      $sql .= " AND date(t.registro) >= '". human_to_mysql($this->input->post('filter-date1')) ."'";
+    }
+    if($this->input->post('filter-date2'))
+    {
+      $sql .= " AND date(t.registro) <= '". human_to_mysql($this->input->post('filter-date2')) ."'";
+    }
     if($text)
       $sql .= " AND ( t.name like '%{$text}%'  OR  t.lastname like '%{$text}%'  OR  t.dir1 like '%{$text}%'  OR  t.dir2 like '%{$text}%'  OR  t.city like '%{$text}%'  OR  t.cp like '%{$text}%'  OR  t.mail like '%{$text}%'  OR  t.password like '%{$text}%'  OR  t.name_2 like '%{$text}%'  OR  t.lastname_2 like '%{$text}%'  OR  t.dir1_2 like '%{$text}%'  OR  t.dir2_2 like '%{$text}%'  OR  t.city_2 like '%{$text}%'  OR  t.cp_2 like '%{$text}%'  OR  t.mail_2 like '%{$text}%'  OR t.id_user = '{$text}') ";   
     if($this->input->post('filter-id'))

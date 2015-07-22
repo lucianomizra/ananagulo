@@ -75,8 +75,14 @@ class User extends AppController
       $this->data['fdata'] = $fdata;
       return $this->load->view('user/step-2', $this->data); 
     }
-    if($section == 'step-3')
+    if($section == 'registrado' || $section == 'step-3')
     {
+      if($section == 'registrado')
+      {
+        if(!$this->session->userdata('registradoOK'))
+          redirect('mi-cuenta/step-3');
+        $this->session->unset_userdata('registradoOK');
+      }
       if(!$this->Data->idUser)
         return redirect('mi-cuenta/step-2');
       if( $this->input->post('level') == 3 )
@@ -505,7 +511,8 @@ class User extends AppController
       $this->UserM->RemoveFromNewsletter($this->input->post('mail'));*/
     $this->Cart->SaveCartJsonData($data);
     $this->UserM->UpdateCartActive( $this->Cart->id );
-    redirect('mi-cuenta/step-3');
+    $this->session->set_userdata('registradoOK', true);
+    redirect('mi-cuenta/registrado');
   }  
   
   private function _userLogin()

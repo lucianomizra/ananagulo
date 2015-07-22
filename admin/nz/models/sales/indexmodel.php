@@ -18,7 +18,7 @@ class IndexModel extends AppModel {
     $sql = "SELECT t.id_cart as id, t.*,
     lj0.mail as user,
     lj1.state as state,
-    lj2.shipping as shipping,
+    lj2.shipping as shippingx, 
     lj3.store as store,
     lj4.payment as payment    
     FROM {$this->table} as t    
