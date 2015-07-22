@@ -516,7 +516,7 @@
     margin:0 5px;
   }
 }
-@media (max-width:360px){  
+@media (max-width:420px){  
 
   .home-second-slider.flexslider .slides li .ttb{
     max-height:none;
@@ -1478,13 +1478,13 @@ body {
 		display:none;
 		float:left;
 		width:50%;
-  height:240px;
+  height:270px;
 
 	}
-	.page-product .page-footer .prelated > div{
-		float:left;
-		width:50%;
-  height: 320px;
+  .page-product .page-footer .prelated > div{
+    float:left;
+    width:50%;
+  height: 420px;
 	}
 	.page-product .pvisits .page-header,
 	.page-product .page-footer .page-header{
@@ -2228,4 +2228,12 @@ padding-bottom:0;
     margin-top: -10px;
   }
 
+}
+@media(max-width:360px){
+  .page-product .pvisits ul li{
+    height: 240px
+  }
+  .page-product .page-footer .prelated > div{
+  height: 320px;
+  }
 }
