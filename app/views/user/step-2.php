@@ -27,7 +27,7 @@
         <div class="panel-body">
         <div>
             <div class="col-xs-offset-3 col-xs-9 no-padding">
-              <div class="form-title">Datos de facturación</div>
+              <div class="form-title">Datos de contacto</div>
             </div>
             <div class="form-group row">
               <div class="col-xs-3">
@@ -55,10 +55,10 @@
             </div>
             <div class="form-group row">
               <div class="col-xs-3">
-                <label>*CIF/NIF</label>
+                <label>CIF/NIF</label>
               </div>
               <div class="col-xs-9">
-                <input type="text" placeholder="*CIF/NIF" name="dni" value="<?= $fdata['dni'] ?>" tabindex="1" class="form-control">
+                <input type="text" placeholder="CIF/NIF" name="dni" value="<?= $fdata['dni'] ?>" tabindex="1" class="form-control">
               </div>
             </div>
             <? if(!$this->Data->idUser): ?>

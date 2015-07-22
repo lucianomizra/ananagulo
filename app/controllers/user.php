@@ -176,7 +176,7 @@ class User extends AppController
   {
     if( !count($_POST)) return;
     $fieldsOB = true;
-    $fieldsO = array('mail', 'name', 'lastname', 'dni');
+    $fieldsO = array('mail', 'name', 'lastname');
 
     foreach($fieldsO as $f)
     {
@@ -227,7 +227,7 @@ class User extends AppController
   {
     if( !count($_POST)) return;
     $fieldsOB = true;
-    $fieldsO = array('mail', 'name', 'lastname', 'mail', 'cel', 'dir1', 'city', 'cp', 'dni');
+    $fieldsO = array('mail', 'name', 'lastname', 'mail', 'cel', 'dir1', 'city', 'cp');
 
     foreach($fieldsO as $f)
     {
