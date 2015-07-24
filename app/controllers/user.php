@@ -55,6 +55,8 @@ class User extends AppController
 
       if($this->Data->idUser)
         return redirect('mi-cuenta');
+      
+      return redirect('mi-cuenta');
 
       if(!$this->session->userdata('register-action') && !$this->Data->idUser)
         return redirect('mi-cuenta');
@@ -117,8 +119,10 @@ class User extends AppController
     {
       if($this->Data->idUser)
         return redirect('mi-cuenta/step-2');
-      $this->session->set_userdata('register-action', $this->input->post('action'));
+      /*$this->session->set_userdata('register-action', $this->input->post('action'));
       return redirect('mi-cuenta/step-2');
+      */
+      $this->_userStep2();
     }
     if($section == 'login')
     {
@@ -417,12 +421,13 @@ class User extends AppController
   {
     if( !count($_POST)) return;
     $fieldsOB = true;
-    $fieldsO = array('mail', 'name', 'lastname', 'mail', 'cel', 'dir1', 'city', 'cp', 'dni');
-    if(!$this->Data->idUser && $this->session->userdata('register-action') == 2)
+    #$fieldsO = array('mail', 'name', 'lastname', 'mail', 'cel', 'dir1', 'city', 'cp', 'dni');
+    $fieldsO = array('mail', 'password', 'password2');
+    /*if(!$this->Data->idUser && $this->session->userdata('register-action') == 2)
     {
       $fieldsO[] = 'password';
       $fieldsO[] = 'password2';
-    }
+    }*/
     foreach($fieldsO as $f)
     {
       if( !$this->input->post($f) ) 
@@ -434,36 +439,29 @@ class User extends AppController
     /*if(!$this->input->post('privacy'))
       return $this->data['error'] = 'privacy';
       */
-    if(!$this->Data->idUser)
-    {
-      if($this->input->post('password') != $this->input->post('password2'))
+    if($this->input->post('password') != $this->input->post('password2'))
         return $this->data['error'] = 'password';
-    }
       
     $this->load->helper('email');
     if( !valid_email($this->input->post('mail')) )
       return $this->data['error'] = 'mail';
-    if($this->session->userdata('register-action') != 1)
-    {
-      if($this->UserM->MailExists($this->input->post('mail'), $this->Data->idUser))
-        return $this->data['error'] = 'mail2';
-    }
+
+    if($this->UserM->MailExists($this->input->post('mail'), $this->Data->idUser))
+      return $this->data['error'] = 'mail2';
     
     $data = array(
-      'name' => $this->input->post('name'),
-      'lastname' => $this->input->post('lastname'),
+      'name' => '',
+      'lastname' => '',
       'mail' => $this->input->post('mail'),
-      'cel' => $this->input->post('cel'),
-      'dir1' => $this->input->post('dir1'),
-      'city' => $this->input->post('city'),
-      'cp' => $this->input->post('cp'),
-      'dni' => $this->input->post('dni'),
+      'cel' => '',
+      'dir1' => '',
+      'city' => '',
+      'cp' => '',
+      'dni' => '',
     );
 
     if(!$this->Data->idUser)
     {
-      if($this->session->userdata('register-action') == 2)
-      {
         $data['password'] = $this->input->post('password');
         $data['id_state'] = 1;
         /*$html = $this->load->view("mail/register", array('data' => $data), true);
@@ -482,12 +480,7 @@ class User extends AppController
         $mail->Subject = "Registro de cuenta";
         $mail->IsHTML(true);
         $mail->Body = $html;
-        @$mail->Send();*/
-      }
-      else
-      {
-        $data['id_state'] = 3;
-      }      
+        @$mail->Send();*/     
     }
     $this->UserM->SaveUserData($data);
     $this->Cart->UpdateCartUser();
@@ -519,13 +512,13 @@ class User extends AppController
   {
     if( !count($_POST)) return;
     if( !$this->input->post('mail') || !$this->input->post('password') )
-      return $this->data['error'] = 'fields';
+      return $this->data['errorLo'] = 'fields';
     $this->load->helper('email');
     if( !valid_email($this->input->post('mail')) )
-      return $this->data['error'] = 'mail';
+      return $this->data['errorLo'] = 'mail';
     $loginRet = $this->UserM->Login($this->input->post('mail'), $this->input->post('password'));
     if($loginRet != 'ok')
-      return $this->data['error'] = $loginRet;
+      return $this->data['errorLo'] = $loginRet;
     $this->session->set_userdata('userID', $this->UserM->idUser);
     $this->Cart->idu = $this->Data->userID = $this->UserM->idUser;
     $data = $this->UserM->DataUser(); 
