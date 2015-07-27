@@ -134,7 +134,7 @@
             <?php if(isset($error)):
 
                 $errorArr['fields'] = 'Debes completar todos los campos';
-                $errorArr['privacy'] = 'Debes aceptar las políticas de privacidad';
+                $errorArr['privacy'] = 'Debes aceptar nuestros Términos y condiciones';
                 $errorArr['mail'] = 'El correo electrónico ingresado es inválido';
                 $errorArr['mail2'] = 'El correo electrónico ingresado ya ha sido registrado';
                 $errorArr['password'] = 'La confirmación de la contraseña es incorrecta';
@@ -159,6 +159,31 @@
                 <div class="col-sm-6 col-sm-offset-3">
                   <input type="submit" id="registro-submit" tabindex="3" class="form-primary btn btn-block btn-default" value="Continuar">
                 </div>
+              </div>
+            </div>
+            <div class="form-group row text-left">
+              <div class="col-sm-1 col-sm-offset-3">
+                <input id="newsletter" <? if($this->input->post('newsletter') || !$this->input->post()): ?> checked="checked"<? endif ?> type="checkbox" name="newsletter" value="1">
+              </div>
+              <div style="margin-left:-10px; padding: 5px 0 0;" class="col-sm-8">
+                <label class="dd" for="newsletter">Quiero recibir descuentos exclusivos y noticias de moda Ana Angulo por email, correo y mensages de texto.</label>
+              </div>
+            </div>
+            <?/*
+            <div class="form-group row text-left">
+              <div class="col-sm-1 col-sm-offset-3">
+                <input id="newsletter2" <? if($this->input->post('newsletter2')): ?> checked="checked"<? endif ?> type="checkbox" name="newsletter2" value="1">
+              </div>
+              <div style="margin-left:-10px; padding: 5px 0 0;" class="col-sm-8">
+                <label class="dd" for="newsletter2">De acuerdo, enviadme noticias de otras marcas asociadas a Ana Angulo por email, correo o mensajes de texto. <a target="_blank" style="text-decoration:underline" href="<?= base_url() ?>informacion/terminos-y-condiciones">Política de privacidad</a>.</label>
+              </div>
+            </div>*/?>
+            <div class="form-group row text-left">
+              <div class="col-sm-1 col-sm-offset-3">
+                <input id="privacy" <? if($this->input->post('privacy')): ?> checked="checked"<? endif ?> type="checkbox" name="privacy" value="1">
+              </div>
+              <div style="margin-left:-10px; padding: 5px 0 0;" class="col-sm-8">
+                <label class="dd" for="privacy">Al crear tu cuenta, aceptas nuestros <a target="_blank" href="<?= base_url() ?>informacion/politica-de-datos" style="text-decoration:underline">Términos y condiciones</a>.</label>
               </div>
             </div>
           </form>

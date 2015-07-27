@@ -82,8 +82,11 @@ class User extends AppController
       if($section == 'registrado')
       {
         if(!$this->session->userdata('registradoOK'))
-          redirect('mi-cuenta/step-3');
+          redirect('mi-cuenta');
         $this->session->unset_userdata('registradoOK');
+        $this->data['registradoOK'] = true;
+        if( !$this->Cart->TotalItems() )
+          redirect(base_url());
       }
       if(!$this->Data->idUser)
         return redirect('mi-cuenta/step-2');
@@ -458,9 +461,9 @@ class User extends AppController
     if( !$fieldsOB )
       return $this->data['error'] = 'fields';
 
-    /*if(!$this->input->post('privacy'))
+    if(!$this->input->post('privacy'))
       return $this->data['error'] = 'privacy';
-      */
+      
     if($this->input->post('password') != $this->input->post('password2'))
         return $this->data['error'] = 'password';
       
