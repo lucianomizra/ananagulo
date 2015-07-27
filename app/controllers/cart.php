@@ -52,7 +52,6 @@ class Cart extends AppController
       }
 
       $data = array(
-        'id_state'=> 3,
         'modified' => date('Y-m-d H:i:s'),
         'code' => $this->Cart->GetMaxCode(),
         'payment_data' => json_encode($_GET)
@@ -71,7 +70,6 @@ class Cart extends AppController
         return $this->index('tpv-ko');
       }
       $data = array(
-        'id_state'=> 2,
         'modified' => date('Y-m-d H:i:s'),
         'code' => $this->Cart->GetMaxCode()
       );

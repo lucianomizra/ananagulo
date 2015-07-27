@@ -155,6 +155,7 @@
 								</form>
 			</div>
 </div>
+	<? if(!isset($fdataError)): ?>	
     <form action="<?= base_url() ?>mi-cuenta/step-3" method="post">
     <input type="hidden" name="level" value="3"/>
 
@@ -284,6 +285,8 @@
 
 			</form>
 
+    <? endif ?>
+    
 	</div>
 </div>
 <script>
@@ -294,11 +297,11 @@
 		<? elseif(isset($cdata->coupon_1) && $cdata->coupon_1): ?>
 		$('#collapseCuppon').collapse('show');
 		<? endif ?>
-		<? if(isset($openFormY)): ?>
+		<? if(isset($openFormY) || isset($fdataError)): ?>
 		$('.rowoffxdt .offxdty').replaceWith($('.row-hhh .offxdty'));
 		$("html, body").animate({ scrollTop: $('.rowoffxdt .offxdty').offset().top - 100 }, 200);
 		<? endif ?>
-		<? if(isset($openForm)): ?>
+		<? if(isset($openForm) || isset($fdataError)): ?>
 		$('.rowoffxdt .offxdt').replaceWith($('.row-hhh .offxdt'));
 		$("html, body").animate({ scrollTop: $('.rowoffxdt .offxdt').offset().top - 100 }, 200);
 		<? endif ?>

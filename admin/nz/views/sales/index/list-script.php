@@ -58,42 +58,52 @@ var DataTableFn = function(){
     { "sTitle": "<?= $this->lang->line("E-mail") ?>", "mData": "user", "sType": "string"},
     { "sTitle": "<?= $this->lang->line("Nombre") ?>", "mData": "data", "sType": "html", "mRender" : function( data, type, full ){ 
       var json = JSON.parse(data);
+      if(!json || !json.name) return "";
       return json.name;
     }},
     { "sTitle": "<?= $this->lang->line("Apellido") ?>", "mData": "data", "sType": "html", "mRender" : function( data, type, full ){ 
       var json = JSON.parse(data);
+      if(!json || !json.lastname) return "";
       return json.lastname;
     }},
     { "bVisible": false, "sTitle": "<?= $this->lang->line("Dirección") ?>", "mData": "data", "sType": "html", "mRender" : function( data, type, full ){ 
       var json = JSON.parse(data);
+      if(!json || !json.dir1) return "";
       return json.dir1;
     }},
     { "bVisible": false, "sTitle": "<?= $this->lang->line("Ciudad") ?>", "mData": "data", "sType": "html", "mRender" : function( data, type, full ){ 
       var json = JSON.parse(data);
+      if(!json || !json.city) return "";
       return json.city;
     }},
     { "bVisible": false, "sTitle": "<?= $this->lang->line("CP") ?>", "mData": "data", "sType": "html", "mRender" : function( data, type, full ){ 
       var json = JSON.parse(data);
+      if(!json || !json.cp) return "";
       return json.cp;
     }},
     { "bVisible": false, "sTitle": "<?= $this->lang->line("DNI") ?>", "mData": "data", "sType": "html", "mRender" : function( data, type, full ){ 
       var json = JSON.parse(data);
+      if(!json || !json.dni) return "";
       return json.dni;
     }},
     { "bVisible": false, "sTitle": "<?= $this->lang->line("Teléfono") ?>", "mData": "data", "sType": "html", "mRender" : function( data, type, full ){ 
       var json = JSON.parse(data);
+      if(!json || !json.cel) return "";
       return json.cel;
     }},
     { "bVisible": false, "sTitle": "<?= $this->lang->line("Nombre (envío)") ?>", "mData": "data", "sType": "html", "mRender" : function( data, type, full ){ 
       var json = JSON.parse(data);
+      if(!json || !json.name) return "";
       return (json.name_2 != undefined ) ? json.name_2 : json.name;
     }},
     { "bVisible": false, "sTitle": "<?= $this->lang->line("Apellido (envío)") ?>", "mData": "data", "sType": "html", "mRender" : function( data, type, full ){ 
       var json = JSON.parse(data);
+      if(!json || !json.lastname) return "";
       return (json.lastname_2 != undefined ) ? json.lastname_2 : json.lastname;
     }},
     { "bVisible": false, "sTitle": "<?= $this->lang->line("Teléfono (envío)") ?>", "mData": "data", "sType": "html", "mRender" : function( data, type, full ){ 
       var json = JSON.parse(data);
+      if(!json || !json.cel) return "";
       return (json.cel_2 != undefined ) ? json.cel_2 : json.cel;
     }},
     { "sTitle": "<?= $this->lang->line("Estado") ?>", "mData": "state", "sType": "string"},

@@ -91,6 +91,8 @@ class User extends AppController
         $this->_userStep3(); 
       $this->data['fdata'] = $this->Cart->DataJsonCart($this->Cart->id);
       $this->data['cdata'] = $this->Cart->DataCart($this->Cart->id);
+      if(!$this->validFData($this->data['fdata']))
+        $this->data['fdataError'] = true;
       return $this->load->view('user/step-3', $this->data); 
     }
     if($section == 'step-4')
@@ -103,6 +105,9 @@ class User extends AppController
       $this->data['cartItems'] = $this->Cart->ListItems();  
       $this->data['cdata'] = $this->Cart->DataCart($this->Cart->id);
       $this->data['fdata'] = $this->Cart->DataJsonCart($this->Cart->id);
+      #die(print_r($this->data['fdata']));
+      if(!$this->validFData($this->data['fdata']))
+        return redirect('mi-cuenta/step-3');
       if($this->data['cdata']->coupon_1)
         $this->data['coupon1'] = $this->Data->GetCoupon($this->data['cdata']->coupon_1, 1);
       if( !$this->data['cdata']->id_payment || !$this->data['cdata']->id_shipping)
@@ -138,6 +143,23 @@ class User extends AppController
   }
   
   
+  private function validFData( $data = false )
+  {
+    $valid = true;
+    $fieldsO = array('mail', 'name', 'lastname', 'dir1', 'city', 'cp');
+    if(!$data)
+    {
+      $valid = false;
+      return $valid;
+    }
+    foreach($fieldsO as $f)
+    {
+      if( !isset($data[$f]) || !$data[$f] ) 
+        $valid = false;
+    }
+    return $valid;
+  }
+
   private function _userAccountDataXX()
   {
     if( !count($_POST)) return;
@@ -422,7 +444,7 @@ class User extends AppController
     if( !count($_POST)) return;
     $fieldsOB = true;
     #$fieldsO = array('mail', 'name', 'lastname', 'mail', 'cel', 'dir1', 'city', 'cp', 'dni');
-    $fieldsO = array('mail', 'password', 'password2');
+    $fieldsO = array('name', 'lastname', 'mail', 'password', 'password2');
     /*if(!$this->Data->idUser && $this->session->userdata('register-action') == 2)
     {
       $fieldsO[] = 'password';
@@ -450,8 +472,8 @@ class User extends AppController
       return $this->data['error'] = 'mail2';
     
     $data = array(
-      'name' => '',
-      'lastname' => '',
+      'name' => $this->input->post('name'),
+      'lastname' => $this->input->post('lastname'),
       'mail' => $this->input->post('mail'),
       'cel' => '',
       'dir1' => '',

@@ -71,7 +71,7 @@ class sales extends AppController {
     $this->load->library("abm", $this->cfg);
   }
   
-  public function noficationsale( $id = 0 )
+  public function noficationsale( $id = 0, $code = 0 )
   {
     $users = array();
     $sql = "select id_user as id from {$this->MApp->dbglobal}user where (id_company = 2 and id_type < 3) OR (id_company = 1 and id_type < 3)";
@@ -84,7 +84,7 @@ class sales extends AppController {
     'data' => json_encode(array(
       'id_cart' => $id
     )),
-    'text' => 'Pedido <span class="app-color">'. str_pad($id, 6, "0", STR_PAD_LEFT) .'</span> realizada vía web',
+    'text' => 'Pedido realizada vía web',
     'link' => base_url() . 'sales/index/element/' . $id
   ));
   }

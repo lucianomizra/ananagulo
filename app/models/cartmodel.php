@@ -104,7 +104,7 @@ class CartModel extends CI_Model
   
   function EndCart()
   {
-    $sql = $this->db->update_string('cart', array('modified' => date('Y-m-d H:i:s')) ,  "id_cart = '{$this->id}' AND id_user = '{$this->idu}'");
+    $sql = $this->db->update_string('cart', array('id_state' => 3, 'id_user' => $this->idu, 'modified' => date('Y-m-d H:i:s')) ,  "id_cart = '{$this->id}' AND id_user = '{$this->idu}'");
     $this->db->query($sql);
     $sql = $this->db->update_string('user', array('id_cart_active' => 0) ,  "id_user = '{$this->idu}'");
     $this->db->query($sql);

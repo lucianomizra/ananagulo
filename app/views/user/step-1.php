@@ -90,7 +90,23 @@
           </div>
 
           <form id="login-form" action="<?= base_url() ?>mi-cuenta/registro" role="form" method="post">
- <div class="form-group row">
+ 						<div class="form-group row">
+              <div class="col-xs-3">
+                <label for="name">*Nombre</label>
+              </div>
+              <div class="col-xs-9">
+                <input type="text" placeholder="*Nombre" name="name" value="<?= $this->input->post('name') ?>" id="name" tabindex="1" class="form-control">
+              </div>
+            </div>
+ 						<div class="form-group row">
+              <div class="col-xs-3">
+                <label for="lastname">*Apellido</label>
+              </div>
+              <div class="col-xs-9">
+                <input type="text" placeholder="*Apellido" name="lastname" value="<?= $this->input->post('lastname') ?>" id="lastname" tabindex="1" class="form-control">
+              </div>
+            </div>
+            <div class="form-group row">
               <div class="col-xs-3">
                 <label for="email">*E-mail</label>
               </div>
