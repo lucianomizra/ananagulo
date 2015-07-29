@@ -82,9 +82,8 @@ class Cart extends AppController
       return redirect('mi-cuenta/step-4');      
     } 
 
-    if($action == 'test')
+    if($action == 'nzfinish')
     {
-      exit;
       return $this->cartClose();
     } 
 

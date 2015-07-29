@@ -54,7 +54,10 @@ class CartModel extends CI_Model
     if($cart->data)
       $fdata = (array)json_decode($cart->data);
     else
+    {
       $fdata = $this->Cart->BasicDataCart();
+      $this->SaveCartData(array('data' => json_encode($fdata)));
+    }
     return $fdata;
   }
   
