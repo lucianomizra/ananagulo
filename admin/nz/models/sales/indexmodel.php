@@ -233,7 +233,7 @@ class IndexModel extends AppModel {
   
   public function prep_cost( $cost = 0, $currency = true, $ivi = true )
   {
-    return ($currency ? "¢ " : "") . number_format(round($cost, 2), 2, ',', '.') . ($ivi ? " i.v.i." : "");
+    return number_format(round($cost, 2), 2, ',', '.') . ($currency ? "€" : "");
   } 
   
   public function GetCoupon( $code = '' )

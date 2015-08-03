@@ -8,7 +8,7 @@ $cartItems = $this->model->ListItemsCart()
     <table style="margin-top:0" id="checkout" class="table-checkout">
       <thead>
         <tr>
-          <th style="text-align:left">Producto</th>
+          <th style="max-width:300px;text-align:left">Producto</th>
           <th>Código</th>
           <th>Color</th>
           <th>Precio unitario</th>
@@ -29,7 +29,7 @@ $cartItems = $this->model->ListItemsCart()
       $pcolors = $this->model->ProductColors( $item->id );
       ?>
         <tr data-id="<?= $item->iditem ?>" class="tr-item <? if($item->id_state != 1): ?>no-stock<? endif ?>">
-          <td style="text-align:left">
+          <td style="max-width:300px;text-align:left">
             <div class="item-product">
               <? if($item->file):?><a href="<?= base_url() ?>products/index/element/<?= $item->id ?>" target="_blank"><img src="<?= thumb($item->file, 150, 120) ?>"/></a><? endif ?>
               <p><?= $item->name ?><span><?= nl2br($item->description) ?></span><? if($item->dimensions): ?><span><?= $item->dimensions ?></span><? endif ?><? if($item->weight): ?><span><?= $item->weight ?></span><? endif ?></p>                  

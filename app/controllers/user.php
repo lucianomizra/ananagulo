@@ -398,7 +398,7 @@ class User extends AppController
     if($this->input->post('coupon_1'))
     {
       $status =  $this->Data->GetStatusCoupon($this->input->post('coupon_1'), 1);
-      if($status == 0)
+      if($status == 0 || $this->session->userdata('coupon_' . $this->input->post('coupon_1'), true))
         return $this->data['error2'] = 'coupon_1_invalid';
       if($status == 1)
         return $this->data['error2'] = 'coupon_1_inactive';

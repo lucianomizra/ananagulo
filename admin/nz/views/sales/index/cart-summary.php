@@ -34,7 +34,7 @@
     <div class="checkout-total-col">                  
       Cupon
     </div>
-    <div style="color:#1AA8C4" class="checkout-total-col">                  
+    <div style="color:#000" class="checkout-total-col">                  
      - <?= $this->model->prep_cost($desc1, true, false); ?>
     </div>
   </div>
@@ -44,7 +44,7 @@
     <div class="checkout-total-col">                  
       Vale de regalo
     </div>
-    <div style="color:#1AA8C4" class="checkout-total-col">                  
+    <div style="color:#000" class="checkout-total-col">                  
      - <?= $this->model->prep_cost($desc2, true, false); ?>
     </div>
   </div>

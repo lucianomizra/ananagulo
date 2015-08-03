@@ -30,7 +30,7 @@
   });
 
 var DataTableFn = function(){
-  var colFilter = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16.17,18,19,20,21,22];
+  var colFilter = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15,16,17];
   
   <? $this->load->view("script/datatable/config.js") ?>
   
@@ -55,32 +55,32 @@ var DataTableFn = function(){
       if(!data || data == '0000-00-00 00:00') return '-';
       return Date.fromMysql(data).format("dd/MM/yyyy hh:mm:ss");
     }},
-    { "sTitle": "<?= $this->lang->line("E-mail") ?>", "mData": "user", "sType": "string"},
-    { "sTitle": "<?= $this->lang->line("Nombre") ?>", "mData": "data", "sType": "html", "mRender" : function( data, type, full ){ 
-      var json = JSON.parse(data);
-      if(!json || !json.name) return "";
-      return json.name;
-    }},
     { "sTitle": "<?= $this->lang->line("Apellido") ?>", "mData": "data", "sType": "html", "mRender" : function( data, type, full ){ 
       var json = JSON.parse(data);
       if(!json || !json.lastname) return "";
       return json.lastname;
+    }},
+    { "sTitle": "<?= $this->lang->line("Nombre") ?>", "mData": "data", "sType": "html", "mRender" : function( data, type, full ){ 
+      var json = JSON.parse(data);
+      if(!json || !json.name) return "";
+      return json.name;
     }},
     { "bVisible": false, "sTitle": "<?= $this->lang->line("Dirección") ?>", "mData": "data", "sType": "html", "mRender" : function( data, type, full ){ 
       var json = JSON.parse(data);
       if(!json || !json.dir1) return "";
       return json.dir1;
     }},
-    { "bVisible": false, "sTitle": "<?= $this->lang->line("Ciudad") ?>", "mData": "data", "sType": "html", "mRender" : function( data, type, full ){ 
-      var json = JSON.parse(data);
-      if(!json || !json.city) return "";
-      return json.city;
-    }},
     { "bVisible": false, "sTitle": "<?= $this->lang->line("CP") ?>", "mData": "data", "sType": "html", "mRender" : function( data, type, full ){ 
       var json = JSON.parse(data);
       if(!json || !json.cp) return "";
       return json.cp;
     }},
+    { "bVisible": false, "sTitle": "<?= $this->lang->line("Población") ?>", "mData": "data", "sType": "html", "mRender" : function( data, type, full ){ 
+      var json = JSON.parse(data);
+      if(!json || !json.city) return "";
+      return json.city;
+    }},
+    { "sTitle": "<?= $this->lang->line("E-mail") ?>", "mData": "user", "sType": "string"},
     { "bVisible": false, "sTitle": "<?= $this->lang->line("DNI") ?>", "mData": "data", "sType": "html", "mRender" : function( data, type, full ){ 
       var json = JSON.parse(data);
       if(!json || !json.dni) return "";
@@ -90,7 +90,7 @@ var DataTableFn = function(){
       var json = JSON.parse(data);
       if(!json || !json.cel) return "";
       return json.cel;
-    }},
+    }},/*
     { "bVisible": false, "sTitle": "<?= $this->lang->line("Nombre (envío)") ?>", "mData": "data", "sType": "html", "mRender" : function( data, type, full ){ 
       var json = JSON.parse(data);
       if(!json || !json.name) return "";
@@ -105,19 +105,21 @@ var DataTableFn = function(){
       var json = JSON.parse(data);
       if(!json || !json.cel) return "";
       return (json.cel_2 != undefined ) ? json.cel_2 : json.cel;
-    }},
-    { "sTitle": "<?= $this->lang->line("Estado") ?>", "mData": "state", "sType": "string"},
-    { "sTitle": "<?= $this->lang->line("Transporte") ?>", "mData": "shippingx", "sType": "string"},
+    }},*/
     { "sTitle": "<?= $this->lang->line("Forma de pago") ?>", "mData": "payment", "sType": "string"},
     { "bVisible": false, "sClass": "text-align-center", "sTitle": "<?= $this->lang->line("Subtotal") ?>", "mData": "subtotal", "sType": "string"},
-    { "bVisible": false, "sClass": "text-align-center", "sTitle": "<?= $this->lang->line("Portes") ?>", "mData": "shipping", "sType": "string"},
+
+    { "sTitle": "<?= $this->lang->line("Transporte") ?>", "mData": "shippingx", "sType": "string"},
+    /*{ "sTitle": "<?= $this->lang->line("Estado") ?>", "mData": "state", "sType": "string"},*/
+    { "bVisible": false, "sClass": "text-align-center", "sTitle": "<?= $this->lang->line("Coste Envío") ?>", "mData": "shipping", "sType": "string"},
     { "bVisible": false, "sClass": "text-align-center", "sTitle": "<?= $this->lang->line("TAX") ?>", "mData": "tax", "sType": "string"},
     { "bVisible": false, "sClass": "text-align-center", "sTitle": "<?= $this->lang->line("Descuento") ?>", "mData": "desc1", "sType": "string"},
-    { "bVisible": false, "sClass": "text-align-center", "sTitle": "<?= $this->lang->line("Data Extra") ?>", "mData": "payment_data", "sType": "string"},
+    /*{ "bVisible": false, "sClass": "text-align-center", "sTitle": "<?= $this->lang->line("Data Extra") ?>", "mData": "payment_data", "sType": "string"},*/
     { "sClass": "text-align-center", "sTitle": "<?= $this->lang->line("Total") ?>", "mData": "total", "sType": "string"},
     { "sTitle": "<?= $this->lang->line("Acciones") ?>", "sWidth": "60px", "mData": "id", "bSortable": false, "bSearchable": false, "sType": "html", "mRender" : function( data, type, full ){ 
       return '<ul class="table-actions smart-form">' +        
       '<li><a target="_blank" title="<?= $this->lang->line("Revisar") ?>" href="<?= base_url() . "{$appController}" ?>/detailscart/' + data + '" class="btn btn-xs btn-default" type="button"><i class="fa fa-actions fa-search"></i></a></li>' +      
+      '<li><a title="<?= $this->lang->line($this->MApp->secure->edit ? "Editar" : "Ver") ?>" href="<?= base_url() . "{$appController}/{$appFunction}" ?>/element/' + data + '" class="btn btn-xs btn-default edit-button" type="button"><i class="fa fa-actions <?= $this->MApp->secure->edit ? "fa-pencil" : "fa-search" ?>"></i></a></li>' +  
       <? if($this->model->mconfig['duplicate']): ?>'<li><a title="<?= $this->lang->line("Duplicar") ?>" href="<?= base_url() . "{$appController}/{$appFunction}" ?>/duplicate/' + data + '" class="btn btn-xs btn-default duplicate-button<?= ($this->model->mconfig['new-element'] && $this->MApp->secure->edit) ? "" : " disabled" ?>" type="button"><i class="fa fa-actions fa-copy"></i></a></li>' + <? endif ?>
       '<li><a title="<?= $this->lang->line("Eliminar") ?>" href="<?= base_url() . "{$appController}/{$appFunction}" ?>/delete/' + data + '" class="btn btn-xs btn-default delete-button<?= $this->MApp->secure->delete ? "" : " disabled" ?>" type="button"><i class="fa fa-actions fa-trash-o"></i></a></li>' + 
       '</ul>';

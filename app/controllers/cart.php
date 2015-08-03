@@ -207,6 +207,7 @@ class Cart extends AppController
     $mail->Body  =  $mensaje;
     $mail->AddAttachment(FCPATH . "pdf/{$this->Cart->id}.pdf", 'Etiquetas_Zeleris.pdf');
     @$mail->Send();
+    $this->Cart->CouponRegister($this->data['cdata']->coupon_1);
     $this->Cart->EndCart();
     return redirect('cart/finalizado');
   }
@@ -267,7 +268,7 @@ class Cart extends AppController
       'codpos_cons' => substr($dataf['cp'], 0, 7),
       'nifdni_cons' => substr($dataf['dni'], 0, 20),
       'contacto_cons' => '',
-      'telefono1_cons' => $dataf['cel'],
+      'telefono1_cons' => (isset($dataf['cel_2']) && $dataf['cel_2']) ? $dataf['cel_2'] : $dataf['cel'],
       'telefono2_cons' => '',
       'observ_cons' => $data->comments,
       'mercan' => '',

@@ -52,7 +52,8 @@ line-height:1.4;
 color:#666;
 }
 .table-checkout thead tr{
-background:#A3CC40;
+background:#dcc878;
+color:#000;
 }
 .table-checkout thead tr th{
 text-transform:uppercase;
@@ -198,11 +199,11 @@ visibility:hidden
 visibility:visible
 }
 .table-checkout tr td .colors-container .color-item-c:hover .color-item{
-border:2px solid #A3CC40
+border:2px solid #000
 }
 .table-checkout tr td .colors-container .color-item-c.selectedxx:hover .color-item,
 .table-checkout tr td .colors-container .color-item-c.selectedxx .color-item{
-border:2px solid #A3CC40
+border:2px solid #000
 }
 .table-checkout tr td .colors-container:hover .color-item-c{
 margin-bottom:2px
@@ -233,12 +234,13 @@ margin-top:-10px;
 overflow:hidden
 }
 .checkout .checkout-total-box .checkout-total-row.row-total{
-background:#23388d;
+background:#dcc878;
 font-weight:700;
-color:#FFF;
+color:#000;
 }
 .checkout .checkout-total-box .checkout-total-col:first-child{
-border-right:1px solid #23388d;
+border-right:1px solid #dcc878;
+color:#000;
 width:184px
 }
 .checkout .checkout-total-box .checkout-total-col span.obs{
@@ -246,15 +248,16 @@ font-size:13px
 }
 .checkout .checkout-total-box .checkout-total-col{
 float:left;
+color:#000;
 font-size:16px;
 padding:15px 5px;
 width:185px
 }
 .checkout .checkout-total-box .checkout-total-row{
-color:#23388d;
+color:#dcc878;
 overflow:hidden;
 text-align:center;
-border-top:1px solid #23388d
+border-top:1px solid #dcc878
 }
 .checkout .checkout-buttons-box .checkout-button-next button:hover,
 .checkout .checkout-buttons-box .checkout-button-next a:hover{

@@ -27,7 +27,7 @@
 						<div class="col-md-6">
 							<p>Rellena el formulario si quieres ponerte en contacto con nosotros por cualquier duda o problema</p>
 							
-							<p>Si prefieres llamarnos hazlo al <strong class="text-sepia">678 345 456</strong></p>
+							<p>Si prefieres llamarnos hazlo al <strong class="text-sepia">687 246 412</strong></p>
 						</div>
 						
 					</div>

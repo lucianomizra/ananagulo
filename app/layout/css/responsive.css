@@ -1,4 +1,8 @@
 /* XS */
+
+div.box-product .product-socialNetworks .btn-close{
+  display:none
+}
 @media(max-width:1200px){
 
 #login-form .form-title{  
@@ -1289,7 +1293,13 @@ body {
   .home-open-slider{
     max-height: 270px
   }
+}
 @media(max-width:500px){
+  .last-views {
+      height: 535px;
+      overflow: hidden;
+      margin-bottom: 30px;
+  }
 	#menu-mobile{
 		width:80px
 	}
@@ -1856,6 +1866,7 @@ body .product-socialNetworks .product-reference{
   text-align: left;
 }
 div.box-product .product-socialNetworks .btn-close{
+  display:block;
   right:7px;
   top:0;
 }

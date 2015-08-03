@@ -105,6 +105,13 @@ class CartModel extends CI_Model
     return $this->db->query($sql)->row();
   }
   
+  function CouponRegister( $code = '' )
+  {
+    $sql = "update `coupon` set used = used + 1 where code = '{$code}' LIMIT 1";
+    $this->db->query($sql);
+    $this->session->set_userdata('coupon_' . $code, true);
+  }
+
   function EndCart()
   {
     $sql = $this->db->update_string('cart', array('id_state' => 3, 'id_user' => $this->idu, 'modified' => date('Y-m-d H:i:s')) ,  "id_cart = '{$this->id}' AND id_user = '{$this->idu}'");
