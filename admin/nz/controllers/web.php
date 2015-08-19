@@ -73,4 +73,11 @@ class web extends AppController {
     $this->load->library("abm", $this->cfg);
   }
 
+  public function seo()
+  {
+    $this->cfg['subtitle'] = $this->lang->line('SEO');
+    $this->cfg['folder'] = 33;
+    $this->load->library("abm", $this->cfg);
+  }
+
 }
