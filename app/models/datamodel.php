@@ -118,6 +118,21 @@ class DataModel extends CI_Model
     return $this->db->query($sql)->result();
   }
 
+  function GetHeader($url = '' )
+  {
+    $url = trim(rtrim(str_replace(base_url(), '', $url)));
+    if(!$url)
+      $url = 'home';
+    $sql = "select h.*, f.file
+    from header h 
+    left join nz_file f on f.id_file = h.id_file
+    where h.url = '{$url}'";
+    $row = $this->db->query($sql)->row_array();
+    if(!$row && $url != 'home')
+      return $this->GetHeader('home');
+    return $row;
+  }
+
   function GetProductVisits($id = 0 )
   {
     $sql = "select p.id_product as id, p.date, p.name, p.cost, p.id_state as idstate, f.file, st.state

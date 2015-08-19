@@ -26,6 +26,14 @@ class AppController extends CI_Controller
     if($this->session->userdata('activeW'))
       $this->Data->activeW = true;
     $this->data['sectionMenu'] = '';
+    $header = $this->Data->GetHeader(current_url());
+    if($header)
+    {
+      $this->data['headers'] = $header;
+      $this->data['headers']['head-title'] = $header['title'];
+      if($header['file'])
+        $this->data['headers']['og:image'] = $header['file'];
+    }
     if(!AJAX)
     {
       $this->load->driver('cache');
