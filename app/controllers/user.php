@@ -489,23 +489,18 @@ class User extends AppController
     {
         $data['password'] = $this->input->post('password');
         $data['id_state'] = 1;
-        /*$html = $this->load->view("mail/register", array('data' => $data), true);
+        $html = $this->load->view("widget/register-mail", array('data' => $data), true);
         $this->load->library('PHPMailer');
         $mail = new PHPMailer();
-        $mail->IsSMTP();
-        $mail->SMTPAuth   = true;
-        $mail->SMTPSecure   = "tls";
-        $mail->Host       = "smtp.gmail.com";
-        $mail->Port       = 587;
-        $mail->Username   = $this->config->item('client-mail', 'app');
-        $mail->Password   = $this->config->item('client-mail-password', 'app');  
         $mail->From = $this->config->item('client-mail', 'app');
         $mail->FromName = $this->config->item('client', 'app');
+        /*$mail->AddBcc("juanazareno@gmail.com");
+        $mail->AddBcc($this->config->item('client-mail', 'app'));*/
         $mail->AddAddress($data['mail']);
         $mail->Subject = "Registro de cuenta";
         $mail->IsHTML(true);
         $mail->Body = $html;
-        @$mail->Send();*/     
+        @$mail->Send();   
     }
     $this->UserM->SaveUserData($data);
     $this->Cart->UpdateCartUser();

@@ -4,7 +4,7 @@ $route['404_override'] = 'app/error';
 $route['default_controller'] = "app";
 $route['f(.*)'] = 'files/file$1';
 $route['unsuscribe(.*)'] = 'app/unsuscribe$1';
-$route['suscripcion'] = 'app/suscripcion';
+$route['suscripcion(.*)'] = 'app/suscripcion$1';
 
 $route['looks'] = 'app/looks';
 

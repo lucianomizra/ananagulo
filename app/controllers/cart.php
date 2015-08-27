@@ -34,6 +34,9 @@ class Cart extends AppController
       if(!$this->input->get('Ds_Response') || !$this->input->get('Ds_Signature'))
         return $this->index('tpv-ko');
 
+      if($this->session->userdata('cart-ok-id') == $this->Cart->id)
+        return redirect('cart/finalizado');
+
       $response = $this->input->get('Ds_Response');
       $ss = $this->input->get('Ds_Signature');
       $amount = $this->input->get('Ds_Amount');
@@ -50,8 +53,9 @@ class Cart extends AppController
       {        
         return $this->index('tpv-ko');
       }
-
+      $this->session->set_userdata('cart-ok-id', $this->Cart->id);
       $data = array(
+        'id_user' => $this->Cart->idu, 
         'modified' => date('Y-m-d H:i:s'),
         'code' => $this->Cart->GetMaxCode(),
         'payment_data' => json_encode($_GET)
@@ -70,6 +74,7 @@ class Cart extends AppController
         return $this->index('tpv-ko');
       }
       $data = array(
+      	'id_state' => 2,
         'modified' => date('Y-m-d H:i:s'),
         'code' => $this->Cart->GetMaxCode()
       );
@@ -209,6 +214,7 @@ class Cart extends AppController
     @$mail->Send();
     $this->Cart->CouponRegister($this->data['cdata']->coupon_1);
     $this->Cart->EndCart();
+    $this->session->unset_userdata('cart-ok-id');
     return redirect('cart/finalizado');
   }
 

@@ -2,6 +2,9 @@
 <? $slide = $this->Data->SlideHome(); ?>
 <div id="page-info" data-section="home"></div>
 <div class="home-container">
+
+  <? if(!$this->session->userdata('joinaltform')) $this->load->view('widget/form-join-alt') ?>
+
   <? if(count($slide)): ?>
   <div class="col-md-12 no-padding inside-menu">
     <div class="full-container">

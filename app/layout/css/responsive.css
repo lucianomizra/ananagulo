@@ -1238,6 +1238,9 @@ body {
   }
 }
 @media(max-width:980px){
+  .widget-newsletter{
+    top:60px;
+  }
   .home-open-slider{
     max-height: 340px
   }
@@ -1290,11 +1293,34 @@ body {
   }
 }
 @media(max-width:770px){
+  .widget-newsletter .box .chckbox{
+    margin-left:0;
+  }
+  .widget-newsletter{
+    top:40px;
+  }
   .home-open-slider{
     max-height: 270px
   }
 }
 @media(max-width:500px){
+  .widget-newsletter .box h1{
+    font-size:24px;
+    line-height: 26px
+  }
+  .widget-newsletter .box .cls {
+    right: 10px;
+    top: 1px;
+  }
+  .widget-newsletter .box-inside{
+    margin: 0 5px;
+  }
+  .widget-newsletter .box .rowx{
+    padding: 20px
+  }
+  .widget-newsletter{
+    top:20px;
+  }
   .last-views {
       height: 535px;
       overflow: hidden;

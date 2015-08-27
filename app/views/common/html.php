@@ -15,6 +15,22 @@ $layoutversion = $this->config->item('layout-version', 'app');
 <?php $this->load->view('common/css', array('layoutversion' => $layoutversion) ) ?>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script>(function() {
+  var _fbq = window._fbq || (window._fbq = []);
+  if (!_fbq.loaded) {
+    var fbds = document.createElement('script');
+    fbds.async = true;
+    fbds.src = '//connect.facebook.net/en_US/fbds.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(fbds, s);
+    _fbq.loaded = true;
+  }
+  _fbq.push(['addPixelId', '876976675690933']);
+})();
+window._fbq = window._fbq || [];
+window._fbq.push(['track', 'PixelInitialized', {}]);
+</script>
+<noscript><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?id=876976675690933&amp;ev=PixelInitialized" /></noscript>
 </head>
 <body id="app-body" class="app-body lang-<?php echo $lang ?>">
 <?php $this->load->view('common/app-fb') ?>

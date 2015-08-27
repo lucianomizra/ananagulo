@@ -4,7 +4,7 @@ class App extends AppController
 {
 
   public function index( $section = '' )
-  { 
+  {
     $this->load->view('section/home', $this->data);
   }
 
@@ -46,15 +46,25 @@ class App extends AppController
     $this->load->view('looks/index', $this->data);
   }
 
-  public function suscripcion()
+  public function suscripcion( $section = '' )
   {
     $this->load->helper('email');
+    if( $this->input->post('level') == 2 && $this->input->post('quit'))
+    {
+      $this->session->set_userdata('joinaltform', true);
+      return;
+    }
     if( !AJAX || $this->input->post('level') != 2 )
     {
       return redirect('home');
     }
     if( valid_email($this->input->post('mail')) )
     {
+      if($section == 'cc')
+      {
+        if(!$this->input->post('privacy'))
+          return $this->load->view('widget/form-join-alt', $this->data);    
+      }
       $this->load->library('PHPMailer');
       $mail = new PHPMailer();
       $mail->From = $this->config->item('client-mail', 'app');
@@ -68,6 +78,11 @@ class App extends AppController
       @$mail->Send();
       $this->data['formSOK'] = 1;   
     }      
+    if($section == 'cc')
+    {
+      $this->session->set_userdata('joinaltform', true);
+      return $this->load->view('widget/form-join-alt', $this->data);    
+    }
     return $this->load->view('widget/form-join', $this->data);    
   }
   

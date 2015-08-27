@@ -2,7 +2,7 @@
 <body>
   <table style='border:0;border-spacing:0;border-collapse:collapse'>
   <tr>
-    <td style='vertical-align:top'><img style='margin-bottom:5px' src='<?= layout() ?>header/logo.png'><br></td>
+    <td style='vertical-align:top'><img style='margin-bottom:5px' src='<?= layout() ?>logo.png'><br></td>
   </tr>
   <tr>
     <td style='vertical-align:top'>

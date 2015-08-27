@@ -2291,3 +2291,72 @@ padding-bottom:60px;
 .store-title{
   display: none
 }
+
+.home-container{
+  position: relative;
+}
+.widget-newsletter .box-inside{
+  position: relative;
+border:1px solid #dcc878;
+margin:0 15px;
+}
+.widget-newsletter .box h1{
+  color:#dcc878;
+  line-height: 36px;
+  max-width: 560px;
+  font-size:30px;
+}
+.widget-newsletter .box .rowx{
+  padding:60px;
+}
+.widget-newsletter .box .form-control{
+  background: transparent;
+  border:1px solid #FFF;
+  color:#FFF;
+}
+.widget-newsletter .box .cls{  
+    background: transparent;
+    border: none;
+    color:#dcc878;
+    font-size: 30px;
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    display: block;
+    z-index: 999;
+}
+.widget-newsletter .box .btn{
+  padding-top: 5px;
+  color:#000;
+  font-weight: bold;
+  padding-bottom: 5px;
+}
+.widget-newsletter .box .pxx{
+  padding-top: 10px
+}
+.widget-newsletter .box .chckbox{
+margin-left:-25px;
+margin-right: 8px;
+}
+.widget-newsletter .box p{
+  color:#FFF;
+  clear: both;
+  font-size:14px;
+}
+.widget-newsletter .box .col-sm-left{
+  padding-left: 0
+}
+.widget-newsletter .box{
+  padding:15px 0;
+  max-width:880px;
+  margin:auto;
+  background: rgba(0,0,0,.8);
+}
+.widget-newsletter{
+  position: absolute;
+  left:0;
+  right:0;
+  top:120px;
+  z-index: 1000;
+}
