@@ -2,6 +2,7 @@
 
 $route['404_override'] = 'app/error';
 $route['default_controller'] = "app";
+$route['fb(.*)'] = 'app/facebook$1';
 $route['f(.*)'] = 'files/file$1';
 $route['unsuscribe(.*)'] = 'app/unsuscribe$1';
 $route['suscripcion(.*)'] = 'app/suscripcion$1';
@@ -21,4 +22,5 @@ $route['informacion(.*)'] = 'app/info$1';
 
 $route['mi-cuenta(.*)'] = 'user/index$1';
 $route['cart(.*)'] = 'cart/index$1';
+$route['instagram'] = 'app/instagram';
 $route['(.*)'] = 'app/index/$1';

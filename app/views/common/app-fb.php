@@ -3,9 +3,10 @@
 window.fbAsyncInit = function() {
   FB._https = true;
   FB.init({
-    appId      : '<?= $this->Data->ProjectConfig('fb-app-id') ?>',
+    appId      : '<?= $this->config->item('fb-app-id', 'app') ?>',
     xfbml      : true,
-    version    : 'v2.0',
+    cookie     : true,
+    version    : 'v2.2',
     channelUrl : '<?= str_replace(array('http:','https:'),'', base_url()) ?>channel.html'
   });
 };

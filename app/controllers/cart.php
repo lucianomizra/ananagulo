@@ -65,6 +65,47 @@ class Cart extends AppController
       return $this->cartClose();
     } 
 
+    if($action == 'paypal-ko')
+    {
+      $this->data['error'] = 'El proceso de pago no fue completado';
+      return $this->index('tpv-ko');
+    }
+
+    if($action == 'paypal')
+    {
+
+      if($this->session->userdata('cart-ok-id') == $this->Cart->id)
+        return redirect('cart/finalizado');
+
+      $this->data['cdata'] = $this->Cart->DataCart($this->Cart->id);
+      if($this->data['cdata']->id_payment != 2)
+      {
+        $this->data['error'] = 'El pedido no tiene seleccionado forma de pago Paypal';
+        return $this->index('tpv-ko');
+      }
+      $this->load->model('paypalmodel', 'PayPalM');
+      if($this->input->get('success') && $this->input->get('paymentId') && $this->input->get('PayerID'))
+      {
+        $exec = $this->PayPalM->ExecutePayment($this->input->get('paymentId'), $this->input->get('PayerID'));
+        if(!$exec)
+        {
+          $this->data['error'] = $this->PayPalM->error;
+          return $this->index('tpv-ko');          
+        }
+        $data = array(
+          'id_state' => 2,
+          'modified' => date('Y-m-d H:i:s'),
+          'code' => $this->Cart->GetMaxCode(),
+          'payment_data' => $exec
+        );
+        $this->session->set_userdata('cart-ok-id', $this->Cart->id);
+        $this->Cart->SaveCartData($data);
+        return $this->cartClose();
+      }
+      $this->PayPalM->CreatePayment($this->Cart->ListItems(), $this->data['cdata']);
+      exit;
+    }
+
     if($action == 'contrareembolso')
     {
       $this->data['cdata'] = $this->Cart->DataCart($this->Cart->id);

@@ -7,6 +7,34 @@
   </div>
 </div>
 <footer>
+  <div class="ftexts">
+    <div class="ftexts-item">
+      <div class="ftexts-item-image"><img src="<?= layout('imgs/footer/sello.png') ?>" /></div>
+      <div class="ftexts-item-text">
+        <p class="app-bold">GARANTÍA DE CALIDAD</p>
+        <p>Todos los productos de nuestra tienda online son producidos en exclusiva por Takezo para Ana Angulo y los revisamos minuciosamente antes de ponerlos a la venta.</p>
+      </div>
+    </div>
+    <div class="ftexts-item">
+      <div class="ftexts-item-image"><img src="<?= layout('imgs/footer/candado.png') ?>" /></div>
+      <div class="ftexts-item-text">
+        <p class="app-bold">COMPRA SEGURA</p>
+        <p>Todos los datos solicitados durante la compra están protegidos mediante plataforma de pago de CaixaBank.</p>
+      </div>
+    </div>
+    <div class="ftexts-item">
+      <div class="ftexts-item-image"><img src="<?= layout('imgs/footer/camion.png') ?>" /></div>
+      <div class="ftexts-item-text">
+        <p>Nuestras piezas <span class="app-bold">se envían en un plazo de 24/48h</span> en días hábiles. El envío es gratuito para compras realizadas dentro del territorio peninsular. Actualmente no realizamos envíos a Ceuta, Melilla o Canarias.</p>
+      </div>
+    </div>
+    <div class="ftexts-item">
+      <div class="ftexts-item-image"><img src="<?= layout('imgs/footer/flecha.png') ?>" /></div>
+      <div class="ftexts-item-text">
+        <p><span class="app-bold">Devoluciones.</span> Desde el día de su recepción, el cliente podrá cambiar o devolver el producto en un plazo de 15 días. Siempre y cuando se encuentre en perfectas condiciones junto con su etiquetado original.</p>
+      </div>
+    </div>
+  </div>
   <div class="footer">
     <div class="footer-header text-center">
       <span>Síguenos en instagram</span>
@@ -18,7 +46,6 @@
     </div>    
     <div class="footer-body">
       <div class="container">
-        <?/*
         <div class="api-instagram" data-toggle="collapse" href="#collapseInstaApi" aria-expanded="false">
           <a class="btn btn-gray">
             <i class="fa fa-instagram"></i> ANANGULO
@@ -26,12 +53,13 @@
           ><button class="btn-arrowsInstaApi fa fa-angle-up btnInstaApiUp"></button
           ><button class="btn-arrowsInstaApi fa fa-angle-down btnInstaApiDown"></button>            
         </div>
-        */?>
+        <?/*
         <div class="api-instagram">
           <a class="btn btn-gray" target="_blank" href="https://instagram.com/anaanguloboutique" >
             <i class="fa fa-instagram"></i> ANANGULO
           </a>        
         </div>
+        */?>
         <div class="row">
           <h3 class="visible-xs" data-toggle-xs="collapse" href="#collapseFooter" aria-expanded="false" aria-controls="collapseFooter">Información útil</h3>
           

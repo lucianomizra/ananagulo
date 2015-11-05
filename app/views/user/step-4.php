@@ -36,7 +36,7 @@
 <? 
 $amount = $cdata->total;
 $amount = round($amount,2) * 100;
-if($cdata->id_payment == 1 || $cdata->id_payment == 2 || $cdata->id_payment ==3): 
+if($cdata->id_payment == 1 || $cdata->id_payment ==3): 
 $code = '333647345';
 $order = str_pad($this->Cart->id, 4, "0", STR_PAD_LEFT) . date('his');
 $currency = '978';
@@ -72,9 +72,11 @@ $signature = strtoupper(sha1($message));
 $(document).ready(function() {
   $('#submit-button').click(function(){
   <? if( (!$this->session->userdata('cart-ok-amout') || $this->session->userdata('cart-ok-amout') != $amount) && 
-  	($cdata->id_payment == 1 || $cdata->id_payment == 2 || $cdata->id_payment == 3)): ?>
+  	($cdata->id_payment == 1 || $cdata->id_payment == 3)): ?>
   	$('#form-tpv').submit();
  	 return false;
+  <? elseif($cdata->id_payment == 2): ?>
+    window.location.href = '<?= base_url () ?>cart/paypal';
   <? elseif($cdata->id_payment == 5): ?>
   	window.location.href = '<?= base_url () ?>cart/contrareembolso';
   <? endif ?>

@@ -1,0 +1,110 @@
+*{
+  font-family: 'FuturaStd-Book', sans-serif;
+  margin:0;
+  padding:0;
+}
+#top img{
+  display: inline-block;vertical-align: top;
+  max-width: 450px;
+  margin-top:40px;
+  margin-bottom:40px;
+  opacity:1;
+  width:100%
+}
+#top{
+  text-align: center;
+  background: url(top.png) top center no-repeat;
+  background-size:cover;
+}
+#app{
+  background:#DCC67D
+}
+#footer img{
+  max-width: 235px;
+  display: inline-block;vertical-align: top;
+  width:100%
+}
+#footer{
+  text-align: center;
+  background:#434142
+}
+.form .button:hover{
+  opacity: .8
+}
+.form .button{
+  background: url(button.png);
+  width:112px;
+  height: 35px;
+  display:block;
+  cursor: pointer;
+  margin:25px auto 15px;
+  border:0;
+}
+.form input.privacy{
+  margin-right: 5px
+}
+.form input.itt{
+display:block;
+background: transparent;
+border:1px solid #FFF;
+padding:6px;
+width:100%;
+width:calc(100% - 12px);
+margin-bottom: 15px;
+}
+.form label{
+  margin-bottom: 5px;
+  display:block;
+  font-size:14px;
+  color:#434142;
+  text-transform: uppercase;
+  text-align: center
+}
+.text h1{
+  margin-bottom: 15px;
+  color:#211915;
+  font-size:30px
+}
+.text h2{
+  margin-top: 35px;
+  font-weight: normal;
+  margin-bottom: 45px;
+  color:#FFF;
+  font-size:30px
+}
+.form.text{
+max-width: 520px;
+text-align: center
+}
+.text p a:hover{
+  opacity: .8
+}
+.text p a{
+  letter-spacing: .5px;
+  font-size:16px;
+  color:#FFF;
+  font-weight:bold;
+  text-transform: uppercase;
+  text-decoration: none;
+  background:#211915;
+  padding: 5px 12px
+}
+.text p{
+  color:#211915;
+  font-size:14px
+}
+.form a{
+  color:#434142;
+}
+.form{
+  font-size:14px;
+  color:#434142;
+  max-width: 455px;
+  margin:0 auto;
+  padding: 35px 0
+}
+@media screen and (max-width: 570px) {
+  .form{
+    padding:30px 10px;
+  }
+}

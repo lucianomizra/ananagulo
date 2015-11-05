@@ -202,6 +202,14 @@
 							<label for="cod">Contra reembolso</label>
 						</div>
 					</div>
+					<div style="display:none" class="form-group row text-left">
+						<div class="col-xs-1 col-xs-offset-1">
+							<input id="cod"<?= ($payment == 2) ? " checked='checked'" : "" ?> type="radio" name="payment" value="2">
+						</div>
+						<div class="col-xs-10">
+							<label for="cod">Paypal</label>
+						</div>
+					</div>
 
 
 				</div>

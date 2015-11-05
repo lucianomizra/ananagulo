@@ -575,6 +575,8 @@ class User extends AppController
       $this->Wish->UpdateWishUser(); 
       $this->UserM->UpdateWishActive( $this->session->userdata('wishId') ); 
     }*/
+    if($this->input->post('goaccount'))
+      redirect('mi-cuenta');
     redirect('mi-cuenta/step-3');
   }
   

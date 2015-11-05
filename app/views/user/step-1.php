@@ -88,6 +88,22 @@
             
             <div class="form-title col-md-offset-3 col-md-9 col-xs-offset-1 col-xs-10 no-padding">Mi primera vez</div>
           </div>
+          <div class="register-social">
+          <div class="row">
+            <div class="col-md-offset-3 col-md-9 col-xs-offset-1 col-xs-10 no-padding">
+            <p class="text1">Acceder con una cuenta de red social es más rápido que hacerlo con una de email.</p>
+            <div class="buttons">
+              <p><a style="cursor:pointer" id='fb-login'><img style="width:100%;max-width:314px" src="<?= layout('imgs/login.png') ?>" /></a></p>
+              <p><a style="cursor:pointer" id='gplus-login'><img style="width:100%;max-width:314px" src="<?= layout('imgs/login2.png') ?>" /></a></p>
+            </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-offset-3 col-md-9 col-xs-offset-1 col-xs-10 no-padding">
+            <p class="text2">O bien rellenando los siguientes datos:</p>
+            </div>
+          </div>
+          </div>
 
           <form id="login-form" action="<?= base_url() ?>mi-cuenta/registro" role="form" method="post">
  						<div class="form-group row">
@@ -193,4 +209,63 @@
     </div>
   </div>  
 </div>
+<script>
+var clientId = '114132691237-p0cnj30qsiqqht9cf78nddg5b0q5h166.apps.googleusercontent.com';
+var apiKey = 'AIzaSyDvVz8-Lrzq004La3aFJUXpaSk7R8QlIMk';
+var scopes = 'https://www.googleapis.com/auth/plus.me https://www.googleapis.com/auth/userinfo.email';
+function handleClientLoad() {
+  gapi.client.setApiKey(apiKey);
+  window.setTimeout(checkAuth,1);
+}
+function checkAuth() {
+gapi.auth.authorize({client_id: clientId, scope: scopes, immediate: true}, function(){});
+}
+$('#gplus-login').click(function(event) {
+  gapi.auth.authorize({client_id: clientId, scope: scopes, immediate: false}, handleAuthResult);
+});
+function handleAuthResult(authResult) {
+if (authResult && !authResult.error) {
+  makeApiCall();
+}
+}
+function makeApiCall() {
+        gapi.client.load('plus', 'v1', function() {
+          var request = gapi.client.plus.people.get({
+            'userId': 'me'
+          });
+          request.execute(function(response) {
+           $('#login-form input[name="name"]').val(response.name.givenName);
+           $('#login-form input[name="lastname"]').val(response.name.familyName);
+           $('#login-form input[name="mail"]').val(response.emails[0].value);
+           $('#login-form input[name="password"]').focus();
+          });
+        });
+}
+$(document).ready(function() {
+  var loginFB = false;
+  var fnFBAPI = function(){
+    FB.api('/me', function(response) {
+     $('#login-form input[name="name"]').val(response.first_name);
+     $('#login-form input[name="lastname"]').val(response.last_name);
+     $('#login-form input[name="mail"]').val(response.email);
+     $('#login-form input[name="password"]').focus();
+   });
+  }
+  $('#fb-login').click(function(event) {
+    if(loginFB)
+      return fnFBAPI();
+     FB.login(function(response) {
+       if (response.authResponse) {
+         loginFB = true;
+         fnFBAPI();
+       } else {
+         console.log('User cancelled login or did not fully authorize.');
+       }
+    });  
+  });
+
+});
+</script>
+<script src="//apis.google.com/js/client.js?onload=handleClientLoad"></script>
+
 <?php $this->load->view('common/footer') ?>

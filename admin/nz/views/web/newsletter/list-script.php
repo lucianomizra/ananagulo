@@ -14,6 +14,8 @@ var DataTableFn = function(){
       return '<span class="checkbox"><input value="" name="" class="checkbox-select-row" type="checkbox"><i></i></span>';
     }},
     { "sTitle": "<?= $this->lang->line("E-Mail") ?>", "mData": "mail", "sType": "string"},
+    { "sTitle": "<?= $this->lang->line("Nombre") ?>", "mData": "name", "sType": "string"},
+    { "sTitle": "<?= $this->lang->line("Apellido") ?>", "mData": "lastname", "sType": "string"},
     { "sClass": "text-align-center", "sTitle": "<?= $this->lang->line("Suscripción") ?>", "mData": "date", "sType": "html", "mRender" : function( data, type, full ){ 
       if(!data || data == '0000-00-00 00:00') return '-';
       return Date.fromMysql(data).format("dd/MM/yyyy hh:mm:ss");

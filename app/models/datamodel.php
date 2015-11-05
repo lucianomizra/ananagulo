@@ -55,6 +55,21 @@ class DataModel extends CI_Model
     $sql = $this->db->insert_string('weddings_list', $data);
     $this->db->query($sql);    
     $id = $this->db->insert_id();
+  }  
+  
+  public function SaveNewsLetter($mail = '', $name = '', $lastname = '')
+  {
+    $sql = "select count(*) as total from newsletter where mail = '{$mail}'";
+    $total = $this->db->query($sql)->row()->total;
+    if($total) return false;
+    $data = array(      
+      'mail' => $mail,
+      'name' => $name,
+      'lastname' => $lastname
+    );
+    $sql = $this->db->insert_string('newsletter', $data);
+    $this->db->query($sql);
+    return true;
   }
   
   public function Department( $link = '' )
@@ -208,7 +223,7 @@ class DataModel extends CI_Model
     $sql = "select s.* , lj0.file
     from instagram s     
     LEFT JOIN nz_file lj0 on s.id_file = lj0.id_file  
-    order by RAND()";
+    order by RAND() LIMIT 0,24";
     return $this->db->query($sql)->result();
   }
 

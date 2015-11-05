@@ -15,4 +15,4 @@ $config['lang'] = 'es';
 $config['uploads'] = 'files/';
 $config['uploads-global'] = 'files-nz/';
 $config['layout-version'] = '?v1.013';
-$config['fb-app-id'] = '';
+$config['fb-app-id'] = '832080580202194';
